@@ -1,10 +1,11 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Untitled Document</title>
-</head>
-
-<body>
-</body>
-</html>
+<?php
+	define('PGHOST','192.168.1.102');
+	define('PGPORT',5432);
+	define('PGDATABASE','bdi_tp1');
+	define('PGUSER', 'bdi');
+	define('PGPASSWORD', '123');
+	define('PGCLIENTENCODING','UNICODE');
+	define('ERROR_ON_CONNECT_FAILED','Sorry, can not connect the database server now!');
+	
+	pg_pconnect('host=' . PGHOST . ' port=' . PGPORT . ' dbname=' . PGDATABASE . ' user=' . PGUSER . ' password=' . PGPASSWORD);
+?>
