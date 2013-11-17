@@ -1,10 +1,62 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Untitled Document</title>
-</head>
+<?php
+	class Usuario{
+		
+		private $id;
+		private $nome;
+		private $sobrenome;
+		private	$cpf;
+		private $email; 
+		private $senha;
+		private $apelido;
+		
+		public function getId(){
+			return $this->id;
+		}
+		public function setId($id){
+			$this->id = $id;
+		}
+		
+		public function getNome(){
+			return $this->nome;
+		}
+		public function setNome($nome){
+			$this->nome = $nome;
+		}
+		
+		public function getSobrenome(){
+			return $this->sobrenome;
+		}
+		public function setSobrenome($sn){
+			$this->sobrenome = $sn;
+		}
+		
+		public function getCpf(){
+			return $this->cpf;
+		}
+		public function setCpf($cpf){
+			$this->cpf = $cpf;
+		}
+		
+		public function getEmail(){
+			return $this->email;
+		}
+		public function setEmail($email){
+			$this->email = $email;
+		}
+		
+		public function getSenha(){
+			return $this->senha;
+		}
+		public function setSenha($s){
+			$this->senha = $s;
+		}
+		
+		public function getApelido(){
+			return $this->apelido;
+		}
+		public function setId($a){
+			$this->apelido = $a;
+		}
 
-<body>
-</body>
-</html>
+	}
+?>

@@ -1,10 +1,45 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Untitled Document</title>
-</head>
+<?php
+	class Produto{
+		private $id;
+		private $descricao;
+		private $idFabricante;
+		private $idFornecedor;
+		private $idLoja;	
+		
+		public function getId(){
+			return $this->id;
+		}
+		public function setId($id){
+			$this->id = $id;
+		}
+		
+		public function getDescricao(){
+			return $this->descricao;
+		}
+		public function setDescrica($d){
+			$this->descricao = $d;
+		}
+		
+		public function getIdFabricante(){
+			return $this->idfabricante;
+		}
+		public function setIdFabricante($id){
+			$this->idFabricante = $id;
+		}
+		
+		public function getIdFornecedor(){
+			return $this->idFornecedor;
+		}
+		public function setIdFornecedor($id){
+			$this->idFornecedor = $id;
+		}
+		
+		public function getIdLoja(){
+			return $this->idLoja;
+		}
+		public function setIdLoja($id){
+			$this->idLoja = $id;
+		}
+	}
 
-<body>
-</body>
-</html>
+?>
