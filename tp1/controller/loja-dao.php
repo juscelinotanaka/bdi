@@ -7,5 +7,4 @@
 	
 	function consultarLoja($loja){
 	}
-	
 ?>
