@@ -8,9 +8,4 @@
 	function consultarUsuario($usuario){
 	}
 	
-	function alterarUsuario($usuario){
-	}
-	
-	function deletarUsuario($usuario){
-	}
 ?>

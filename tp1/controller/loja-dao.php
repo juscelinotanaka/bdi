@@ -8,9 +8,4 @@
 	function consultarLoja($loja){
 	}
 	
-	function alterarLoja($loja){
-	}
-	
-	function deletarLoja($loja){
-	}
 ?>

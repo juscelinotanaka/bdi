@@ -7,10 +7,4 @@
 	
 	function consultarFornecedor($fornecedor){
 	}
-	
-	function alterarFornecedor($fornecedor){
-	}
-	
-	function deletarFornecedor($fornecedor){
-	}
 ?>

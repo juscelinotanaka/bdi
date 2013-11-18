@@ -6,12 +6,5 @@
 	}
 	
 	function consultarFabricante($fabricante){
-	}
-	
-	function alterarFabricante($fabricante){
-	}
-	
-	function deletarFabricante($fabricante){
-	}
-	
+	}	
 ?>

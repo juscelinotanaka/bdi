@@ -7,11 +7,4 @@
 	
 	function consultarProduto($produto){
 	}
-	
-	function alterarProduto($produto){
-	}
-	
-	function deletarProduto($produto){
-	}
-	
 ?>
