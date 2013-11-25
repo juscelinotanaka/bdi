@@ -1,5 +1,5 @@
 <?php
-	define('PGHOST','192.168.1.102');
+	define('PGHOST','localhost');
 	define('PGPORT',5432);
 	define('PGDATABASE','bdi_tp1');
 	define('PGUSER', 'bdi');
