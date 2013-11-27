@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 
 <title>Exemplo</title>
-<link href="css/style.css" rel="stylesheet" type="text/css" />
+<link href="view/css/style.css" rel="stylesheet" type="text/css" />
 
 <style type="text/css">
 * {
@@ -19,7 +19,7 @@ height: 100%;
 * html #tudo {height: 100%;}
 
 body {
-background-color: #fff; /* Cor do Fundo*/
+background-color: #FBFBFB; /* Cor do Fundo*/
 }
 
 .contentCenter {
@@ -28,11 +28,6 @@ vertical-align: top;
 position: relative;
 margin-left: auto;
 margin-right: auto;
-}
-.SRBDI {
-	margin-top:8px;
-	font-size:22px;
-	font-weight:bold;
 }
 
 #tudo {
@@ -61,32 +56,13 @@ margin-right: auto;
 	position:fixed;
 	height:44px;
 	width:100%;
-	background-color: #CCC;
-}
-
-.SRBDIcenter {
-	font-size:60px;
-	font-weight:bold;
-	text-align:center;
-	padding:60px 0;
-}
-.buscar {
-	text-align:center;
-}
-input[name=q] {
-	font-size:20px;
-	padding:8px;
-	border:#09F thin solid;
-	width:600px;
 }
 
 
-
-
-
-
-
-
+.menuSup {
+	float:right;
+	margin-top:8px;
+}
 
 
 .floatLeft {
@@ -102,6 +78,22 @@ body,td,th {
 	font-size: 12px;
 }
 
+a:link {
+	text-decoration: none;
+	color: #000000;
+}
+a:visited {
+	text-decoration: none;
+	color: #000000;
+}
+a:hover {
+	text-decoration: underline;
+	color: #000000;
+}
+a:active {
+	text-decoration: none;
+	color: #000000;
+}
 </style>
 
 
@@ -111,13 +103,10 @@ body,td,th {
 <div id="tudo">
 	<div id="cabecalho">
     	<div class="contentCenter">
-        	<div class="floatRight">
-            	Entrar
+       	  <div class="menuSup">
+        	<a href="home.php"> Home </a> | <a href="home.php"> Recomendações </a> | <a href="home.php"> Conta </a>
             </div>
-            <div class="SRBDI">
-            	Sistema de Recomendação BDI
-            </div>
-        </div>
+      </div>
     </div>
     <div id="conteudo">
         <div class="contentCenter">
