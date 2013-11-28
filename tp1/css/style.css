@@ -1,0 +1,281 @@
+@charset "UTF-8";
+
+* {
+margin: 0;
+padding: 0;
+}
+
+html, body {
+height: 100%;
+}
+
+* html #tudo {height: 100%;}
+
+body {
+background-color: #F6F6F6; /* Cor do Fundo*/
+}
+
+.contentCenter {
+width: 980px;
+vertical-align: top;
+position: relative;
+margin-left: auto;
+margin-right: auto;
+}
+
+#tudo {
+	margin: 0 auto;
+	text-align: left;
+	position: relative;
+	min-height: 100%;
+}
+
+#conteudo {
+	padding-bottom: 35px;
+	height:100%;
+}
+
+#rodape {
+	position: absolute;
+	bottom: 0;
+	height: 35px;
+	line-height: 35px;
+	text-align: center;
+	width: 100%;
+	background-color: transparent;
+}
+
+#cabecalho {
+	height:145px;
+	width:100%;
+	
+}
+#cabecalho .contentCenter {
+	background:url(../images/header-bg.png) no-repeat;
+	height:145px;
+}
+
+
+.menuSup {
+	float:right;
+	margin-top:16px;
+	height:24px;
+	border-bottom:#000 solid thin;
+}
+.menuSup a {
+	padding:8px 8px;
+}
+.bemvindo {
+	margin-top:8px;
+	font-size:11px;
+}
+.bemvindo a {
+	font-weight:bold;
+}
+.logo {
+	float:left;
+	margin-top:-30px;
+}
+.pesquisar {
+	float:right;
+	display:inline-block;
+	width:210px;
+	margin-top:8px;
+}
+.pesquisar .campo {
+	display:inline-block;
+	float:left;
+	padding-top:8px;
+}
+.pesquisar .campo input {
+	border:none;
+	
+	background-color:transparent;
+	padding:2px 0;
+	width:166px;
+	outline:none;
+}
+.pesquisarBtn {
+	background:none;
+	border:none;
+	float:right;
+	background:url(../images/button-search.png) no-repeat center center;
+	height:35px;
+	width:35px;
+	display:inline-block;
+	border-left:#DDD solid thin;
+	outline:none;
+	cursor:pointer;
+	
+}
+
+
+#conteudo .contentCenter {
+	background:#fff;
+	border-top:none;
+	width:980px;
+	height:100%;
+	background:url(../images/container-bg.png) repeat-y;
+}
+#conteudo .contentCenter .texto {
+	min-height:400px;
+}
+#conteudo .contentCenter .texto .principal {
+	padding:14px 200px 20px 15px;
+}
+
+.principal .produto {
+	width: 130px;
+	display: inline-block;
+	vertical-align: top;
+	margin: 0 15px 15px 0;
+}
+.principal .produto .name a {
+	color: #222;
+	font-weight: bold;
+	text-decoration: none;
+	display: block;
+	margin-bottom: 4px;
+	font-size: 12px;
+}
+.principal .produto .price {
+	display: block;
+	font-weight: bold;
+	color: #990000;
+	margin-bottom: 4px;
+}
+
+a.button {
+	display: inline-block;
+	padding-left: 8px;
+	background: url('../images/button-left.png') top left no-repeat;
+	text-decoration: none;
+	cursor: pointer;
+}
+a.button span {
+	color: #6a6a6a;
+	line-height: 12px;
+	font-size: 11px;
+	font-weight: bold;
+	display: inline-block;
+	padding: 6px 12px 8px 5px;
+	background: url('../images/button-right.png') top right no-repeat;
+}
+a.button:hover {
+	background: url('../images/button-left-active.png') top left no-repeat;
+}
+a.button:hover span {
+	color: #3e3e3e;
+	background: url('../images/button-right-active.png') top right no-repeat;
+}
+
+.tituloGrupo {
+	font-weight:bold;
+	font-size:14px;
+	color:#464646;
+}
+
+
+
+.colunaDireita {
+float: right;
+width: 180px;
+padding: 20px 0;
+}
+
+
+#conteudo .contentCenter .rodape {
+	background:#FAFAFA;
+	border-top:#DDDDDD solid thin;
+	color: #8f8f8f;
+	font-size: 11px;
+	font-weight: bold;
+	padding:12px 15px;
+}
+
+
+
+
+
+
+
+#jsddm
+{	margin: 0;
+	padding: 0}
+	
+#jsddm li
+{	float: left;
+	list-style: none;
+	font: 12px Tahoma, Arial}
+
+#jsddm li a
+{	display: block;
+	padding: 13px 16px;
+	text-decoration: none;
+	color: #8A8A8A;
+	white-space: nowrap;
+	font-weight:bold;
+}
+
+#jsddm li a:hover
+{	
+	background: none;
+	color:#000;
+}
+	
+#jsddm li ul
+{	margin: 0;
+	padding: 0;
+	position: absolute;
+	visibility: hidden;
+	border-top: 1px solid white}
+
+#jsddm li ul li
+{	float: none;
+	display: inline;
+}
+
+#jsddm li ul li a
+{	
+	width: auto;
+	background: rgba(255,255,255, 0.7);
+	border:#FFF solid thin;
+}
+
+#jsddm li ul li a:hover
+	{	background: #7F1616
+	}
+
+
+
+.floatLeft {
+	float:left;
+}
+
+.floatRight {
+	float:right;
+}
+
+body,td,th {
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 12px;
+}
+
+.clear { clear:both; }
+
+a:link {
+	text-decoration: none;
+	color: #000000;
+}
+a:visited {
+	text-decoration: none;
+	color: #000000;
+}
+a:hover {
+	text-decoration: underline;
+	color: #000000;
+}
+a:active {
+	text-decoration: none;
+	color: #000000;
+}
