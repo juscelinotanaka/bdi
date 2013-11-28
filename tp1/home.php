@@ -5,7 +5,7 @@
 
 <title>Exemplo</title>
 <link href="css/style.css" rel="stylesheet" type="text/css" />
-<script src="js/common.js"></script>
+
 <script src="js/jquery-1.6.1.min.js"></script>
 
 
@@ -37,28 +37,55 @@
                 
             </div>
             <div class="clear"></div>
-			
-            <ul id="jsddm">
-                <li><a href="#">Produtos</a>
-                    <ul>
-                        <li><a href="#">Drop Down Menu</a></li>
-                        <li><a href="#">jQuery Plugin</a></li>
-                        <li><a href="#">Ajax Navigation</a></li>
-                    </ul>
-                </li>
-                <li><a href="#">Fornecedores</a>
-                    <ul>
-                        <li><a href="#">Cadastrar</a></li>
-                        <li><a href="#">Consultar</a></li>
-                        <li><a href="#">Opacity Mode</a></li>
-                        <li><a href="#">Drop Shadow</a></li>
-                        <li><a href="#">Semitransparent</a></li>
-                    </ul>
-                </li>
-                <li><a href="#">Lojas</a></li>
-                <li><a href="#">HTML/CSS</a></li>
-                <li><a href="#">Help</a></li>
-            </ul>
+
+<script type="text/javascript">
+var timeout         = 500;
+var closetimer		= 0;
+var ddmenuitem      = 0;
+
+function jsddm_open()
+{	jsddm_canceltimer();
+	jsddm_close();
+	ddmenuitem = $(this).find('ul').eq(0).css('visibility', 'visible');}
+
+function jsddm_close()
+{	if(ddmenuitem) ddmenuitem.css('visibility', 'hidden');}
+
+function jsddm_timer()
+{	closetimer = window.setTimeout(jsddm_close, timeout);}
+
+function jsddm_canceltimer()
+{	if(closetimer)
+	{	window.clearTimeout(closetimer);
+		closetimer = null;}}
+
+$(document).ready(function()
+{	$('#jsddm > li').bind('mouseover', jsddm_open);
+	$('#jsddm > li').bind('mouseout',  jsddm_timer);});
+
+document.onclick = jsddm_close;
+</script>
+			<ul id="jsddm">
+	<li><a href="#">JavaScript</a>
+		<ul>
+			<li><a href="#">Drop Down Menu</a></li>
+			<li><a href="#">jQuery Plugin</a></li>
+			<li><a href="#">Ajax Navigation</a></li>
+		</ul>
+	</li>
+	<li><a href="#">Effect</a>
+		<ul>
+			<li><a href="#">Slide Effect</a></li>
+			<li><a href="#">Fade Effect</a></li>
+			<li><a href="#">Opacity Mode</a></li>
+			<li><a href="#">Drop Shadow</a></li>
+			<li><a href="#">Semitransparent</a></li>
+		</ul>
+	</li>
+	<li><a href="#">Navigation</a></li>
+	<li><a href="#">HTML/CSS</a></li>
+	<li><a href="#">Help</a></li>
+</ul>
 			            
       </div>
     </div>

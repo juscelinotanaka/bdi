@@ -53,6 +53,7 @@ margin-right: auto;
 #cabecalho .contentCenter {
 	background:url(../images/header-bg.png) no-repeat;
 	height:145px;
+	z-index:9999;
 }
 
 
@@ -60,7 +61,8 @@ margin-right: auto;
 	float:right;
 	margin-top:16px;
 	height:24px;
-	border-bottom:#000 solid thin;
+	padding-right:80px;
+	background:url(../images/header-top-line.png) bottom left no-repeat;
 }
 .menuSup a {
 	padding:8px 8px;
@@ -138,6 +140,9 @@ margin-right: auto;
 	margin-bottom: 4px;
 	font-size: 12px;
 }
+.principal .produto .name a:hover {
+	color:#1875ab;
+}
 .principal .produto .price {
 	display: block;
 	font-weight: bold;
@@ -192,7 +197,6 @@ padding: 20px 0;
 	font-weight: bold;
 	padding:12px 15px;
 }
-
 
 
 
