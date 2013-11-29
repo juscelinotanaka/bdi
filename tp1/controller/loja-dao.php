@@ -23,7 +23,7 @@
 			
 			$loja = new Fornecedor();
 			
-			$loja->setId($row->id);
+			$loja->setId($row->idLoja);
 			$loja->setNome($row->nome);
 			$loja->setFisico($row->fisico);
 			$loja->setEndereco($row->endereco);

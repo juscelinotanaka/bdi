@@ -24,7 +24,7 @@
 			
 			$usuario = new Usuario();
 			
-			$usuario->setId($row->id);
+			$usuario->setId($row->idUsuario);
 			$usuario->setNome($row->nome);
 			$usuario->setSobrenome($row->apelido);
 			$usuario->setCpf($row->cpf);
@@ -46,7 +46,7 @@
 			
 			$usuario = new Usuario();
 			
-			$usuario->setId($row->id);
+			$usuario->setId($row->idUsuario);
 			$usuario->setNome($row->nome);
 			$usuario->setSobrenome($row->apelido);
 			$usuario->setCpf($row->cpf);

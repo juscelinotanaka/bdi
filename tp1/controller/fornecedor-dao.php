@@ -23,7 +23,7 @@
 			
 			$fornecedor = new Fornecedor();
 			
-			$fornecedor->setId($row->id);
+			$fornecedor->setId($row->idFornecedor);
 			$fornecedor->setNome($row->nome);
 			
 			return $fornecedor;

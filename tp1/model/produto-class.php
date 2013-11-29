@@ -3,6 +3,7 @@
 	class Produto{
 		
 		private $id;
+		private $descricao;
 		private $tamanho;
 		private $processador;
 		private $ram;
@@ -18,6 +19,13 @@
 		}
 		public function setId($id){
 			$this->id = $id;
+		}
+		
+		public function getDescricao(){
+			return $this->descricao;
+		}
+		public function setDescricao($d){
+			$this->descricao = $d;
 		}
 		
 		public function getTamanho(){

@@ -15,7 +15,7 @@
 	}
 	
 	function consultarAmizade($idU, $idA){
-		$qry = "SELECT * FROM public.amizade WHERE idusuario = '". $idU ."' AND idamigo = '". $idA ."'";
+		$qry = "SELECT * FROM public.amizade WHERE usuario_idUsuario = '". $idU ."' AND idamigo = '". $idA ."'";
 		$result = pg_query($qry) or die("Cannot execute query: $qry\n");
 		
 		if (pg_num_rows($result) == 1){
@@ -23,9 +23,9 @@
 			
 			$amizade = new Amizade();
 			
-			$amizade->setId($row->id);
-			$amizade->setIdUsuario($row->idusuario);
-			$amizade->setIdAmigo($row->idamigo);
+			$amizade->setId($row->idAmizade);
+			$amizade->setIdUsuario($row->usuario_idUsuario);
+			$amizade->setIdAmigo($row->usuario_idAmigo);
 			$amizade->setGrau($row->grau);
 			
 			return $amizade;
@@ -36,16 +36,16 @@
 	}
 	
 	function listarAmigos($id){
-		$qry = "SELECT * FROM public.amizade WHERE idusuario = '". $id ."'";
+		$qry = "SELECT * FROM public.amizade WHERE usuario_idUsuario = '". $id ."'";
 		$result = pg_query($qry)  or die("Cannot execute query: $qry\n");
 		
 		while($row = pg_fetch_object($result)){
 			
 			$amizade = new Amizade();
 			
-			$amizade->setId($row->id);
-			$amizade->setIdUsuario($row->idusuario);
-			$amizade->setIdAmigo($row->idamigo);
+			$amizade->setId($row->idAmizade);
+			$amizade->setIdUsuario($row->usuario_idUsuario);
+			$amizade->setIdAmigo($row->usuario_idAmigo);
 			$amizade->setGrau($row->grau);
 			
 			$amigos[] = $amizade;

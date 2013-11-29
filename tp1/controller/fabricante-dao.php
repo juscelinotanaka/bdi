@@ -23,7 +23,7 @@
 			
 			$fabricante = new Fabricante();
 			
-			$fabricante->setId($row->id);
+			$fabricante->setId($row->idFabricante);
 			$fabricante->setNome($row->nome);
 			$fabricante->setNacionalidade($row->nacionalidade);
 			
