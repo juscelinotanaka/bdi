@@ -1,5 +1,5 @@
 function close_notification() {
-	$('#notification').hide();
+	$('#notification').hide(200);
 }
 
 $(document).ready(function() {

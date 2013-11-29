@@ -76,7 +76,7 @@
       </div>
     </div>
     
-    <div id="notification" class="contentCenter">
+    <div id="notification" class="contentCenter" style="display: none;">
     	<div class="success" style="">Você adicionou o item <a href="#">Early Morning</a> a sua <a href="#">lista de desejos</a>!<img id="btnClose" src="images/close.png" alt="" class="close">
         </div>
 	</div>
