@@ -61,7 +61,6 @@ margin-right: auto;
 	float:right;
 	margin-top:16px;
 	height:24px;
-	padding-right:80px;
 	background:url(../images/header-top-line.png) bottom left no-repeat;
 }
 .menuSup a {
@@ -141,6 +140,7 @@ text-decoration: none;
 
 
 
+
 .principal .produto {
 	width: 130px;
 	display: inline-block;
@@ -195,14 +195,33 @@ a.button:hover span {
 	color:#464646;
 }
 
-
-
 .colunaDireita {
 float: right;
 width: 180px;
 padding: 20px 0;
 }
 
+.colunaDireita .categorias .titulo {
+	color: #464646;
+}
+.colunaDireita .categorias .titulo {
+	padding: 0 10px;
+	margin: 0;
+	font-weight: bold;
+	color: #464646;
+	font-size: 16px;
+	font-family: "Lucida Sans";
+}
+
+.colunaDireita .categorias ul {
+	list-style:none; 
+	margin-left:12px;
+}
+.colunaDireita .categorias ul li {
+	margin-top:8px;
+	padding-left:14px;
+	background:url(../images/arrow.gif) no-repeat 0px 5px;
+}
 
 #conteudo .contentCenter .rodape {
 	background:#FAFAFA;
