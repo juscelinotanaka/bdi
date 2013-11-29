@@ -87,13 +87,12 @@ margin-right: auto;
 .pesquisar .campo {
 	display:inline-block;
 	float:left;
-	padding-top:8px;
+	padding-top:2px;
 }
 .pesquisar .campo input {
 	border:none;
-	
 	background-color:transparent;
-	padding:2px 0;
+	padding:8px 0;
 	width:166px;
 	outline:none;
 }
