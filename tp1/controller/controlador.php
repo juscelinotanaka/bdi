@@ -1,9 +1,10 @@
 <?php
-	include("controller/conexao.php");
-	include_once("model/loja-dao.php");
-	include_once("model/produto-dao.php");
-	include_once("model/usuario-dao.php");
-	include_once("model/fornecedor-dao.php");
-	include_once("model/fabricante-dao.php");
+	include("conexao.php");
+	include_once("loja-dao.php");
+	include_once("produto-dao.php");
+	include_once("usuario-dao.php");
+	include_once("fornecedor-dao.php");
+	include_once("fabricante-dao.php");
+	include_once("recomendacao-dao.php");
 
 ?>
