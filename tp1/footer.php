@@ -1,4 +1,14 @@
-<div id="rodape">
+            <div class="rodape">
+            	<div class="floatRight">
+                	Orientador: Altigran Silva
+                </div>
+	        	Desenvolvido por Henrique Pontes e Juscelino Tanaka
+        	</div>
+        </div>
+        
+        
+    </div>
+    <div id="rodape">
 		
 	</div>
 </div>
