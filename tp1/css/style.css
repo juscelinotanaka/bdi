@@ -128,7 +128,7 @@ margin-right: auto;
 border: 2px dotted #d6d6d6;
 background: #f7f7f7;
 padding: 5px 10px;
-margin: 0 0 25px 0;
+margin: 0 0 16px 0;
 font-size: 11px;
 }
 
@@ -198,6 +198,7 @@ a.button:hover span {
 	font-weight:bold;
 	font-size:14px;
 	color:#464646;
+	margin-bottom:8px;
 }
 
 .colunaDireita {
@@ -236,6 +237,57 @@ padding: 20px 0;
 	font-weight: bold;
 	padding:12px 15px;
 }
+
+
+/*  tela de login */
+.texto .left {
+float: left;
+width: 48%;
+}
+
+.texto .right {
+float: right;
+width: 48%;
+}
+.texto .right a, .texto .right a:visited, .texto .right a b {
+color: #1875AB;
+text-decoration: underline;
+cursor: pointer;
+outline: none;
+}
+.texto .right a {
+}
+
+.content {
+padding: 10px;
+overflow: auto;
+margin-bottom: 20px;
+border: 1px solid #d6d6d6;
+background: #f7f7f7;
+}
+
+p {
+margin-top: 0;
+margin-bottom: 20px;
+line-height:20px;
+}
+
+/* ------- Table>List/Form Styles ------------------------------------------- */
+
+table.form {
+	width: 100%;
+	border-collapse: collapse;
+	margin-bottom: 20px;
+	font-weight:bold;
+}
+	table.form tr td:first-child {
+		width:150px;
+	}
+	table.form td {
+		padding:4px;
+	}
+	
+
 
 
 /* ------- Warning & help & Messages Styles ------------------------------------------- */
@@ -365,6 +417,29 @@ ul.dropdown li:hover > ul {
 
 
 
+
+
+/** Cabecalhos e Input **/
+b {
+	line-height:20px;
+}
+
+h2 {
+color: #464646;
+font-size: 16px;
+margin-top: 0;
+margin-bottom: 5px;
+}
+
+input[type='text'], input[type='password'], textarea {
+background: #fff;
+border: 1px solid #d6d6d6;
+padding: 3px;
+margin-left: 0;
+margin-right: 0;
+}
+
+/** OUTROS **/
 
 .floatLeft {
 	float:left;

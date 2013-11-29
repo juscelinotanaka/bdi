@@ -1,37 +1,50 @@
-<!doctype html>
-<html>
-<head>
-<meta charset="UTF-8">
+<?
+include ("funcoes.php"); 
 
-<title>Exemplo</title>
-<link href="css/style.css" rel="stylesheet" type="text/css" />
-</head>
-
-<body>
-<div id="tudo">
-	<div id="cabecalho">
-    	<div class="contentCenter">
-        	<div class="floatRight">
-            	Entrar
-            </div>
-            <div class="SRBDI">
-            	Sistema de Recomendação BDI
-            </div>
-        </div>
-    </div>
-    <div id="conteudo">
-        <div class="contentCenter">
-        	<div class="SRBDIcenter">
-            	SRBDI
-            </div>
-            <div class="buscar">
-                <input type="text" name="q" placeholder="Busque o seu notebook">
-            </div>
-        </div>
-    </div>
-    <div id="rodape">
-		<p>Todos Direitos Reservados – RedeComp - Rede de Compromissos ® 2012</p>
-	</div>
-</div>
-</body>
-</html>
+getHeader();
+?>
+            	<div class="colunaDireita">
+                	<? getColunaHome(); ?>
+                </div>
+            	<div class="principal">
+                
+                	<div class="breadcrumb">
+                       <?
+						breadcrumb(array(
+							'http://localhost/bdi/tp1/'=>'Home', 
+							'artigo'=>'Recomendações'
+						));
+						?>
+					</div>
+                        
+      
+                	<div class="tituloGrupo">Recomendados para Você</div>
+                    <? for ($i = 0; $i < 5; $i++) { ?>
+                    <div class="produto">
+                        <div class="image"><a href=""><img src="images/cups1-130x100.jpg" alt="Coffee Cups"></a></div>
+                        <div class="name"><a href="">Coffee Cups</a></div>
+                        <div class="price">R$ 10.00</div>
+                        <div class="cart"><a href="#" class="button"><span>Detalhes</span></a></div>
+                    </div>
+                    <? } ?>
+                    
+                    
+                    <div class="tituloGrupo">Recomendados pelos seus amigos</div>
+                    <? for ($i = 0; $i < 5; $i++) { ?>
+                    	<div class="produto">
+                            <div class="image"><a href="#"><img src="images/cups1-130x100.jpg" alt="Coffee Cups"></a></div>
+                            <div class="name"><a href="#">Coffee Cups</a></div>
+                            <div class="price">R$ 10.00</div>
+                            <div class="por"><a href="#">Por: Fulano de Tal</a></div>
+                            <div class="cart"><a href="#" class="button"><span>Detalhes</span></a></div>
+                        </div>
+                    <? } ?>
+                    
+                    
+                </div>
+            
+            </div> <!-- fim texto -->
+            
+<?
+getFooter(); 
+?>
