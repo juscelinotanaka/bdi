@@ -126,6 +126,22 @@ margin-right: auto;
 	padding:14px 200px 20px 15px;
 }
 
+.breadcrumb {
+border: 2px dotted #d6d6d6;
+background: #f7f7f7;
+padding: 5px 10px;
+margin: 0 0 25px 0;
+font-size: 11px;
+}
+
+.breadcrumb, .breadcrumb a {
+color: #474444;
+text-decoration: none;
+}
+
+
+
+
 .principal .produto {
 	width: 130px;
 	display: inline-block;
@@ -199,56 +215,131 @@ padding: 20px 0;
 }
 
 
+/* ------- Warning & help & Messages Styles ------------------------------------------- */
 
-
-
-
-#jsddm
-{	margin: 0;
-	padding: 0}
-	
-#jsddm li
-{	float: left;
-	list-style: none;
-	font: 12px Tahoma, Arial}
-
-#jsddm li a
-{	display: block;
-	padding: 13px 16px;
-	text-decoration: none;
-	color: #8A8A8A;
-	white-space: nowrap;
-	font-weight:bold;
+.success, .warning, .attention, .information {
+	padding: 10px 10px 10px 33px;
+	color: #555555;
+}
+.success {
+	background: #EAF7D9 url('../images/success.png') 10px center no-repeat;
+	border: 1px solid #BBDF8D;
+}
+.warning {
+	background: #FFD1D1 url('../images/warning.png') 10px center no-repeat;
+	border: 1px solid #F8ACAC;
+}
+.attention {
+	background: #FFF5CC url('../images/attention.png') 10px center no-repeat;
+	border: 1px solid #F2DD8C;
+}
+.information {
+	background: #E8F6FF url('../images/information.png') 10px center no-repeat;
+	border: 1px solid #B8E2FB;
+}
+.success .close, .warning .close, .attention .close, .information .close {
+	float: right;
+	padding-top: 4px;
+	padding-right: 4px;
+	cursor: pointer;
+}
+.required {
+	color: #FF0000;
+	font-weight: bold;
+}
+.error {
+	display: block;
+	color: #FF0000;
+}
+.help {
+	color: #999;
+	font-size: 10px;
+	font-weight: normal;
+	font-family: Verdana, Geneva, sans-serif;
+	display: block;
 }
 
-#jsddm li a:hover
-{	
-	background: none;
-	color:#000;
-}
-	
-#jsddm li ul
-{	margin: 0;
-	padding: 0;
-	position: absolute;
-	visibility: hidden;
-	border-top: 1px solid white}
 
-#jsddm li ul li
-{	float: none;
-	display: inline;
+/* Menu DropDown */
+
+/* LEVEL ONE */
+ul.dropdown { 
+	position: relative; 
+	list-style:none; 
+}
+ul.dropdown li { 
+	font-weight: bold; 
+	float: left; 
+	zoom: 1;
+}
+ul.dropdown a:hover { 
+	color: #222222; 
+	text-decoration:none; 
+}
+ul.dropdown a:active { 
+	color: #ffa500; 
+}
+ul.dropdown li a { 
+	display: block; 
+	padding: 13px 12px; 
+	color: #222; 
+	color:#8A8A8A;
+}
+ul.dropdown li:last-child a { 
+	border-right: none; 
+} /* Doesn't work in IE */
+ul.dropdown li.hover, ul.dropdown li:hover { 
+	color: #222222; 
+	position: relative; 
+}
+ul.dropdown li.hover a { 
+	color: black; 
 }
 
-#jsddm li ul li a
-{	
-	width: auto;
-	background: rgba(255,255,255, 0.7);
-	border:#FFF solid thin;
+/*  LEVEL TWO */
+ul.dropdown ul {  
+	visibility: hidden; 
+	position: absolute; 
+	top: 100%; 
+	left: 0; 
+	list-style:none;
+	margin-left:8px;
+	border:#CCC solid thin;
+	padding:4px 4px;
+	background: rgba(234,234,234,0.9); 
+	text-align:left;
+}
+ul.dropdown ul li { 
+	font-weight: normal; 
+	color: #000;
+	float: none;
+	padding:4px 8px;
+}
+ul.dropdown ul li:hover {
+	background:#F5F5F5;
+}
+									  
+/* IE 6 & 7 Needs Inline Block */
+ul.dropdown ul li a { 
+	border-right: none; 
+	width: 100%; 
+	display: inline-block;
+	padding: 4px 8px;
+	text-align:left;
+} 
+
+/* 
+	LEVEL THREE
+*/
+ul.dropdown ul ul { 
+	left: 100%;
+	top: 0;
+	list-style:none;
+}
+ul.dropdown li:hover > ul { 
+	visibility: visible; 
 }
 
-#jsddm li ul li a:hover
-	{	background: #7F1616
-	}
 
 
 

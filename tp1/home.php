@@ -3,14 +3,15 @@
 <head>
 <meta charset="UTF-8">
 
-<title>Exemplo</title>
+<title>Sistema de Recomendações</title>
 <link href="css/style.css" rel="stylesheet" type="text/css" />
+<link href="css/flexnav.css" rel="stylesheet" type="text/css" />
 
-<script src="js/jquery-1.6.1.min.js"></script>
+<script type="text/javascript" src="js/jquery-1.3.1.min.js"></script>	
+<script type="text/javascript" language="javascript" src="js/jquery.dropdownPlain.js"></script>
 
 
 </head>
-
 <body>
 <div id="tudo">
 	<div id="cabecalho">
@@ -37,58 +38,58 @@
                 
             </div>
             <div class="clear"></div>
+            
+            <ul class="dropdown">
+                <li><a href="#">Produto</a>
+                    <ul class="sub_menu">
+                         <li><a href="#">Cadastrar</a></li>
+                         <li><a href="#">Consultar</a></li>
+                         <li><a href="#">Um Menu Com Nome Maior</a></li>
+                         
+                    </ul>
+                </li>
+                <li><a href="#">Fornecedore</a>
+                    <ul class="sub_menu">
+                         <li><a href="#">Cadastrar</a></li>
+                         <li><a href="#">Consultar</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Fabricante</a>
+                    <ul class="sub_menu">
+                         <li><a href="#">Cadastrar</a></li>
+                         <li><a href="#">Consultar</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Loja</a>
+                    <ul class="sub_menu">
+                         <li><a href="#">Cadastrar</a></li>
+                         <li><a href="#">Consultar</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Perfil</a>
+                    <ul class="sub_menu">
+                         <li><a href="#">Cadastrar</a></li>
+                         <li><a href="#">Consultar</a></li>
+                    </ul>
+                </li>
+                
+            </ul>
 
-<script type="text/javascript">
-var timeout         = 500;
-var closetimer		= 0;
-var ddmenuitem      = 0;
 
-function jsddm_open()
-{	jsddm_canceltimer();
-	jsddm_close();
-	ddmenuitem = $(this).find('ul').eq(0).css('visibility', 'visible');}
 
-function jsddm_close()
-{	if(ddmenuitem) ddmenuitem.css('visibility', 'hidden');}
 
-function jsddm_timer()
-{	closetimer = window.setTimeout(jsddm_close, timeout);}
 
-function jsddm_canceltimer()
-{	if(closetimer)
-	{	window.clearTimeout(closetimer);
-		closetimer = null;}}
 
-$(document).ready(function()
-{	$('#jsddm > li').bind('mouseover', jsddm_open);
-	$('#jsddm > li').bind('mouseout',  jsddm_timer);});
-
-document.onclick = jsddm_close;
-</script>
-			<ul id="jsddm">
-	<li><a href="#">JavaScript</a>
-		<ul>
-			<li><a href="#">Drop Down Menu</a></li>
-			<li><a href="#">jQuery Plugin</a></li>
-			<li><a href="#">Ajax Navigation</a></li>
-		</ul>
-	</li>
-	<li><a href="#">Effect</a>
-		<ul>
-			<li><a href="#">Slide Effect</a></li>
-			<li><a href="#">Fade Effect</a></li>
-			<li><a href="#">Opacity Mode</a></li>
-			<li><a href="#">Drop Shadow</a></li>
-			<li><a href="#">Semitransparent</a></li>
-		</ul>
-	</li>
-	<li><a href="#">Navigation</a></li>
-	<li><a href="#">HTML/CSS</a></li>
-	<li><a href="#">Help</a></li>
-</ul>
 			            
       </div>
     </div>
+    
+    <div id="notification" class="contentCenter">
+    	<div class="success" style="">Sucesso: Você adicionou o item <a href="http://www.santoshsetty.com/tf/opencart-templates/mystockimageshop-v15/index.php?route=product/product&amp;product_id=59">Early Morning</a> a sua <a href="http://www.santoshsetty.com/tf/opencart-templates/mystockimageshop-v15/index.php?route=checkout/cart">lista de desejos</a>!<img src="images/close.png" alt="" class="close">
+        </div>
+	</div>
+    
+    
     <div id="conteudo">
         <div class="contentCenter">
             <div class="texto">
@@ -96,6 +97,13 @@ document.onclick = jsddm_close;
                 	Categorias
                 </div>
             	<div class="principal">
+                
+                	<div class="breadcrumb">
+                        <a href="http://www.santoshsetty.com/tf/opencart-templates/mystockimageshop-v15/index.php?route=common/home">Home</a>
+                         » <a href="http://www.santoshsetty.com/tf/opencart-templates/mystockimageshop-v15/index.php?route=product/product&amp;product_id=60">Coffee Cups</a>
+					</div>
+                        
+      
                 	<div class="tituloGrupo">Recomendados para Você</div>
                     <? for ($i = 0; $i < 13; $i++) { ?>
                     <div class="produto">
@@ -124,9 +132,10 @@ document.onclick = jsddm_close;
 </div>
 
 <script type="text/javascript">
-$(document).ready(function()
-{	$('#jsddm > li').bind('mouseover', jsddm_open);
-	$('#jsddm > li').bind('mouseout',  jsddm_timer);});
+	jQuery(document).ready(function($) {
+		// initialize FlexNav
+		$(".flexnav").flexNav();
+	});
 </script>
 </body>
 </html>
