@@ -1,6 +1,6 @@
 <?php
-	include("controller/conexao.php");
-	include_once("model/facricante-class.php");
+	include("conexao.php");
+	include_once("../model/facricante-class.php");
 	
 	function cadastrarFabricante(Fabricante $fabricante){
 		$qry = "INSERT INTO public.fabricante VALUES ('".$fabricante->getNome()."', '".$fabricante->getNacionalidade()."')";
@@ -14,8 +14,8 @@
 		}
 	}
 	
-	function consultarFabricante($fabricante){
-		$qry = "SELECT * FROM public.fabricante WHERE nome = '". $fabricante ."'";
+	function consultarFabricante($fabri){
+		$qry = "SELECT * FROM public.fabricante WHERE nome = '". $fabri ."'";
 		$result = pg_query($qry) or die("Cannot execute query: $qry\n");
 		
 		if (pg_num_rows($result) == 1){

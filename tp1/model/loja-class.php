@@ -3,7 +3,8 @@
 		
 		private $id;
 		private $nome;
-		private $local;
+		private $fisico;
+		private $endereco;
 		
 		public function getId(){
 			return $this->id;
@@ -19,11 +20,18 @@
 			$this->nome = $n;
 		}
 		
-		public function getLocal(){
-			return $this->local;
+		public function getFisico(){
+			return $this->fisico;
 		}
-		public function setLocal($l){
-			$this->local = $l;
-		} 
+		public function setFisico($f){
+			$this->fisico = $f;
+		}
+		
+		public function getEndereco(){
+			return $this->endereco;
+		}
+		public function setEndereco($e){
+			$this->endereco = $e;
+		}
 	}
 ?>

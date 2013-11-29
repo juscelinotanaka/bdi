@@ -1,10 +1,16 @@
 <?php
 	class Produto{
+		
 		private $id;
-		private $descricao;
+		private $tamanho;
+		private $processador;
+		private $ram;
+		private $hd;
+		private $video;
+		private $preco;
 		private $idFabricante;
 		private $idFornecedor;
-		private $idLoja;	
+		private $idLoja;
 		
 		public function getId(){
 			return $this->id;
@@ -13,11 +19,46 @@
 			$this->id = $id;
 		}
 		
-		public function getDescricao(){
-			return $this->descricao;
+		public function getTamanho(){
+			return $this->tamanho;
 		}
-		public function setDescrica($d){
-			$this->descricao = $d;
+		public function setTamanho($t){
+			$this->tamanho = $t;
+		}
+		
+		public function getProcessador(){
+			return $this->processador;
+		}
+		public function setProcessador($p){
+			$this->processador = $p;
+		}
+		
+		public function getRam(){
+			return $this->ram;
+		}
+		public function setRam($r){
+			$this->ram = $r;
+		}
+		
+		public function getHd(){
+			return $this->hd;
+		}
+		public function setHd($h){
+			$this->hd = $h;
+		}
+		
+		public function getVideo(){
+			return $this->video;
+		}
+		public function setVideo($v){
+			$this->video = $v;
+		}
+		
+		public function getPreco(){
+			return $this->preco;
+		}
+		public function setPreco($p){
+			$this->preco = $p;
 		}
 		
 		public function getIdFabricante(){

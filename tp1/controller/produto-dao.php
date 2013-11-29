@@ -1,10 +1,19 @@
 <?php
-	include("controller/conexao.php");
-	include_once("model/produto-class.php");
+	include("conexao.php");
+	include_once("../model/produto-class.php");
 	
 	function cadastrarProduto($produto){
 	}
 	
-	function consultarProduto($produto){
+	function consultarProdutoPorFabricante($fabricante){
+	}
+	
+	function consultarProdutoPorFornecedor($fornecedor){
+	}
+	
+	function consultarProdutoPorCaracteristica($caracteristica, $valor){
+	}
+	
+	function listarProdutos(){
 	}
 ?>
