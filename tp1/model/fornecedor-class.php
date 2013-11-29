@@ -1,4 +1,5 @@
 <?php
+	
 	class Fornecedor{
 		
 		private $id;
