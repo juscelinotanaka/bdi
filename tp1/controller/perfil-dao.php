@@ -14,8 +14,8 @@
 		}
 	}
 	
-	function consultarPerfil($usuario){
-		$qry = "SELECT * FROM notebook.perfil WHERE usuario_idUsuario = ". $usuario ."";
+	function consultarPerfil($idUsuario){
+		$qry = "SELECT * FROM notebook.perfil WHERE \"usuario_idUsuario\" = ". $idUsuario ."";
 		$result = pg_query($qry) or die("Cannot execute query: $qry\n");
 		
 		if (pg_num_rows($result) == 1){
@@ -34,5 +34,6 @@
 			return 0;
 		}
 	}
+	
 	
 ?>

@@ -15,7 +15,7 @@ if ($_POST['acao'] == 'logar') {
 	} else {
 		$erro = 'Login e/ou senha inválidos.';
 	}
-} else if ($_POST['acao'] == cadastrar) {
+} else if ($_POST['acao'] == 'cadastrar') {
 	$usuario = new Usuario();
 	$usuario->setNome($_POST['nome']);
 	$usuario->setSobrenome($_POST['sobrenome']);

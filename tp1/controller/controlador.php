@@ -6,6 +6,7 @@
 	include_once("fornecedor-dao.php");
 	include_once("fabricante-dao.php");
 	include_once("recomendacao-dao.php");
+	include_once("perfil-dao.php");
 	
 
 ?>

@@ -5,11 +5,14 @@
 		logout();
 	}
 	
-	if (!temPerfil()) {
+	logado();
+	
+	$perfis = consultarPerfil($_SESSION['idUsuario']);
+	if ( !$perfis ) {
 		header("location:".SYSURL."perfil/cadastrar.php?primeiroAcesso=true");
 	}
 	
-	logado();
+	
 	
 	getHeader();
 ?>

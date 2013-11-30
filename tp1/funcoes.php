@@ -37,7 +37,7 @@ function logout () {
 	unset($_SESSION['MM_UserGroup']);
 	
 	header("Location: ". SYSURL. "login.php");
-	//exit;
+	exit;
 }
 
 function logado () {
@@ -113,7 +113,7 @@ function logar ($email, $senha) {
 		//declare two session variables and assign them
 		$_SESSION['MM_Username'] = $loginUsername;
 		$_SESSION['MM_UserGroup'] = $loginStrGroup;
-		$_SESSION['idUser'] = $anUser->getId();
+		$_SESSION['idUsuario'] = $anUser->getId();
 		$_SESSION['nome'] = $anUser->getNome();
 		$_SESSION['sobrenome'] = $anUser->getSobrenome();
 		

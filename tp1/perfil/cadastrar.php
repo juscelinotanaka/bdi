@@ -1,6 +1,17 @@
 <?
 	include ("../funcoes.php"); 
 	logado();
+	
+	if ($_POST['acao'] == 'cadastrar') {
+		$perfil = new Perfil();
+		$perfil->setIdUsuario($_SESSION['idUsuario']);
+		$perfil->setDescricao($_POST['descricao']);
+		$perfil->setCaracteristicas($_POST['tamanho']."|".$_POST['processador']."|".$_POST['ram']."|".$_POST['hd']."|".$_POST['video']."|".$_POST['preco']."|".$_POST['marca']);
+		
+		print_r($perfil);
+		//$cadastro = cadastrarPerfil($perfil);
+	}
+	
 	getHeader();
 ?>
             	<div class="colunaDireita">
@@ -22,6 +33,7 @@
                     	<div class="description">
                             <h1>Cadastrar Perfil</h1>
                             <p>Dê um nome para o seu perfil e defina as características de como você prefere um notebook.</p>
+                            <form method="post" id="cadastrar">
                             <span><span class="required">*</span> Descrição: <h5>ex. Só i5, 8GB de Memória, Tops</h5></span> <input type="text" name="descricao" /><br><br />
                             <span class="cadPerf">Marca:</span> 
                             <select name="marca">
@@ -30,6 +42,7 @@
                                 <option value="3">Dell</option>
                                 <option value="4">Acer</option>
                                 <option value="5">Samsung</option>
+                                <option value="">Não Considerar</option>
                             </select>
                             <br><br>
                             
@@ -38,6 +51,7 @@
                             	<option value="1">13 Polegadas</option>
                                 <option value="2">15 Polegadas</option>
                                 <option value="3">17 Polegadas</option>
+                                <option value="">Não Considerar</option>
                             </select>
                             <br><br>
                             
@@ -47,6 +61,7 @@
                                 <option value="2">Intel i5</option>
                                 <option value="3">Intel i7</option>
                                 <option value="4">AMD Sempron</option>
+                                <option value="">Não Considerar</option>
                             </select>
                             <br><br>
                             
@@ -55,6 +70,7 @@
                             	<option value="1">2GB</option>
                                 <option value="2">4GB</option>
                                 <option value="3">8GB</option>
+                                <option value="">Não Considerar</option>
                             </select>
                             <br><br>
                             
@@ -63,6 +79,7 @@
                             	<option value="1">500GB</option>
                                 <option value="2">750GB</option>
                                 <option value="3">1TB</option>
+                                <option value="">Não Considerar</option>
                             </select>
                             <br><br>
                             
@@ -71,6 +88,7 @@
                             	<option value="1">256MB</option>
                                 <option value="2">1GB</option>
                                 <option value="3">2GB</option>
+                                <option value="">Não Considerar</option>
                             </select>
                             <br>
                             <br>
@@ -81,11 +99,12 @@
                                 <option value="2">&gt;= R$ 1000,00 e &lt; R$ 2000,00</option>
                                 <option value="3">&gt;= R$ 2000,00 e &lt; R$ 3000,00</option>
                                 <option value="4">&gt;= R$ 3000,00</option>
+                                <option value="">Não Considerar</option>
                             </select>
                             <br /><br />
-                            
-                            <a onclick="$('#login').submit();" class="button"><span>Cadastrar</span></a>
-                            
+                            <input type="hidden" value="cadastrar" name="acao" />
+                            <a onclick="$('#cadastrar').submit();" class="button"><span>Cadastrar</span></a>
+                            </form>
                     	</div>
                         <!-- fim description -->
                     </div> <!-- fim right -->
