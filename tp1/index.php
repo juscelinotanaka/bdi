@@ -1,14 +1,17 @@
 <?
-include ("funcoes.php"); 
-
-if ($_GET['logout'] == 'true') {
-	logout();
-	print 'saiuuuuuuuuuuuuuuuuuu';
-}
-
-logado();
-
-getHeader();
+	include ("funcoes.php"); 
+	
+	if ($_GET['logout'] == 'true') {
+		logout();
+	}
+	
+	if (!temPerfil()) {
+		header("location:".SYSURL."perfil/cadastrar.php?primeiroAcesso=true");
+	}
+	
+	logado();
+	
+	getHeader();
 ?>
             	<div class="colunaDireita">
                 	<? getColunaHome(); ?>

@@ -482,6 +482,17 @@ margin-left: 0;
 margin-right: 0;
 }
 
+select {
+	padding:4px;
+	border: 1px solid;;
+	background: cornsilk;
+}
+
+.cadPerf {
+	width:120px;
+	display:inline-block;
+}
+
 
 .h16 { height:16px; }
 .h32 { height:32px; }

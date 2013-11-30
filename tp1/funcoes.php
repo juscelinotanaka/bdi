@@ -5,6 +5,10 @@ define( 'SYSURL', '/bdi/tp1/');
 include (ABSPATH."crumbs.php");
 include (ABSPATH."controller/controlador.php");
 
+function temPerfil() {
+	return false;
+}
+
 function alertar($mensagem, $tipo) {
 	if ($tipo == 'sucesso') {
 		$mTipo = 'success';

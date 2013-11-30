@@ -1,7 +1,7 @@
 <?
-include ("../funcoes.php"); 
-logado();
-getHeader();
+	include ("../funcoes.php"); 
+	logado();
+	getHeader();
 ?>
             	<div class="colunaDireita">
                 	<? getColunaHome(); ?>
