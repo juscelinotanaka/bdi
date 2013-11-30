@@ -9,7 +9,7 @@
 		$perfil->setCaracteristicas($_POST['tamanho']."|".$_POST['processador']."|".$_POST['ram']."|".$_POST['hd']."|".$_POST['video']."|".$_POST['preco']."|".$_POST['marca']);
 		
 		print_r($perfil);
-		//$cadastro = cadastrarPerfil($perfil);
+		$cadastro = cadastrarPerfil($perfil);
 	}
 	
 	getHeader();
@@ -112,6 +112,7 @@
             </div> <!-- fim principal -->
             
 <?
+	
 	if ($_GET['primeiroAcesso']) {
 		alertar('Cadastre um perfil de Notebooks para acharmos o melhor pra você!', 'sucesso');
 	}

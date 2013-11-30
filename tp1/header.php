@@ -23,6 +23,7 @@
 				
 				 if (str_ireplace(array('-', '.php'), array(' ', ''), basename($_SERVER['PHP_SELF'])) != "login") { ?>
             	<a href="<? print SYSURL; ?>index.php"> Home </a> | 
+                <a href="<? print SYSURL; ?>index.php"> Recomendações de Amigos </a> | 
                 <a href="<? print SYSURL; ?>index.php?logout=true"> Sair </a>
                 <? } ?>
             </div>
@@ -50,38 +51,38 @@
             <ul class="dropdown">
             	<li><a href="#">Perfis</a>
                     <ul class="sub_menu">
-                         <li><a href="#">Cadastrar</a></li>
-                         <li><a href="#">Consultar</a></li>
+                         <li><a href="<? echo SYSURL; ?>perfil/cadastrar.php">Cadastrar</a></li>
+                         <li><a href="<? echo SYSURL; ?>perfil/">Consultar</a></li>
                     </ul>
                 </li>
                 <li><a href="#">Amigos</a>
                     <ul class="sub_menu">
-                         <li><a href="#">Cadastrar</a></li>
-                         <li><a href="#">Consultar</a></li>
+                         <li><a href="<? echo SYSURL; ?>amigo/cadastrar.php">Cadastrar</a></li>
+                         <li><a href="<? echo SYSURL; ?>amigo/">Consultar</a></li>
                     </ul>
                 </li>
                 <li><a href="#">Produtos</a>
                     <ul class="sub_menu">
-                         <li><a href="#">Cadastrar</a></li>
-                         <li><a href="#">Consultar</a></li>
+                         <li><a href="<? echo SYSURL; ?>produto/cadastrar.php">Cadastrar</a></li>
+                         <li><a href="<? echo SYSURL; ?>produto/">Consultar</a></li>
                     </ul>
                 </li>
                 <li><a href="#">Fornecedores</a>
                     <ul class="sub_menu">
-                         <li><a href="#">Cadastrar</a></li>
-                         <li><a href="#">Consultar</a></li>
+                         <li><a href="<? echo SYSURL; ?>fornecedor/cadastrar.php">Cadastrar</a></li>
+                         <li><a href="<? echo SYSURL; ?>fornecedor/">Consultar</a></li>
                     </ul>
                 </li>
                 <li><a href="#">Fabricantes</a>
                     <ul class="sub_menu">
-                         <li><a href="#">Cadastrar</a></li>
-                         <li><a href="#">Consultar</a></li>
+                         <li><a href="<? echo SYSURL; ?>fabricante/cadastrar.php">Cadastrar</a></li>
+                         <li><a href="<? echo SYSURL; ?>fabricante/">Consultar</a></li>
                     </ul>
                 </li>
                 <li><a href="#">Lojas</a>
                     <ul class="sub_menu">
-                         <li><a href="#">Cadastrar</a></li>
-                         <li><a href="#">Consultar</a></li>
+                         <li><a href="<? echo SYSURL; ?>loja/cadastrar.php">Cadastrar</a></li>
+                         <li><a href="<? echo SYSURL; ?>loja/">Consultar</a></li>
                     </ul>
                 </li>
             </ul>
