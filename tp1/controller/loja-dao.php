@@ -1,6 +1,6 @@
 <?php
 	include("conexao.php");
-	include_once("../model/loja-class.php");
+	include_once(ABSPATH."model/loja-class.php");
 	
 	function cadastrarLoja(Loja $loja){
 		$qry = "INSERT INTO public.loja VALUES ('".$loja->getNome()."', '".$loja->getFisico()."', '".$loja->getEndereco()."')";

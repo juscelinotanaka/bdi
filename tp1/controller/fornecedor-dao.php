@@ -1,6 +1,6 @@
 <?php
 	include("conexao.php");
-	include_once("../model/fornecedor-class.php");
+	include_once(ABSPATH."model/fornecedor-class.php");
 	
 	function cadastrarFornecedor(Fornecedor $fornecedor){
 		$qry = "INSERT INTO public.fornecedor VALUES ('".$fornecedor->getNome()."')";

@@ -1,6 +1,6 @@
 <?php
 	include("conexao.php");
-	include_once("../model/facricante-class.php");
+	include_once(ABSPATH."model/fabricante-class.php");
 	
 	function cadastrarFabricante(Fabricante $fabricante){
 		$qry = "INSERT INTO public.fabricante VALUES ('".$fabricante->getNome()."', '".$fabricante->getNacionalidade()."')";

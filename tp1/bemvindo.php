@@ -1,1 +1,1 @@
-Bem vindo visitante. Você pode fazer <a href="login.php">login</a> ou <a href="login.php">criar um conta</a>. 
+Bem vindo visitante. Você pode fazer <a href="<? echo SYSURL; ?>login.php">login</a> ou <a href="<? echo SYSURL; ?>login.php">criar um conta</a>. 

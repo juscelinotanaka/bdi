@@ -1,7 +1,7 @@
 <?php
 	
 	include("conexao.php");
-	include_once("../model/usuario-class.php");
+	include_once(ABSPATH."model/usuario-class.php");
 
 	function cadastrarUsuario(Usuario $usuario){
 		$qry = "INSERT INTO public.usuario VALUES ('".$usuario->getNome()."', '".$usuario->getSobrenome()."', '".$usuario->getCpf()."', '".$usuario->getEmail()."', '".$usuario->getSenha()."', '".$usuario->getApelido()."')";
@@ -16,7 +16,7 @@
 	}
 	
 	function consultarUsuario($email, $senha){
-		$qry = "SELECT * FROM public.usuario WHERE email = '". $email ."' AND senha = ''". $senha ."'";
+		$qry = "SELECT * FROM public.usuario WHERE email = '". $email ."' AND senha = md5('". $senha ."')";
 		$result = pg_query($qry) or die("Cannot execute query: $qry\n");
 		
 		if (pg_num_rows($result) == 1){

@@ -1,6 +1,3 @@
-<? define( 'SYSURL', dirname(__FILE__) . '/' ); 
-	$SYSURL= "/bdi/tp1/" 
-?>
 
 <!doctype html>
 <html>
@@ -8,11 +5,11 @@
 <meta charset="UTF-8">
 
 <title>Sistema de Recomendações</title>
-<link href="<? echo $SYSURL; ?>css/style.css" rel="stylesheet" type="text/css" />
-<link href="<? echo $SYSURL; ?>css/flexnav.css" rel="stylesheet" type="text/css" />
+<link href="<? echo SYSURL; ?>css/style.css" rel="stylesheet" type="text/css" />
+<link href="<? echo SYSURL; ?>css/flexnav.css" rel="stylesheet" type="text/css" />
 
-<script type="text/javascript" src="<? echo $SYSURL; ?>js/jquery-1.3.1.min.js"></script>	
-<script type="text/javascript" language="javascript" src="<? echo $SYSURL; ?>js/jquery.dropdownPlain.js"></script>
+<script type="text/javascript" src="<? echo SYSURL; ?>js/jquery-1.3.1.min.js"></script>	
+<script type="text/javascript" language="javascript" src="<? echo SYSURL; ?>js/jquery.dropdownPlain.js"></script>
 <script src="js/common.js"></script>
 
 </head>
@@ -28,7 +25,8 @@
 				 if (str_ireplace(array('-', '.php'), array(' ', ''), basename($_SERVER['PHP_SELF'])) != "login") { ?>
             	<a href="home.php"> Home </a> | 
                 <a href="home.php"> Recomendações </a> | 
-                <a href="home.php"> Conta </a>
+                <a href="home.php"> Conta </a> | 
+                <a href="<? print SYSURL ?>index.php?logout=true"> Sair </a>
                 <? } ?>
             </div>
             <div class="clear"></div>

@@ -1,6 +1,6 @@
 <?php
 	include("conexao.php");
-	include_once("../model/recomendacao-class.php");
+	include_once(ABSPATH."model/recomendacao-class.php");
 	
 	function cadastrarRecomendacao(Recomendacao $recomendacao){
 		$qry = "INSERT INTO notebook.recomendacao VALUES (".$recomendacao->getIdAmizade().", ".$produto->getIdProduto().")";

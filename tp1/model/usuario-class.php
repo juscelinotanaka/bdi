@@ -55,7 +55,7 @@
 		public function getApelido(){
 			return $this->apelido;
 		}
-		public function setId($a){
+		public function setApelido($a){
 			$this->apelido = $a;
 		}
 

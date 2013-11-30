@@ -2,9 +2,9 @@
 	
 	define('PGHOST','localhost');
 	define('PGPORT',5432);
-	define('PGDATABASE','henriquecavalcante');
-	define('PGUSER', 'henriquecavalcante');
-	define('PGPASSWORD', '');
+	define('PGDATABASE','bdi_tp1');
+	define('PGUSER', 'bdi');
+	define('PGPASSWORD', '123');
 	define('PGCLIENTENCODING','UNICODE');
 	define('ERROR_ON_CONNECT_FAILED','Sorry, can not connect the database server now!');
 	

@@ -1,6 +1,6 @@
 <?php
 	include("conexao.php");
-	include_once("../model/produto-class.php");
+	include_once(ABSPATH."model/produto-class.php");
 	
 	function cadastrarProduto(Produto $produto){
 		$qry = "INSERT INTO notebook.produto VALUES ('".$produto->getDescricao()."', ".$produto->getTamanho().", ".$produto->getProcessador().", ".$produto->getRam().", ".$produto->getHd().", ".$produto->getVideo().", ".$produto->getPreco().", ".$produto->getIdFabricante().", ".$produto->getIdFornecedor().", ".$produto->getIdLoja().")";

@@ -1,6 +1,6 @@
 <?
 include ("../funcoes.php"); 
-
+logado();
 getHeader();
 ?>
             	<div class="colunaDireita">
@@ -18,7 +18,7 @@ getHeader();
 					</div>
                     <div class="right">
                     	<div class="clear h36"></div>
-                    	<img src="<? echo $SYSURL; ?>images/grass5-500x500.jpg" width="350" />
+                    	<img src="<? echo SYSURL; ?>images/grass5-500x500.jpg" width="350" />
                     </div>
       
                     <div class="left">

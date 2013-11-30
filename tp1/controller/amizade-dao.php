@@ -1,6 +1,6 @@
 <?php
 	include("conexao.php");
-	include_once("../model/amizade-class.php");
+	include_once(ABSPATH."model/amizade-class.php");
 	
 	function cadastrarAmizade(Amizade $amizade){
 		$qry = "INSERT INTO public.amizade VALUES ('".$amizade->getIdUsuario()."','".$amizade->getIdAmigo()."','".$amizade->getGrau()."')";
