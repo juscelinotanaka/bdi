@@ -1,0 +1,1 @@
+Bem vindo visitante. Você pode fazer <a href="login.php">login</a> ou <a href="login.php">criar um conta</a>. 

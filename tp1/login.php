@@ -4,7 +4,7 @@ include ("funcoes.php");
 getHeader();
 ?>
             	<div class="colunaDireita">
-                	<? getColunaHome(); ?>
+                	<? getColunaLogin(); ?>
                 </div>
             	<div class="principal">
                 
@@ -54,7 +54,7 @@ getHeader();
                             </tr>
                           </tbody></table>
                         </p>
-                        <a href="http://www.santoshsetty.com/tf/opencart-templates/mystockimageshop-v15/index.php?route=account/register" class="button"><span>Continue</span></a></div>
+                        <a href="http://www.santoshsetty.com/tf/opencart-templates/mystockimageshop-v15/index.php?route=account/register" class="button"><span>Cadatrar</span></a></div>
                     </div>
                     
                     <div class="right">
@@ -62,22 +62,22 @@ getHeader();
                       <form action="http://www.santoshsetty.com/tf/opencart-templates/mystockimageshop-v15/index.php?route=account/login" method="post" enctype="multipart/form-data" id="login">
                         <div class="content">
                           <p>Faça login aqui</p>
-                          <b>E-Mail Address:</b><br>
+                          <b>E-Mail:</b><br>
                           <input type="text" name="email" value="">
                           <br>
                           <br>
-                          <b>Password:</b><br>
+                          <b>Senha:</b><br>
                           <input type="password" name="password" value="">
                           <br>
                           <br>
-                          <a onclick="$('#login').submit();" class="button"><span>Login</span></a>
+                          <a onclick="$('#login').submit();" class="button"><span>Entrar</span></a>
 						</div>
                       </form>
                     </div>
                 </div>
                 <div class="clear"></div>
             
-            </div> <!-- fim texto -->
+            </div> <!-- fim principal -->
             
 <?
 getFooter(); 

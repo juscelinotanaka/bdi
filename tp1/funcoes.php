@@ -1,5 +1,8 @@
 <?
+$SYSURL = "/bdi/tp1/";
+
 include ("crumbs.php");
+
 
 function getHeader() {
 	include ("header.php");
@@ -11,7 +14,10 @@ function getColunaHome() {
 	include ("colunaHome.php");
 }
 function getColunaLogin() {
-	include ("colunaHome.php");
+	include ("colunaLogin.php");
+}
+function getBemVindo() {
+	include ("bemvindo.php");
 }
 
 

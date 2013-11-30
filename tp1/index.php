@@ -11,8 +11,7 @@ getHeader();
                 	<div class="breadcrumb">
                        <?
 						breadcrumb(array(
-							'http://localhost/bdi/tp1/'=>'Home', 
-							'artigo'=>'Recomendações'
+							'http://localhost/bdi/tp1/'=>'Home'
 						));
 						?>
 					</div>
@@ -43,7 +42,7 @@ getHeader();
                     
                 </div>
             
-            </div> <!-- fim texto -->
+            </div> <!-- fim principal -->
             
 <?
 getFooter(); 
