@@ -349,7 +349,7 @@ table.form {
 	cursor: pointer;
 }
 .required {
-	color: #FF0000;
+	color: #FF0000 !important;
 	font-weight: bold;
 }
 .error {
@@ -483,9 +483,10 @@ margin-right: 0;
 }
 
 select {
-	padding:4px;
-	border: 1px solid;;
-	background: cornsilk;
+	background: #fff;
+	border: 1px solid #d6d6d6;
+	padding: 2px;
+	font-size:12px;
 }
 
 .cadPerf {

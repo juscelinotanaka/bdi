@@ -22,7 +22,7 @@
                     	<div class="description">
                             <h1>Cadastrar Perfil</h1>
                             <p>Dê um nome para o seu perfil e defina as características de como você prefere um notebook.</p>
-                            <span>Descrição: <h5>ex. Só i5, 8GB de Memória, Tops</h5></span> <input type="text" name="descricao" /><br><br />
+                            <span><span class="required">*</span> Descrição: <h5>ex. Só i5, 8GB de Memória, Tops</h5></span> <input type="text" name="descricao" /><br><br />
                             <span class="cadPerf">Marca:</span> 
                             <select name="marca">
                             	<option value="1">HP</option>
@@ -82,7 +82,9 @@
                                 <option value="3">&gt;= R$ 2000,00 e &lt; R$ 3000,00</option>
                                 <option value="4">&gt;= R$ 3000,00</option>
                             </select>
-                            <br>
+                            <br /><br />
+                            
+                            <a onclick="$('#login').submit();" class="button"><span>Cadastrar</span></a>
                             
                     	</div>
                         <!-- fim description -->
