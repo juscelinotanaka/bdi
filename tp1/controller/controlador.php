@@ -1,6 +1,6 @@
 <?php
 	include("conexao.php");
-	include_once("controller/usuario-dao.php");
+	include_once("usuario-dao.php");
 	include_once("loja-dao.php");
 	include_once("produto-dao.php");
 	include_once("fornecedor-dao.php");

@@ -314,28 +314,36 @@ table.form {
 
 /* ------- Warning & help & Messages Styles ------------------------------------------- */
 
-.success, .warning, .attention, .information {
+#notification {
+	background: #EAF7D9 url('../images/success.png') 10px center no-repeat;
+	border: 1px solid #BBDF8D;
+	width:978px;
+}
+.img.close {
+	float:right;
+}
+#notification .mensagem {
 	padding: 10px 10px 10px 33px;
 	color: #555555;
+	width:900px;
 }
-.success {
+#notification.success {
 	background: #EAF7D9 url('../images/success.png') 10px center no-repeat;
 	border: 1px solid #BBDF8D;
 }
-.warning {
+#notification.warning {
 	background: #FFD1D1 url('../images/warning.png') 10px center no-repeat;
 	border: 1px solid #F8ACAC;
 }
-.attention {
+#notification.attention {
 	background: #FFF5CC url('../images/attention.png') 10px center no-repeat;
 	border: 1px solid #F2DD8C;
 }
-.information {
+#notification.information {
 	background: #E8F6FF url('../images/information.png') 10px center no-repeat;
 	border: 1px solid #B8E2FB;
 }
 .success .close, .warning .close, .attention .close, .information .close {
-	float: right;
 	padding-top: 4px;
 	padding-right: 4px;
 	cursor: pointer;
@@ -354,6 +362,10 @@ table.form {
 	font-weight: normal;
 	font-family: Verdana, Geneva, sans-serif;
 	display: block;
+}
+.close {
+	margin-top:3px;
+	margin-right:4px;
 }
 
 

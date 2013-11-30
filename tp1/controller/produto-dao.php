@@ -3,7 +3,7 @@
 	include_once(ABSPATH."model/produto-class.php");
 	
 	function cadastrarProduto(Produto $produto){
-		$qry = "INSERT INTO notebook.produto VALUES ('".$produto->getDescricao()."', ".$produto->getTamanho().", ".$produto->getProcessador().", ".$produto->getRam().", ".$produto->getHd().", ".$produto->getVideo().", ".$produto->getPreco().", ".$produto->getIdFabricante().", ".$produto->getIdFornecedor().", ".$produto->getIdLoja().")";
+		$qry = "INSERT INTO notebook.produto (tamanho,processador,ram,hd,video,preco,\"fabricante_idFabricante\",\"fornecedor_idFornecedor\",\"loja_idLoja\") VALUES ('".$produto->getDescricao()."', ".$produto->getTamanho().", ".$produto->getProcessador().", ".$produto->getRam().", ".$produto->getHd().", ".$produto->getVideo().", ".$produto->getPreco().", ".$produto->getIdFabricante().", ".$produto->getIdFornecedor().", ".$produto->getIdLoja().")";
 		$result = pg_query($qry) or die("Cannot execute query: $qry\n");
 		
 		if(pg_affected_rows($result)>0){

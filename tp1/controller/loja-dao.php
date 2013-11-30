@@ -3,7 +3,7 @@
 	include_once(ABSPATH."model/loja-class.php");
 	
 	function cadastrarLoja(Loja $loja){
-		$qry = "INSERT INTO public.loja VALUES ('".$loja->getNome()."', '".$loja->getFisico()."', '".$loja->getEndereco()."')";
+		$qry = "INSERT INTO public.loja (nome,fisico,endereco) VALUES ('".$loja->getNome()."', '".$loja->getFisico()."', '".$loja->getEndereco()."')";
 		$result = pg_query($qry) or die("Cannot execute query: $qry\n");
 		
 		if(pg_affected_rows($result)>0){

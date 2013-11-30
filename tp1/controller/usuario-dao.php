@@ -4,7 +4,8 @@
 	include_once(ABSPATH."model/usuario-class.php");
 
 	function cadastrarUsuario(Usuario $usuario){
-		$qry = "INSERT INTO public.usuario VALUES ('".$usuario->getNome()."', '".$usuario->getSobrenome()."', '".$usuario->getCpf()."', '".$usuario->getEmail()."', '".$usuario->getSenha()."', '".$usuario->getApelido()."')";
+		$qry = "INSERT INTO public.usuario (nome,sobrenome,\"CPF\",email,senha,apelido)  VALUES ('".$usuario->getNome()."', '".$usuario->getSobrenome()."', '".$usuario->getCpf()."', '".$usuario->getEmail()."', md5('".$usuario->getSenha()."'), '".$usuario->getApelido()."')";
+		print $qry;
 		$result = pg_query($qry) or die("Cannot execute query: $qry\n");
 		
 		if(pg_affected_rows($result)>0){
@@ -26,7 +27,7 @@
 			
 			$usuario->setId($row->idUsuario);
 			$usuario->setNome($row->nome);
-			$usuario->setSobrenome($row->apelido);
+			$usuario->setSobrenome($row->sobrenome);
 			$usuario->setCpf($row->cpf);
 			$usuario->setEmail($row->email);
 			$usuario->setApelido($row->apelido);
@@ -48,7 +49,7 @@
 			
 			$usuario->setId($row->idUsuario);
 			$usuario->setNome($row->nome);
-			$usuario->setSobrenome($row->apelido);
+			$usuario->setSobrenome($row->sobrenome);
 			$usuario->setCpf($row->cpf);
 			$usuario->setEmail($row->email);
 			$usuario->setApelido($row->apelido);

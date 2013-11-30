@@ -3,7 +3,7 @@
 	include_once(ABSPATH."model/amizade-class.php");
 	
 	function cadastrarAmizade(Amizade $amizade){
-		$qry = "INSERT INTO public.amizade VALUES ('".$amizade->getIdUsuario()."','".$amizade->getIdAmigo()."','".$amizade->getGrau()."')";
+		$qry = "INSERT INTO public.amizade  (\"usuario_idUsuario\",\"usuario_idAmigo\",grau) VALUES ('".$amizade->getIdUsuario()."','".$amizade->getIdAmigo()."','".$amizade->getGrau()."')";
 		$result = pg_query($qry) or die("Cannot execute query: $qry\n");
 		
 		if(pg_affected_rows($result)>0){

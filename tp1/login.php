@@ -1,18 +1,34 @@
 <?
 include ("funcoes.php"); 
 
+if (isset($_SESSION)) {
+	header("location: index.php");
+}
+
 if ($_POST['acao'] == 'logar') {
-	if (logar('juscelino.tanaka@gmail.com', '123')) {
+	if (logar($_POST['email'], $_POST['senha'])) {
 		if ($_GET['url']) {
 			header("Location: ". $_GET['url']);
 		} else {
 			header("Location: ". $SYSURL. "index.php");
 		}
 	} else {
-		print 'erro no login';
+		$erro = 'Login e/ou senha inválidos.';
 	}
 } else if ($_POST['acao'] == cadastrar) {
-	$usuario = consultarUsuario('juscelino.tanaka@gmail.com', '123');
+	$usuario = new Usuario();
+	$usuario->setNome($_POST['nome']);
+	$usuario->setSobrenome($_POST['sobrenome']);
+	$usuario->setCPF($_POST['cpf']);
+	$usuario->setEmail($_POST['email']);
+	$usuario->setSenha($_POST['senha']);
+	$usuario->setApelido($_POST['apelido']);
+	
+	if (cadastrarUsuario($usuario)) {
+		$cadastroOk = 'Cadastro Realizado com Sucesso!';
+	} else {
+		$erro = 'Erro ao cadastrar.';
+	}
 }
 
 
@@ -41,7 +57,7 @@ getHeader();
                       <h2>Novo Usuário</h2>
                       <div class="content">
                         <p><b>Criar Conta</b></p>
-                        <form method="post">
+                        <form method="post" id="cadastrar">
                         <p><table class="form">
                             <tbody><tr>
                               <td><span class="required">*</span> Nome:</td>
@@ -73,8 +89,9 @@ getHeader();
                           </tbody></table>
                           <input type="hidden" name="acao" value="cadastrar" />
                         </p>
+                        <a onclick="$('#cadastrar').submit();" class="button"><span>Cadastrar</span></a>
                         </form>
-                        <a href="http://www.santoshsetty.com/tf/opencart-templates/mystockimageshop-v15/index.php?route=account/register" class="button"><span>Cadatrar</span></a></div>
+                        </div>
                     </div>
                     
                     <div class="right">
@@ -87,7 +104,7 @@ getHeader();
                           <br>
                           <br>
                           <b>Senha:</b><br>
-                          <input type="password" name="password" value="">
+                          <input type="password" name="senha" value="" onkeyup="if (event.which == 13) { event.preventDefault(); $('#login').submit();}">
                           <br>
                           <br>
                           <a onclick="$('#login').submit();" class="button"><span>Entrar</span></a>
@@ -101,5 +118,16 @@ getHeader();
             </div> <!-- fim principal -->
             
 <?
+
+if ($_GET['url']) {
+	alertar('Você deve fazer login antes de acessar a página desejada.', 'info');
+} else {
+	if ($erro) {
+		alertar($erro, 'erro');
+	} else if ($cadastroOk) {
+		alertar('Cadastro realizado com sucesso. Agora faça login.', 'sucesso');
+	}
+}
+
 getFooter(); 
 ?>

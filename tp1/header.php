@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html>
 <head>
@@ -10,7 +9,7 @@
 
 <script type="text/javascript" src="<? echo SYSURL; ?>js/jquery-1.3.1.min.js"></script>	
 <script type="text/javascript" language="javascript" src="<? echo SYSURL; ?>js/jquery.dropdownPlain.js"></script>
-<script src="js/common.js"></script>
+<script src="<? echo SYSURL; ?>js/common.js"></script>
 
 </head>
 <body>
@@ -23,10 +22,8 @@
             	<?
 				
 				 if (str_ireplace(array('-', '.php'), array(' ', ''), basename($_SERVER['PHP_SELF'])) != "login") { ?>
-            	<a href="home.php"> Home </a> | 
-                <a href="home.php"> Recomendações </a> | 
-                <a href="home.php"> Conta </a> | 
-                <a href="<? print SYSURL ?>index.php?logout=true"> Sair </a>
+            	<a href="<? print SYSURL; ?>index.php"> Home </a> | 
+                <a href="<? print SYSURL; ?>index.php?logout=true"> Sair </a>
                 <? } ?>
             </div>
             <div class="clear"></div>
@@ -37,7 +34,7 @@
             
             <div class="clear"></div>
             <div class="logo">
-            <img src="<? echo SYSURL; ?>images/logo.png">
+            	<a href="<? print SYSURL; ?>index.php"> <img src="<? echo SYSURL; ?>images/logo.png"></a>
             </div>
             <div class="pesquisar">
             	<form action="pesquisar.php" method="get">
@@ -92,8 +89,8 @@
     </div>
     
     <div id="notification" class="contentCenter" style="display: none;">
-    	<div class="success" style="">Você adicionou o item <a href="#">Early Morning</a> a sua <a href="#">lista de desejos</a>!<img id="btnClose" src="<? echo $SYSURL; ?>images/close.png" alt="" class="close">
-        </div>
+    	<div class="img close"><img id="btnClose" src="<? print SYSURL; ?>images/close.png" alt="Fechar" title="Fechar" class="close"></div>
+        <div id="mensagem" class="mensagem">texto aqui!</div>
 	</div>
     
     

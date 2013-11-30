@@ -3,7 +3,7 @@
 	include_once(ABSPATH."model/fabricante-class.php");
 	
 	function cadastrarFabricante(Fabricante $fabricante){
-		$qry = "INSERT INTO public.fabricante VALUES ('".$fabricante->getNome()."', '".$fabricante->getNacionalidade()."')";
+		$qry = "INSERT INTO public.fabricante (nome,nacionalidade) VALUES ('".$fabricante->getNome()."', '".$fabricante->getNacionalidade()."')";
 		$result = pg_query($qry) or die("Cannot execute query: $qry\n");
 		
 		if(pg_affected_rows($result)>0){

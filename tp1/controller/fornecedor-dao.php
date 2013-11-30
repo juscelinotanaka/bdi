@@ -3,7 +3,7 @@
 	include_once(ABSPATH."model/fornecedor-class.php");
 	
 	function cadastrarFornecedor(Fornecedor $fornecedor){
-		$qry = "INSERT INTO public.fornecedor VALUES ('".$fornecedor->getNome()."')";
+		$qry = "INSERT INTO public.fornecedor (nome) VALUES ('".$fornecedor->getNome()."')";
 		$result = pg_query($qry) or die("Cannot execute query: $qry\n");
 		
 		if(pg_affected_rows($result)>0){
