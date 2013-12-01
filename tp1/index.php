@@ -8,11 +8,14 @@
 	logado();
 	
 	$perfis = consultarPerfil($_SESSION['idUsuario']);
+	
 	if ( !$perfis ) {
 		header("location:".SYSURL."perfil/cadastrar.php?primeiroAcesso=true");
 	}
 	
+	$recomendacoes = consultarProdutoPorFabricante(1);
 	
+	//print_r($recomendacoes);
 	
 	getHeader();
 ?>
@@ -31,11 +34,11 @@
                         
       
                 	<div class="tituloGrupo">Recomendados para Você</div>
-                    <? for ($i = 0; $i < 5; $i++) { ?>
+                    <? foreach ($recomendacoes as $prod) { ?>
                     <div class="produto">
                         <div class="image"><a href="produto/detalhes.php"><img src="images/cups1-130x100.jpg" alt="Coffee Cups"></a></div>
-                        <div class="name"><a href="">Coffee Cups</a></div>
-                        <div class="price">R$ 10.00</div>
+                        <div class="name"><a href=""><? echo $prod->getDescricao(); ?></a></div>
+                        <div class="price"><? echo $prod->getPreco(); ?></div>
                         <div class="cart"><a href="#" class="button"><span>Detalhes</span></a></div>
                     </div>
                     <? } ?>

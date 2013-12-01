@@ -18,8 +18,8 @@
 		$qry = "SELECT * FROM notebook.perfil WHERE \"usuario_idUsuario\" = ". $idUsuario ."";
 		$result = pg_query($qry) or die("Cannot execute query: $qry\n");
 
-		if (pg_num_rows($result) == 1){
-			$row = pg_fetch_object($result);
+		
+		while($row = pg_fetch_object($result)){
 			
 			$perfil = new Perfil();
 			
@@ -28,11 +28,11 @@
 			$perfil->setDescricao($row->descricao);
 			$perfil->setCaracteristicas($row->caracteristicas);
 			
-			return $perfil;
+			
+			$perfis[] = $perfil;
 		}
-		else{
-			return 0;
-		}
+		return $perfis;
+			
 	}
 	
 	

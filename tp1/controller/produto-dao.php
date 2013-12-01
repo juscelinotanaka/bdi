@@ -15,7 +15,7 @@
 	}
 	
 	function consultarProdutoPorFabricante($idFabricante){
-		$qry = "SELECT * FROM notebook.produto WHERE fabricante_idFabricante = ". $idFabricante ."";
+		$qry = "SELECT * FROM notebook.produto WHERE \"fabricante_idFabricante\" = ". $idFabricante ."";
 		$result = pg_query($qry) or die("Cannot execute query: $qry\n");
 		
 		while($row = pg_fetch_object($result)){
@@ -99,4 +99,7 @@
 		
 		return $produtos;
 	}
+	
+	
+	
 ?>
