@@ -23,6 +23,7 @@
 			$produto = new Produto();
 			
 			$produto->setId($row->idProduto);
+			$produto->setNome($row->nome);
 			$produto->setDescricao($row->descricao);
 			$produto->setTamanho($row->tamanho);
 			$produto->setProcessador($row->processador);
@@ -46,6 +47,7 @@
 			$produto = new Produto();
 			
 			$produto->setId($row->idProduto);
+			$produto->setNome($row->nome);
 			$produto->setDescricao($row->descricao);
 			$produto->setTamanho($row->tamanho);
 			$produto->setProcessador($row->processador);
@@ -82,6 +84,7 @@
 			$produto = new Produto();
 			
 			$produto->setId($row->idProduto);
+			$produto->setNome($row->nome);
 			$produto->setDescricao($row->descricao);
 			$produto->setTamanho($row->tamanho);
 			$produto->setProcessador($row->processador);

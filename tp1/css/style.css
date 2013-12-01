@@ -147,13 +147,18 @@ text-decoration: none;
 	vertical-align: top;
 	margin: 0 15px 15px 0;
 }
+.principal .produto .name {
+	display:inline-block;
+	height:38px;
+	overflow:hidden;
+}
 .principal .produto .name a, .principal .produto .por a {
 	color: #222;
 	font-weight: bold;
 	text-decoration: none;
 	display: block;
 	margin-bottom: 4px;
-	font-size: 12px;
+	font-size: 10px;
 }
 .principal .produto .name a:hover, .principal .produto .por a:hover {
 	color:#1875ab;
@@ -167,7 +172,7 @@ text-decoration: none;
 	display: block;
 	font-weight: bold;
 	color: #990000;
-	margin-bottom: 4px;
+	margin-bottom: 0px;
 }
 
 a.button {

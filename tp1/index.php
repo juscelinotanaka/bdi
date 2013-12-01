@@ -13,7 +13,7 @@
 		header("location:".SYSURL."perfil/cadastrar.php?primeiroAcesso=true");
 	}
 	
-	$recomendacoes = consultarProdutoPorFabricante(1);
+	$recomendacoes = listarProdutos();
 	
 	//print_r($recomendacoes);
 	
@@ -36,10 +36,10 @@
                 	<div class="tituloGrupo">Recomendados para Você</div>
                     <? foreach ($recomendacoes as $prod) { ?>
                     <div class="produto">
-                        <div class="image"><a href="produto/detalhes.php"><img src="images/cups1-130x100.jpg" alt="Coffee Cups"></a></div>
-                        <div class="name"><a href=""><? echo $prod->getDescricao(); ?></a></div>
+                        <div class="image"><a href="<? echo SYSURL ?>produto/detalhes.php?id=<? echo $prod->getId(); ?>"><img src="images/cups1-130x100.jpg" alt="Coffee Cups"></a></div>
+                        <div class="name"><a href="<? echo SYSURL ?>produto/detalhes.php?id=<? echo $prod->getId(); ?>"><? echo $prod->getNome(); ?></a></div>
                         <div class="price"><? echo $prod->getPreco(); ?></div>
-                        <div class="cart"><a href="#" class="button"><span>Detalhes</span></a></div>
+                        <div class="cart"><a href="<? echo SYSURL ?>produto/detalhes.php?id=<? echo $prod->getId(); ?>" class="button"><span>Detalhes</span></a></div>
                     </div>
                     <? } ?>
                     
