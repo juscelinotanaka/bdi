@@ -13,7 +13,7 @@ include_once(ABSPATH."controller/recomendacao-dao.php");
 include_once(ABSPATH."controller/perfil-dao.php");
 
 function temPerfil() {
-	return false;
+return false;
 }
 
 function alertar($mensagem, $tipo) {

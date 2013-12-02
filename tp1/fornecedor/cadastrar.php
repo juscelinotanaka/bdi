@@ -1,3 +1,11 @@
-<?php include("../header.php");?>
-
-<?php include("../footer.php");?>
+<?php 
+	
+	include ("../funcoes.php"); 
+	logado();
+	
+	if ($_POST['acao'] == 'cadastrar') {
+		
+	}
+	
+	getHeader();
+?>
