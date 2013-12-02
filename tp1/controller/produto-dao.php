@@ -219,8 +219,8 @@
 			$produto->setIdFornecedor($row->fornecedor_idFornecedor);
 			$produto->setIdLoja($row->loja_idLoja);
 			
-			$produto->setIdLoja($row->imagem);
-			$produto->setIdLoja($row->soma);
+			$produto->setImagem($row->imagem);
+			$produto->setSoma($row->soma);
 			
 			$produtos[] = $produto;
 		}
