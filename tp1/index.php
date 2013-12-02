@@ -16,7 +16,7 @@
 	$perfis = consultarPerfil($_SESSION['idUsuario']);
 	
 	foreach ($perfis as $perfil){
-		$recomendacoes[] = produtosRecomendados($perfil);
+		$recomendacoes = produtosRecomendados($perfil);
 	}
 	
 	print_r($recomendacoes);
