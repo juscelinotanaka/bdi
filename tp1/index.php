@@ -13,9 +13,13 @@
 		header("location:".SYSURL."perfil/cadastrar.php?primeiroAcesso=true");
 	}
 	
-	$recomendacoes = listarProdutos();
+	$perfis = consultarPerfil($_SESSION['idUsuario']);
 	
-	//print_r($recomendacoes);
+	foreach ($perfis as $perfil){
+		$recomendacoes[] = produtosRecomendados($perfil);
+	}
+	
+	print_r($recomendacoes);
 	
 	getHeader();
 ?>

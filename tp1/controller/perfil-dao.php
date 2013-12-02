@@ -3,7 +3,7 @@
 	include_once(ABSPATH."model/perfil-class.php");
 	
 	function cadastrarPerfil(Perfil $perfil){
-		$qry = "INSERT INTO notebook.perfil  (\"usuario_idUsuario\",descricao,caracteristicas) VALUES ('".$perfil->getIdUsuario()."','".$perfil->getDescricao()."','".$perfil->getCaracteristicas()."')";
+		$qry = "INSERT INTO notebook.perfil  (\"usuario_idUsuario\", descricao, caracteristicas) VALUES ('".$perfil->getIdUsuario()."','".$perfil->getDescricao()."','".$perfil->getCaracteristicas()."')";
 		$result = pg_query($qry) or die("Cannot execute query: $qry\n");
 		
 		if(pg_affected_rows($result)>0){

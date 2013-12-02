@@ -3,9 +3,10 @@
 	include ("../funcoes.php"); 
 	logado();
 	
-	if ($_POST['acao'] == 'cadastrar') {
+	if ($_POST['acao'] == '') {
 		
 	}
 	
 	getHeader();
+	getFooter();
 ?>

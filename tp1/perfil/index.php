@@ -8,4 +8,5 @@
 	}
 	
 	getHeader();
+	getFooter();
 ?>

@@ -14,6 +14,8 @@
 		private $idFabricante;
 		private $idFornecedor;
 		private $idLoja;
+		private $imagem;
+		private $soma;
 		
 		public function getId(){
 			return $this->id;
@@ -97,6 +99,20 @@
 		}
 		public function setIdLoja($id){
 			$this->idLoja = $id;
+		}
+		
+		public function getImagem(){
+			return $this->imagem;
+		}
+		public function setImagem($i){
+			$this->imagem = $i;
+		}
+		
+		public function getSoma(){
+			return $this->soma;
+		}
+		public function setSoma($s){
+			$this->soma = $s;
 		}
 	}
 
