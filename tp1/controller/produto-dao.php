@@ -103,6 +103,4 @@
 		return $produtos;
 	}
 	
-	
-	
 ?>

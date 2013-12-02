@@ -1,3 +1,4 @@
+<?php include("funcoes.php");?>
 <!doctype html>
 <html>
 <head>
