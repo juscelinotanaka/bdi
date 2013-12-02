@@ -19,8 +19,6 @@
 		$recomendacoes = produtosRecomendados($perfil);
 	}
 	
-	print_r($recomendacoes);
-	
 	getHeader();
 ?>
             	<div class="colunaDireita">
