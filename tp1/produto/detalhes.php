@@ -2,6 +2,9 @@
 	include ("../funcoes.php"); 
 	logado();
 	getHeader();
+	
+	$produto = new Produto();
+	$produto = consultarProduto($_GET['id']);
 ?>
             	<div class="colunaDireita">
                 	<? getColunaHome(); ?>
@@ -12,28 +15,28 @@
                        <?
 						breadcrumb(array(
 							'http://localhost/bdi/tp1/'=>'Home', 
-							'artigo'=>'Titulo do Produto'
+							'artigo'=> $produto->getNome()
 						));
 						?>
 					</div>
                     <div class="right">
                     	<div class="clear h36"></div>
-                    	<img src="<? echo SYSURL; ?>images/grass5-500x500.jpg" width="350" />
+                    	<img src="<? echo SYSURL; ?>nbs/<?php echo $produto->getImagem();?>" width="350" />
                     </div>
       
                     <div class="left">
                     	<div class="description">
-                            <h1>Green Grass</h1>
-                            <p>Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus</p>
-                            <span>Tamanho:</span> 17'<br>
-                            <span>Processador:</span> Intel i5<br>
-                            <span>Memória RAM:</span> 2GB<br>
-                            <span>HD:</span> 500GB<br>
-                            <span>Vídeo</span> 1GB
+                            <h1><?php echo $produto->getNome();?></h1>
+                            <p><?php echo $produto->getDescricao();?></p>
+                            <span>Tamanho:</span> <?php echo $produto->getTamanho()."\"";?><br>
+                            <span>Processador:</span> <?php echo $produto->getProcessador();?><br>
+                            <span>Memória RAM:</span> <?php echo $produto->getRam();?><br>
+                            <span>HD:</span> <?php echo $produto->getHd();?><br>
+                            <span>Vídeo</span> <?php echo $produto->getVideo();?>
                     	</div>
                         <!-- fim description -->
                     	<div class="price">
-                        	Preço: R$5.00<br />
+                        	 Preço: <?php echo $produto->getPreco();?><br />
 						</div>	<!-- fim price -->
                     </div> <!-- fim right -->
                 <div class="clear h16"></div>

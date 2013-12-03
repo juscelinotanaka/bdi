@@ -11,6 +11,7 @@
 		private $hd;
 		private $video;
 		private $preco;
+		private $faixaPreco;
 		private $idFabricante;
 		private $idFornecedor;
 		private $idLoja;
@@ -78,6 +79,13 @@
 		}
 		public function setPreco($p){
 			$this->preco = $p;
+		}
+		
+		public function getFaixaPreco(){
+			return $this->faixaPreco;
+		}
+		public function setFaixaPreco($p){
+			$this->faixaPreco = $p;
 		}
 		
 		public function getIdFabricante(){

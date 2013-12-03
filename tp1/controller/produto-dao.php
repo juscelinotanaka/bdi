@@ -15,6 +15,50 @@
 		}
 	}
 	
+	function consultarProduto($idProduto){
+		$qry = "SELECT p.nome as nome, p.descricao as descricao, p.imagem as imagem,
+					(SELECT \"valorMapeado\" FROM notebook.caracteristica c
+					WHERE atributo = 'tamanho' AND c.valor = p.tamanho) AS tamanho,
+					(SELECT \"valorMapeado\" FROM notebook.caracteristica c
+					WHERE atributo = 'processador' AND c.valor = p.processador) AS processador,
+					(SELECT \"valorMapeado\" FROM notebook.caracteristica c
+					WHERE atributo = 'ram' AND c.valor = p.ram) AS ram,
+					(SELECT \"valorMapeado\" FROM notebook.caracteristica c
+					WHERE atributo = 'hd' AND c.valor = p.hd) AS hd,
+					(SELECT \"valorMapeado\" FROM notebook.caracteristica c
+					WHERE atributo = 'video' AND c.valor = p.video) AS video,
+					(SELECT \"valorMapeado\" FROM notebook.caracteristica c
+					WHERE atributo = 'preco' AND c.valor = p.preco) AS preco
+				FROM notebook.produto p 
+				WHERE \"idProduto\" = ". $idProduto ."";
+		
+		$result = pg_query($qry) or die("Cannot execute query: $qry\n");
+		
+		if (pg_num_rows($result) == 1){
+		
+			$row = pg_fetch_object($result);
+			
+			$produto = new Produto();
+			
+			$produto->setId($idProduto);
+			$produto->setNome($row->nome);
+			$produto->setDescricao($row->descricao);
+			$produto->setTamanho($row->tamanho);
+			$produto->setProcessador($row->processador);
+			$produto->setRam($row->ram);
+			$produto->setHd($row->hd);
+			$produto->setVideo($row->video);
+			$produto->setPreco($row->preco);
+			$produto->setImagem($row->imagem);
+			
+			return $produto;
+		}
+		else{
+			return 0;
+		}
+		
+	}
+	
 	function consultarProdutoPorFabricante($idFabricante){
 		$qry = "SELECT * FROM notebook.produto WHERE \"fabricante_idFabricante\" = ". $idFabricante ."";
 		$result = pg_query($qry) or die("Cannot execute query: $qry\n");
@@ -32,6 +76,7 @@
 			$produto->setHd($row->hd);
 			$produto->setVideo($row->video);
 			$produto->setPreco($row->preco);
+			$produto->setImagem($row->imagem);
 			
 			$produtos[] = $produto;
 		}
@@ -56,6 +101,7 @@
 			$produto->setHd($row->hd);
 			$produto->setVideo($row->video);
 			$produto->setPreco($row->preco);
+			$produto->setImagem($row->imagem);
 			
 			$produtos[] = $produto;
 		}
