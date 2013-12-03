@@ -11,7 +11,7 @@
 		private $hd;
 		private $video;
 		private $preco;
-		private $faixaPreco;
+		private $precoReal;
 		private $idFabricante;
 		private $idFornecedor;
 		private $idLoja;
@@ -81,11 +81,11 @@
 			$this->preco = $p;
 		}
 		
-		public function getFaixaPreco(){
-			return $this->faixaPreco;
+		public function getPrecoReal(){
+			return $this->precoReal;
 		}
-		public function setFaixaPreco($p){
-			$this->faixaPreco = $p;
+		public function setPrecoReal($p){
+			$this->precoReal = $p;
 		}
 		
 		public function getIdFabricante(){
