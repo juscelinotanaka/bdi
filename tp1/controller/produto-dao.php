@@ -246,6 +246,7 @@
 						rec."loja_idLoja", 
 						rec.nome,
 						rec.imagem,
+						rec."precoReal",
 						rec.soma
 					ORDER BY rec."soma" ASC';
 				
