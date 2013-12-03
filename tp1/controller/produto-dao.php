@@ -296,7 +296,7 @@
 			$produto->setRam($row->ram);
 			$produto->setHd($row->hd);
 			$produto->setVideo($row->video);
-			$produto->setPreco($row->preco);
+			$produto->setPreco($row->precoReal);
 			
 			$produto->setIdFabricante($row->fabricante_idFabricante);
 			$produto->setIdFornecedor($row->fornecedor_idFornecedor);
