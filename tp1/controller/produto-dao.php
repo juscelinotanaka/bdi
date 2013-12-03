@@ -247,6 +247,7 @@
 						rec."loja_idLoja", 
 						rec.nome,
 						rec.imagem,
+						rec."precoReal",
 						rec.soma
 					ORDER BY rec."soma" ASC';
 				
@@ -264,7 +265,12 @@
 			$produto->setRam($row->ram);
 			$produto->setHd($row->hd);
 			$produto->setVideo($row->video);
+<<<<<<< HEAD
 			$produto->setPreco($row->precoReal);
+=======
+			$produto->setPreco($row->preco);
+			$produto->setPrecoReal($row->precoReal);
+>>>>>>> 0be541cf46e053e02818aa79849eae981901a041
 			
 			$produto->setIdFabricante($row->fabricante_idFabricante);
 			$produto->setIdFornecedor($row->fornecedor_idFornecedor);
@@ -296,7 +302,12 @@
 			$produto->setRam($row->ram);
 			$produto->setHd($row->hd);
 			$produto->setVideo($row->video);
+<<<<<<< HEAD
 			$produto->setPreco($row->precoReal);
+=======
+			$produto->setPreco($row->preco);
+			$produto->setPrecoReal($row->precoReal);
+>>>>>>> 0be541cf46e053e02818aa79849eae981901a041
 			
 			$produto->setIdFabricante($row->fabricante_idFabricante);
 			$produto->setIdFornecedor($row->fornecedor_idFornecedor);
