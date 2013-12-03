@@ -14,19 +14,19 @@
 		$produto->setRam($_POST['ram']);
 		$produto->setHd($_POST['hd']);
 		$produto->setVideo($_POST['video']);
-		$produto->setPreco($_POST['preco']);
+		$produto->setPrecoReal($_POST['preco']);
 		
 		if ($_POST['preco']<1000){
-			$produto->setFaixaPreco(1);
+			$produto->setPreco(1);
 		}
 		else if ($_POST['preco'] >= 1000 && $_POST['preco'] < 2000){
-			$produto->setFaixaPreco(2);
+			$produto->setPreco(2);
 		}
 		else if ($_POST['preco'] >= 2000 && $_POST['preco'] < 3000){
-			$produto->setFaixaPreco(3);
+			$produto->setPreco(3);
 		}
 		else {
-			$produto->setFaixaPreco(4);
+			$produto->setPreco(4);
 		}
 		
 		$cadastro = cadastrarProduto($produto);	
