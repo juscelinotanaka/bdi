@@ -42,8 +42,8 @@
                             <h1>Cadastrar Fabricante</h1>
                             <p>Informe os dados do fabricante.</p>
                             <form method="post" id="cadastrar">
-                            <span><span class="required">*</span> Nome: </span> 																	<input type="text" name="nome" /><br><br />
-                            <span><span class="required">*</span> Nacionalidade: </span> 																	<input type="text" name="nacionalidade" /><br><br />
+                            <span class="cadPerf"><span class="required">*</span> Nome: </span> 																	<input type="text" name="nome" /><br><br />
+                            <span class="cadPerf"><span class="required">*</span> Nacionalidade: </span> 																	<input type="text" name="nacionalidade" /><br><br />
                             
                             <input type="hidden" value="cadastrar" name="acao" />
                             <a onclick="$('#cadastrar').submit();" class="button"><span>Cadastrar</span></a>
