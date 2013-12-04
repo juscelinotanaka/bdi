@@ -4,9 +4,7 @@
 <meta charset="UTF-8">
 <title>Cadastro de Usuário</title>
 <style type="text/css">
-.esquerda {
-	width:100px;
-}
+.wd100 { width:100px; }
 
 a:link {
 	text-decoration: none;
@@ -23,20 +21,16 @@ a:active {
 </style>
 </head>
 
-
-
 <body>
-
-<form>
-	<div>Nome:</div> <input type="text" name="nome"><br>
-    <div>Sobrenome:</div> <input type="text" name="sobrenome"><br>
-    <div>CPF:</div> <input type="text" name="cpf"><br>
-    <div>Email:</div> <input type="email" name="email"><br>
-    <div>Senha:</div> <input type="password" name="senha"><br>
-    <div>Apelido:</div> <input type="text" name="apelido">
-    <br><br>
-    <input type="submit" value="Cadastrar">
-</form>
-
+    <form>
+        <div>Nome:</div><input type="text" name="nome"><br>
+        <div>Sobrenome:</div><input type="text" name="sobrenome"><br>
+        <div>CPF:</div><input type="text" name="cpf"><br>
+        <div>Email:</div><input type="email" name="email"><br>
+        <div>Senha:</div><input type="password" name="senha"><br>
+        <div>Apelido:</div><input type="text" name="apelido"><br>
+        <br>
+        <input type="submit" value="Cadastrar">
+    </form>
 </body>
 </html>
