@@ -42,4 +42,5 @@
 	
 	getHeader();
 	getFooter();
+							'perfil'=>'Perfil',
 ?>
