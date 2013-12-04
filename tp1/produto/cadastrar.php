@@ -53,8 +53,8 @@
                        <?
 						breadcrumb(array(
 							'http://localhost/bdi/tp1/'=>'Home', 
-							'perfil'=>'Perfil',
-							'cadastrar.php'=>'Cadastrar Perfil'
+							'produto'=>'Produto',
+							'cadastrar.php'=>'Cadastrar Produto'
 						));
 						?>
 					</div>
@@ -150,9 +150,5 @@
             </div> <!-- fim principal -->
             
 <?
-	
-	if ($_GET['primeiroAcesso']) {
-		alertar('Cadastre um perfil de Notebooks para acharmos o melhor pra você!', 'sucesso');
-	}
 	getFooter(); 
 ?>

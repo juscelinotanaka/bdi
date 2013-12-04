@@ -20,5 +20,39 @@
 	}
 	
 	getHeader();
-	getFooter();
+?>
+
+<div class="colunaDireita">
+                	<? getColunaHome(); ?>
+                </div>
+            	<div class="principal">
+                
+                	<div class="breadcrumb">
+                       <?
+						breadcrumb(array(
+							'http://localhost/bdi/tp1/'=>'Home', 
+							'fornecedor'=>'Fornecedor',
+							'cadastrar.php'=>'Cadastrar Fornecedor'
+						));
+						?>
+					</div>
+      
+                    <div class="geral">
+                    	<div class="description">
+                            <h1>Cadastrar Fornecedor</h1>
+                            <p>Informe os dados do fornecedor.</p>
+                            <form method="post" id="cadastrar">
+                            <span><span class="required">*</span> Nome: </span> 																	<input type="text" name="nome" /><br><br />
+                            
+                            <input type="hidden" value="cadastrar" name="acao" />
+                            <a onclick="$('#cadastrar').submit();" class="button"><span>Cadastrar</span></a>
+                            </form>
+                    	</div>
+                        <!-- fim description -->
+                    </div> <!-- fim right -->
+                <div class="clear h16"></div>
+            </div> <!-- fim principal -->
+            
+<?
+	getFooter(); 
 ?>
