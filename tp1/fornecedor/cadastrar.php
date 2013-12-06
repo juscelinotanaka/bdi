@@ -46,7 +46,7 @@
                             
                             <input type="hidden" value="cadastrar" name="acao" />
                             <input type="submit" id="btnCadastrar" style="display:none;">
-                        	<a onclick="$('#btnCadastrar').click();" class="button"><span>Cadastrar</span></a>>
+                        	<a onclick="$('#btnCadastrar').click();" class="button"><span>Cadastrar</span></a>
                             </form>
                     	</div>
                         <!-- fim description -->
