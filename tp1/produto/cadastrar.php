@@ -138,7 +138,7 @@
                             <br>
                             <br>
                             
-                            <span class="required">*</span><span class="cadPerf">Preço:</span> <input type="text" id="field" name="field" />
+                            <span class="cadPerf">Preço:</span> <input type="text" id="preco" name="preco" />
                             <br /><br />
                             <input type="hidden" value="cadastrar" name="acao" />
                             <input type="submit" id="btnCadastrar" style="display:none;">
@@ -163,7 +163,7 @@ jQuery.validator.setDefaults({
 });
 $( "#cadastrarProduto" ).validate({
   rules: {
-    field: {
+    preco: {
       required: true,
       number: true
     }
