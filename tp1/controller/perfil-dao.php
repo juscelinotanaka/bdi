@@ -13,7 +13,7 @@
 			if ($res) {
 				$state = pg_result_error_field($res, PGSQL_DIAG_SQLSTATE);
 				
-				if ($state==0 && (pg_affected_rows($result) > 0)) {
+				if ($state==0){
 					return 1;
 				}
 				else {

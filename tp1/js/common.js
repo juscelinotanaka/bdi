@@ -18,19 +18,19 @@ function usuarioOK(){
 		return false;
 	}
 	
-	if($('.cadastrarUsuario input[name="sobrenome"]').val() == ""){
+	if($('#cadastrarUsuario input[name="sobrenome"]').val() == ""){
 		alert('Preencha todos os campos obrigatórios!');
 		$('#cadastrarUsuario input[name="nosobrenomeme"]').focus();
 		return false;
 	}
 	
-	if($('.cadastrarUsuario input[name="cpf"]').val() == ""){
+	if($('#cadastrarUsuario input[name="cpf"]').val() == ""){
 		alert('Preencha todos os campos obrigatórios!');
-		$('#cadastrarUsuario input[name="cpf"]').focus();
+		$('.cadastrarUsuario input[name="cpf"]').focus();
 		return false;
 	}
 	
-	if($('.cadastrarUsuario input[name="email"]').val() == ""){
+	if($('#cadastrarUsuario input[name="email"]').val() == ""){
 		alert('Preencha todos os campos obrigatórios!');
 		$('#cadastrarUsuario input[name="email"]').focus();
 		return false;
@@ -46,9 +46,9 @@ function usuarioOK(){
 }
 
 function produtoOK(){
-	if($('.cadastrarProduto input[name="descricao"]').val() == ""){
+	if($('#cadastrarProduto input[name="descricao"]').val() == ""){
 		alert('Preencha todos os campos obrigatórios!');
-		$('.cadastrarProduto input[name="descricao"]').focus();
+		$('#cadastrarProduto input[name="descricao"]').focus();
 		return false;
 	}
 	
@@ -56,9 +56,9 @@ function produtoOK(){
 }
 
 function perfilOK(){
-	if($('.cadastrarPerfil input[name="descricao"]').val() == ""){
+	if($('#cadastrarPerfil input[name="descricao"]').val() == ""){
 		alert('Preencha todos os campos obrigatórios!');
-		$('.cadastrarPerfil input[name="descricao"]').focus();
+		$('#cadastrarPerfil input[name="descricao"]').focus();
 		return false;
 	}
 	
@@ -66,16 +66,15 @@ function perfilOK(){
 }
 
 function lojaOK(){
-	alert('aqui');
-	if($('.cadastrarLoja input[name="nome"]').val() == ""){
+	if($('#cadastrarLoja input[name="nome"]').val() == ""){
 		alert('Preencha todos os campos obrigatórios!');
-		$('.cadastrarLoja input[name="nome"]').focus();
+		$('#cadastrarLoja input[name="nome"]').focus();
 		return false;
 	}
 	
-	if($('.cadastrarLoja input[name="endereco"]').val() == ""){
+	if($('#cadastrarLoja input[name="endereco"]').val() == ""){
 		alert('Preencha todos os campos obrigatórios!');
-		$('.cadastrarLoja input[name="endereco"]').focus();
+		$('#cadastrarLoja input[name="endereco"]').focus();
 		return false;
 	}
 	
@@ -83,9 +82,9 @@ function lojaOK(){
 }
 
 function fornecedorOK(){
-	if($('.cadastrarFornecedor input[name="nome"]').val() == ""){
+	if($('#cadastrarFornecedor input[name="nome"]').val() == ""){
 		alert('Preencha todos os campos obrigatórios!');
-		$('.cadastrarFornecedor input[name="nome"]').focus();
+		$('#cadastrarFornecedor input[name="nome"]').focus();
 		return false;
 	}
 	
@@ -93,15 +92,15 @@ function fornecedorOK(){
 }
 
 function fabricanteOK(){
-	if($('.cadastrarFabricante input[name="nome"]').val() == ""){
+	if($('#cadastrarFabricante input[name="nome"]').val() == ""){
 		alert('Preencha todos os campos obrigatórios!');
 		$('.cadastrarFabricante input[name="nome"]').focus();
 		return false;
 	}
 	
-	if($('.cadastrarFabricante input[name="nacionalidade"]').val() == ""){
+	if($('#cadastrarFabricante input[name="nacionalidade"]').val() == ""){
 		alert('Preencha todos os campos obrigatórios!');
-		$('.cadastrarFabricante input[name="nacionalidade"]').focus();
+		$('#cadastrarFabricante input[name="nacionalidade"]').focus();
 		return false;
 	}
 	

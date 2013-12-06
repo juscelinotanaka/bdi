@@ -14,7 +14,7 @@
 			if ($res) {
 				$state = pg_result_error_field($res, PGSQL_DIAG_SQLSTATE);
 				
-				if ($state==0 && (pg_affected_rows($result) > 0)) {
+				if ($state==0) {
 					return 1;
 				}
 				else {
@@ -281,7 +281,7 @@
 			$produto->setVideo($row->video);
 			$produto->setPreco($row->preco);
 			$produto->setPrecoReal($row->precoReal);
-		$produto->setIdFabricante($row->fabricante_idFabricante);
+			$produto->setIdFabricante($row->fabricante_idFabricante);
 			$produto->setIdFornecedor($row->fornecedor_idFornecedor);
 			$produto->setIdLoja($row->loja_idLoja);
 			

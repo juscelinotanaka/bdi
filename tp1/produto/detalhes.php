@@ -36,7 +36,7 @@
                     	</div>
                         <!-- fim description -->
                     	<div class="price">
-                        	 Preço: <?php echo $produto->getPreco();?><br />
+                        	 Preço: R$ <?php echo number_format($produto->getPreco(), 2, ',', '.');?><br />
 						</div>	<!-- fim price -->
                     </div> <!-- fim right -->
                 <div class="clear h16"></div>
