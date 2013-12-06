@@ -45,6 +45,16 @@ function usuarioOK(){
 	return true;	
 }
 
+function produtoOK(){
+	if($('.cadastrarProduto input[name="descricao"]').val() == ""){
+		alert('Preencha todos os campos obrigatórios!');
+		$('.cadastrarProduto input[name="descricao"]').focus();
+		return false;
+	}
+	
+	return true;
+}
+
 function perfilOK(){
 	if($('.cadastrarPerfil input[name="descricao"]').val() == ""){
 		alert('Preencha todos os campos obrigatórios!');
@@ -55,16 +65,17 @@ function perfilOK(){
 	return true;
 }
 
-function fabricanteOK(){
-	if($('.cadastrarFabricante input[name="nome"]').val() == ""){
+function lojaOK(){
+	alert('aqui');
+	if($('.cadastrarLoja input[name="nome"]').val() == ""){
 		alert('Preencha todos os campos obrigatórios!');
-		$('.cadastrarFabricante input[name="nome"]').focus();
+		$('.cadastrarLoja input[name="nome"]').focus();
 		return false;
 	}
 	
-	if($('.cadastrarFabricante input[name="nacionalidade"]').val() == ""){
+	if($('.cadastrarLoja input[name="endereco"]').val() == ""){
 		alert('Preencha todos os campos obrigatórios!');
-		$('.cadastrarFabricante input[name="nacionalidade"]').focus();
+		$('.cadastrarLoja input[name="endereco"]').focus();
 		return false;
 	}
 	
@@ -81,32 +92,16 @@ function fornecedorOK(){
 	return true;
 }
 
-function produtoOK(){
-	if($('.cadastrarProduto input[name="descricao"]').val() == ""){
+function fabricanteOK(){
+	if($('.cadastrarFabricante input[name="nome"]').val() == ""){
 		alert('Preencha todos os campos obrigatórios!');
-		$('.cadastrarProduto input[name="descricao"]').focus();
+		$('.cadastrarFabricante input[name="nome"]').focus();
 		return false;
 	}
 	
-	return true;
-}
-
-function lojaOK(){
-	if($('.cadastrarLoja input[name="nome"]').val() == ""){
+	if($('.cadastrarFabricante input[name="nacionalidade"]').val() == ""){
 		alert('Preencha todos os campos obrigatórios!');
-		$('.cadastrarLoja input[name="nome"]').focus();
-		return false;
-	}
-	
-	if($('.cadastrarLoja input[name="marca"]').val() == ""){
-		alert('Preencha todos os campos obrigatórios!');
-		$('.cadastrarLoja input[name="marca"]').focus();
-		return false;
-	}
-	
-	if($('.cadastrarLoja input[name="endereco"]').val() == ""){
-		alert('Preencha todos os campos obrigatórios!');
-		$('.cadastrarLoja input[name="endereco"]').focus();
+		$('.cadastrarFabricante input[name="nacionalidade"]').focus();
 		return false;
 	}
 	
