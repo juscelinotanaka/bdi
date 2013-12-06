@@ -2,17 +2,31 @@
 	
 	include("conexao.php");
 	include_once(ABSPATH."model/usuario-class.php");
-
+	
 	function cadastrarUsuario(Usuario $usuario){
 		$qry = "INSERT INTO public.usuario (nome,sobrenome,\"CPF\",email,senha,apelido)  VALUES ('".$usuario->getNome()."', '".$usuario->getSobrenome()."', '".$usuario->getCpf()."', '".$usuario->getEmail()."', md5('".$usuario->getSenha()."'), '".$usuario->getApelido()."')";
 		
-		$result = pg_query($qry) or die("Cannot execute query: $qry\n");
+		global $db;
 		
-		if(pg_affected_rows($result)>0){
-			return 1;
-		}
-		else{
-			return 0;
+		if (pg_send_query($db, $qry)) {
+			$res=pg_get_result($db);
+			
+			if ($res) {
+				$state = pg_result_error_field($res, PGSQL_DIAG_SQLSTATE);
+				
+				if ($state==0){
+					return 1;
+				}
+				else {
+				  	
+					//unique
+					if ($state=="23505") { 
+						return 2;
+					}
+					
+					return 0;
+				}
+			}
 		}
 	}
 	

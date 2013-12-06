@@ -3,7 +3,7 @@ define( 'ABSPATH', dirname(__FILE__) . '/' );
 define( 'SYSURL', '/bdi/tp1/');
 
 include (ABSPATH."crumbs.php");
-include(ABSPATH."controller/conexao.php");
+//include_once(ABSPATH."controller/conexao.php");
 include_once(ABSPATH."controller/usuario-dao.php");
 include_once(ABSPATH."controller/loja-dao.php");
 include_once(ABSPATH."controller/produto-dao.php");

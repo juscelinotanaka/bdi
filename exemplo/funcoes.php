@@ -2,18 +2,32 @@
 
 	include("conexao.php");
 	
+	conectarBD();
+	
 	function cadastrarUsuario($nome, $sobrenome, $cpf, $email, $senha, $apelido){
 		$qry = "INSERT INTO public.usuario (nome,sobrenome,\"CPF\",email,senha,apelido)  		VALUES ('".$nome."', '".$sobrenome."', '".$cpf."', '".$email."', md5('".$senha."'), '".$apelido."')";
 		
-		echo $qry;
+		//echo $qry;
 		
-		$result = pg_query($qry) or die("Cannot execute query: $qry\n");
+		$db = conectarBD();
 		
-		if(pg_affected_rows($result)>0){
-			return 1;
-		}
-		else{
-			return 0;
+		if (pg_send_query($db, $qry)) {
+			$res=pg_get_result($db);
+			
+			if ($res) {
+				$state = pg_result_error_field($res, PGSQL_DIAG_SQLSTATE);
+				if ($state==0 && (pg_affected_rows($result) > 0)) {
+					return 1;
+				}
+				else {
+				  // some error happened
+					if ($state=="23505") { // unique_violation
+						// process specific error
+						echo "unique:  " . $state;
+						return 0;
+					}
+				}
+			}
 		}
 	}
 	

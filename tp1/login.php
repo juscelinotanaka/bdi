@@ -24,15 +24,16 @@ if ($_POST['acao'] == 'logar') {
 	$usuario->setSenha($_POST['senha']);
 	$usuario->setApelido($_POST['apelido']);
 	
-	if (cadastrarUsuario($usuario)) {
+	if (cadastrarUsuario($usuario) == 1) {
 		$cadastroOk = 'Cadastro Realizado com Sucesso!';
-	} else {
-		$erro = 'Erro ao cadastrar.';
+	} 
+	else if (cadastrarUsuario($usuario) == 2){
+		$erro = 'CPF ou E-mail inválidos.';
+	}
+	else{
+		$erro = 'Erro no cadastro.';
 	}
 }
-
-
-
 
 getHeader();
 ?>
@@ -57,7 +58,7 @@ getHeader();
                       <h2>Novo Usuário</h2>
                       <div class="content">
                         <p><b>Criar Conta</b></p>
-                        <form method="post" id="cadastrar">
+                        <form method="post" id="cadastrarUsuario" onsubmit="return usuarioOK();">
                         <p><table class="form">
                             <tbody><tr>
                               <td><span class="required">*</span> Nome:</td>
@@ -89,7 +90,9 @@ getHeader();
                           </tbody></table>
                           <input type="hidden" name="acao" value="cadastrar" />
                         </p>
-                        <a onclick="$('#cadastrar').submit();" class="button"><span>Cadastrar</span></a>
+                            
+                            <input type="submit" id="btnCadastrar" style="display:none;">
+                            <a onclick="$('#btnCadastrar').click();" class="button"><span>Cadastrar</span></a>
                         </form>
                         </div>
                     </div>

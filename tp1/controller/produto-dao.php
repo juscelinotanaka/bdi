@@ -5,13 +5,27 @@
 	
 	function cadastrarProduto(Produto $produto){
 		$qry = "INSERT INTO notebook.produto (tamanho,processador,ram,hd,video,preco, \"precoReal\",\"fabricante_idFabricante\",\"fornecedor_idFornecedor\",\"loja_idLoja\") VALUES ('".$produto->getDescricao()."', ".$produto->getTamanho().", ".$produto->getProcessador().", ".$produto->getRam().", ".$produto->getHd().", ".$produto->getVideo().", ".$produto->getPreco().", ".$produto->getPrecoReal().", ".$produto->getIdFabricante().", ".$produto->getIdFornecedor().", ".$produto->getIdLoja().")";
-		$result = pg_query($qry) or die("Cannot execute query: $qry\n");
 		
-		if(pg_affected_rows($result)>0){
-			return 1;
-		}
-		else{
-			return 0;
+		global $db;
+		
+		if (pg_send_query($db, $qry)) {
+			$res=pg_get_result($db);
+			
+			if ($res) {
+				$state = pg_result_error_field($res, PGSQL_DIAG_SQLSTATE);
+				
+				if ($state==0 && (pg_affected_rows($result) > 0)) {
+					return 1;
+				}
+				else {
+				  	
+					if ($state=="23505") { 
+						return 2;
+					}
+					
+					return 0;
+				}
+			}
 		}
 	}
 	

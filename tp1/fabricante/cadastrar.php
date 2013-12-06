@@ -41,12 +41,13 @@
                     	<div class="description">
                             <h1>Cadastrar Fabricante</h1>
                             <p>Informe os dados do fabricante.</p>
-                            <form method="post" id="cadastrar">
+                            <form method="post" id="cadastrarFabricante" onsubmit="return fabricanteOK();">
                             <span class="cadPerf"><span class="required">*</span> Nome: </span> 																	<input type="text" name="nome" /><br><br />
                             <span class="cadPerf"><span class="required">*</span> Nacionalidade: </span> 																	<input type="text" name="nacionalidade" /><br><br />
                             
                             <input type="hidden" value="cadastrar" name="acao" />
-                            <a onclick="$('#cadastrar').submit();" class="button"><span>Cadastrar</span></a>
+                            <input type="submit" id="btnCadastrar" style="display:none;">
+                        	<a onclick="$('#btnCadastrar').click();" class="button"><span>Cadastrar</span></a>
                             </form>
                     	</div>
                         <!-- fim description -->

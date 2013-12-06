@@ -63,7 +63,7 @@
                     	<div class="description">
                             <h1>Cadastrar Notebook</h1>
                             <p>Informe os dados do notebook.</p>
-                            <form method="post" id="cadastrar">
+                            <form method="post" id="cadastrarProduto" onclick="return produtoOK();">
                             <span><span class="required">*</span> Descrição Rápida: <h5>ex. Notebook HP I5 8GB 750GB</h5></span> 																	<input type="text" name="descricao" /><br><br />
                             <span class="cadPerf">Marca:</span> 
                             <select name="marca">
@@ -141,7 +141,8 @@
                             <span class="cadPerf">Preço:</span> <input type="text" name="preco" />
                             <br /><br />
                             <input type="hidden" value="cadastrar" name="acao" />
-                            <a onclick="$('#cadastrar').submit();" class="button"><span>Cadastrar</span></a>
+                            <input type="submit" id="btnCadastrar" style="display:none;">
+                        	<a onclick="$('#btnCadastrar').click();" class="button"><span>Cadastrar</span></a>
                             </form>
                     	</div>
                         <!-- fim description -->

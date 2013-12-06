@@ -42,9 +42,9 @@
                     	<div class="description">
                             <h1>Cadastrar Loja</h1>
                             <p>Informe os dados da loja.</p>
-                            <form method="post" id="cadastrar">
+                            <form method="post" id="cadastrarLoja" onsubmit="return lojaOK();">
                             <span class="cadPerf"><span class="required">*</span> Nome: </span> 																	<input type="text" name="nome" /><br><br />
-                            <span class="cadPerf">Tipo:</span> 
+                           <span class="required">*</span> <span class="cadPerf">Tipo:</span> 
                             <select name="marca">
                             	<option value="">Selecione:</option>
                                 <option value="1">Física</option>
@@ -54,8 +54,8 @@
                             <span class="cadPerf"><span class="required">*</span> Endereço: </span> 																	<input type="text" name="endereco" /><br><br />
                             
                             <input type="hidden" value="cadastrar" name="acao" />
-                            <a onclick="$('#cadastrar').submit();" class="button"><span>Cadastrar</span></a>
-                            </form>
+                            <input type="submit" id="btnCadastrar" style="display:none;">
+                        	<a onclick="$('#btnCadastrar').click();" class="button"><span>Cadastrar</span></a></form>
                     	</div>
                         <!-- fim description -->
                     </div> <!-- fim right -->

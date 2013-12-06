@@ -4,7 +4,7 @@
 	
 	if ($_POST['acao'] == 'cadastrar') {
 		
-		if ($_POST['descricao'] != ""){
+		//if ($_POST['descricao'] != ""){
 			$perfil = new Perfil();
 			$perfil->setIdUsuario($_SESSION['idUsuario']);
 			$perfil->setDescricao($_POST['descricao']);
@@ -19,10 +19,10 @@
 				echo '<script type="text/javascript">alert("Erro no cadastro!");</script>';
 			}
 		
-		}
+		/*}
 		else{
 			echo '<script type="text/javascript">alert("Informe a descrição do perfil");</script>';
-		}
+		}*/
 		
 		
 	}
@@ -48,7 +48,7 @@
                     	<div class="description">
                             <h1>Cadastrar Perfil</h1>
                             <p>Dê um nome para o seu perfil e defina as características de como você prefere um notebook.</p>
-                            <form method="post" id="cadastrar">
+                            <form method="post" id="cadastrarPerfil" onsubmit="return perfilOK();">
                             <span><span class="required">*</span> Descrição: <h5>ex. Só i5, 8GB de Memória, Tops</h5></span> <input type="text" name="descricao" /><br><br />
                             <span class="cadPerf">Marca:</span> 
                             <select name="marca">
@@ -119,7 +119,10 @@
                             </select>
                             <br /><br />
                             <input type="hidden" value="cadastrar" name="acao" />
-                            <a onclick="$('#cadastrar').submit();" class="button"><span>Cadastrar</span></a>
+                            
+                            <input type="submit" id="btnCadastrar" style="display:none;">
+                        	<a onclick="$('#btnCadastrar').click();" class="button"><span>Cadastrar</span></a>
+                        </form>
                             </form>
                     	</div>
                         <!-- fim description -->
