@@ -362,8 +362,8 @@ table.form {
 	font-weight: bold;
 }
 .error {
-	display: block;
 	color: #FF0000;
+	padding-left:10px;
 }
 .help {
 	color: #999;

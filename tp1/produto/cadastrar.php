@@ -14,15 +14,15 @@
 		$produto->setRam($_POST['ram']);
 		$produto->setHd($_POST['hd']);
 		$produto->setVideo($_POST['video']);
-		$produto->setPrecoReal($_POST['preco']);
+		$produto->setPrecoReal($_POST['field']);
 		
-		if ($_POST['preco']<1000){
+		if ($_POST['field']<1000){
 			$produto->setPreco(1);
 		}
-		else if ($_POST['preco'] >= 1000 && $_POST['preco'] < 2000){
+		else if ($_POST['field'] >= 1000 && $_POST['preco'] < 2000){
 			$produto->setPreco(2);
 		}
-		else if ($_POST['preco'] >= 2000 && $_POST['preco'] < 3000){
+		else if ($_POST['field'] >= 2000 && $_POST['preco'] < 3000){
 			$produto->setPreco(3);
 		}
 		else {
@@ -138,7 +138,7 @@
                             <br>
                             <br>
                             
-                            <span class="required">*</span><span class="cadPerf">Preço:</span> <input type="text" name="preco" />
+                            <span class="required">*</span><span class="cadPerf">Preço:</span> <input type="text" id="field" name="field" />
                             <br /><br />
                             <input type="hidden" value="cadastrar" name="acao" />
                             <input type="submit" id="btnCadastrar" style="display:none;">
@@ -152,4 +152,21 @@
             
 <?
 	getFooter(); 
+	
 ?>
+
+<script>
+// just for the demos, avoids form submit
+jQuery.validator.setDefaults({
+  debug: true,
+  success: "valid"
+});
+$( "#cadastrarProduto" ).validate({
+  rules: {
+    field: {
+      required: true,
+      number: true
+    }
+  }
+});
+</script>
