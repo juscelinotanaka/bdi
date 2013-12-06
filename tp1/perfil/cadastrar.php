@@ -128,7 +128,6 @@
                         <!-- fim description -->
                     </div> <!-- fim right -->
                 <div class="clear h16"></div>
-            </div> <!-- fim principal -->
             
 <?
 	

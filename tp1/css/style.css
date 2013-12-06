@@ -175,6 +175,10 @@ text-decoration: none;
 	margin-bottom: 0px;
 }
 
+.principal .produto .cart {
+	text-align:center;
+}
+
 a.button {
 	display: inline-block;
 	padding-left: 8px;

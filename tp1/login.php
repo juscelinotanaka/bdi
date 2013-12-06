@@ -118,7 +118,6 @@ getHeader();
                 </div>
                 <div class="clear"></div>
             
-            </div> <!-- fim principal -->
             
 <?
 

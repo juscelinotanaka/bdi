@@ -56,7 +56,7 @@
                     
                 </div>
             
-            </div> <!-- fim principal -->
+            
             
 <?
 getFooter(); 
