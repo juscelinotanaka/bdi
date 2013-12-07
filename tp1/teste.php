@@ -16,6 +16,7 @@
 	$recomendacoes = produtosRecomendados($_SESSION['idUsuario']);
 	
 	getHeader();
+	
 ?>
 
 
