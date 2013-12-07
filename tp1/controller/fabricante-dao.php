@@ -46,5 +46,23 @@
 		else{
 			return 0;
 		}
+	}
+	
+	function listarFabricantes(){
+		$qry = "SELECT * FROM public.fabricante";
+		$result = pg_query($qry) or die("Cannot execute query: $qry\n");
+		
+		while ($row = pg_fetch_object($result)){
+			
+			$fabricante = new Fabricante();
+			
+			$fabricante->setId($row->idFabricante);
+			$fabricante->setNome($row->nome);
+			$fabricante->setNacionalidade($row->nacionalidade);
+			
+			$fabricantes[] = $fabricante;
+		}
+		
+		return $fabricantes;
 	}	
 ?>

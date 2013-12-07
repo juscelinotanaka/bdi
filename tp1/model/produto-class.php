@@ -89,7 +89,7 @@
 		}
 		
 		public function getIdFabricante(){
-			return $this->idfabricante;
+			return $this->idFabricante;
 		}
 		public function setIdFabricante($id){
 			$this->idFabricante = $id;

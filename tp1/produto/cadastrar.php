@@ -16,6 +16,10 @@
 		$produto->setVideo($_POST['video']);
 		$produto->setPrecoReal($_POST['preco']);
 		
+		$produto->setIdFabricante($_POST['fabricante']);
+		$produto->setIdFornecedor($_POST['fornecedor']);
+		$produto->setIdLoja($_POST['loja']);
+		
 		if ($_POST['preco']<1000){
 			$produto->setPreco(1);
 		}
@@ -42,6 +46,10 @@
 	
 	getHeader();
 	
+	$lojas = listarLojas();
+	$fabricantes = listarFabricantes();
+	$fornecedores = listarFornecedores();
+	
 ?>
 
 <div class="colunaDireita">
@@ -65,14 +73,14 @@
                             <p>Informe os dados do notebook.</p>
                             <form method="post" id="cadastrarProduto" onsubmit="return produtoOK();">
                             <span><span class="required">*</span> Descrição Rápida: <h5>ex. Notebook HP I5 8GB 750GB</h5></span> 																	<input type="text" name="descricao" /><br><br />
-                            <span class="required">*</span><span class="cadPerf">Marca:</span> 
-                            <select name="marca">
+                            <span class="required">*</span><span class="cadPerf">Fabricante:</span> 
+                            <select name="fabricante">
                             	<option value="">Selecione:</option>
-                                <option value="1">HP</option>
-                                <option value="2">ASUS</option>
-                                <option value="3">Dell</option>
-                                <option value="4">Acer</option>
-                                <option value="5">Samsung</option>
+                                <?php
+                                	foreach($fabricantes as $fabricante){
+										echo '<option value="'.$fabricante->getId().'">'.$fabricante->getNome().'</option>';
+									}
+								?>
                             </select>
                             <br><br>
                             
@@ -127,6 +135,11 @@
                             <span class="required">*</span><span class="cadPerf">Fornecedor:</span> 
                             <select name="fornecedor">
                             	<option value="">Selecione:</option>
+                                <?php
+                                	foreach($fornecedores as $fornecedor){
+										echo '<option value="'.$fornecedor->getId().'">'.$fornecedor->getNome().'</option>';
+									}
+								?>
                             </select>
                             <br>
                             <br>
@@ -134,12 +147,19 @@
                             <span class="required">*</span><span class="cadPerf">Loja:</span> 
                             <select name="loja">
                             	<option value="">Selecione:</option>
+                                <?php
+                                	foreach($lojas as $loja){
+										echo '<option value="'.$loja->getId().'">'.$loja->getNome().'</option>';
+									}
+								?>
                             </select>
                             <br>
                             <br>
                             
                             <span class="required">*</span><span class="cadPerf">Preço:</span> <input type="text" id="preco" name="preco" />
                             <br /><br />
+                            <!--<span class="required"></span><span class="cadPerf">Imagem:</span> <input type="text" id="imagem" name="imagem" />
+                            <br /><br />-->
                             <input type="hidden" value="cadastrar" name="acao" />
                             <input type="submit" id="btnCadastrar" style="display:none;">
                         	<a onclick="$('#btnCadastrar').click();" class="button"><span>Cadastrar</span></a>

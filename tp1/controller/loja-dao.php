@@ -36,7 +36,7 @@
 		if (pg_num_rows($result) == 1){
 			$row = pg_fetch_object($result);
 			
-			$loja = new Fornecedor();
+			$loja = new Loja();
 			
 			$loja->setId($row->idLoja);
 			$loja->setNome($row->nome);
@@ -48,5 +48,23 @@
 		else{
 			return 0;
 		}
+	}
+	
+	function listarLojas(){
+		$qry = "SELECT * FROM public.loja";
+		$result = pg_query($qry) or die("Cannot execute query: $qry\n");
+		
+		while ($row = pg_fetch_object($result)){
+			
+			$loja = new Loja();
+			
+			$loja->setId($row->idLoja);
+			$loja->setNome($row->nome);
+			$loja->setFisico($row->fisico);
+			$loja->setEndereco($row->endereco);
+			
+			$lojas[] = $loja;
+		}
+		return $lojas;
 	}
 ?>

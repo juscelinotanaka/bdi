@@ -46,4 +46,21 @@
 			return 0;
 		}
 	}
+	
+	function listarFornecedores(){
+		$qry = "SELECT * FROM public.fornecedor";
+		$result = pg_query($qry) or die("Cannot execute query: $qry\n");
+		
+		while($row = pg_fetch_object($result)){
+			
+			$fornecedor = new Fornecedor();
+			
+			$fornecedor->setId($row->idFornecedor);
+			$fornecedor->setNome($row->nome);
+			
+			$fornecedores[] = $fornecedor;
+		}
+			
+		return $fornecedores;
+	}
 ?>
