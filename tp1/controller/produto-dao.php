@@ -31,7 +31,7 @@
 	}
 	
 	function consultarProduto($idProduto){
-		$qry = "SELECT p.nome as nome, p.descricao as descricao, p.imagem as imagem, p.\"precoReal\" as preco,
+		$qry = "SELECT p.\"idProduto\" as \"idProduto\", p.nome as nome, p.descricao as descricao, p.imagem as imagem, p.\"precoReal\" as preco,
 					(SELECT \"valorMapeado\" FROM notebook.caracteristica c
 					WHERE atributo = 'tamanho' AND c.valor = p.tamanho) AS tamanho,
 					(SELECT \"valorMapeado\" FROM notebook.caracteristica c
@@ -296,9 +296,30 @@
 	}
 	
 	function produtosRecomendadosPorAmigos($idUsuario){
-		$qry = "";
 		
-		$result = pg_query($qry)  or die("Cannot execute query: <br>$qry\n");
+		$qry = 'SELECT p."idProduto" as "idProduto", p.nome as nome, p.descricao as descricao, p.imagem as imagem, p."precoReal" as "precoReal",
+					(SELECT "valorMapeado" FROM notebook.caracteristica c
+					WHERE atributo = \'tamanho\' AND c.valor = p.tamanho) AS tamanho,
+					(SELECT "valorMapeado" FROM notebook.caracteristica c
+					WHERE atributo = \'processador\' AND c.valor = p.processador) AS processador,
+					(SELECT "valorMapeado" FROM notebook.caracteristica c
+					WHERE atributo = \'ram\' AND c.valor = p.ram) AS ram,
+					(SELECT "valorMapeado" FROM notebook.caracteristica c
+					WHERE atributo = \'hd\' AND c.valor = p.hd) AS hd,
+					(SELECT "valorMapeado" FROM notebook.caracteristica c
+					WHERE atributo = \'video\' AND c.valor = p.video) AS video
+				FROM notebook.produto p 
+				WHERE p."idProduto" IN(
+											SELECT "produto_idProduto" 
+											FROM notebook.recomendacao 
+											WHERE "amizade_idAmizade" IN (
+																			SELECT "idAmizade" 
+																			FROM public.amizade 
+																			WHERE "usuario_idAmigo" = '.$idUsuario.'
+																		 )
+										)';
+										
+		$result = pg_query($qry)  or die("Cannot execute query: $qry\n");
 		
 		while($row = pg_fetch_object($result)){
 			
@@ -312,20 +333,14 @@
 			$produto->setRam($row->ram);
 			$produto->setHd($row->hd);
 			$produto->setVideo($row->video);
-			$produto->setPreco($row->preco);
 			$produto->setPrecoReal($row->precoReal);
-		
-			$produto->setIdFabricante($row->fabricante_idFabricante);
-			$produto->setIdFornecedor($row->fornecedor_idFornecedor);
-			$produto->setIdLoja($row->loja_idLoja);
-			
 			$produto->setImagem($row->imagem);
-			$produto->setSoma($row->soma);
 			
 			$produtos[] = $produto;
 		}
 		
 		return $produtos;
+		
 	}
 	
 ?>

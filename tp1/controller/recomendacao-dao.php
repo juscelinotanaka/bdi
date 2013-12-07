@@ -1,6 +1,7 @@
 <?php
 	include("conexao.php");
 	include_once(ABSPATH."model/recomendacao-class.php");
+	include_once(ABSPATH."model/produto-class.php");
 	
 	function cadastrarRecomendacao(Recomendacao $recomendacao){
 		$qry = "INSERT INTO notebook.recomendacao (\"amizade_idAmizade\",\"produto_idProduto\") VALUES (".$recomendacao->getIdAmizade().", ".$recomendacao->getIdProduto().")";
@@ -17,12 +18,7 @@
 					return 1;
 				}
 				else {
-				  	
-					if ($state=="23505") { 
-						return 2;
-					}
-					
-					return 0;
+				  	return 0;
 				}
 			}
 		}

@@ -14,6 +14,7 @@
 	}
 	
 	$recomendacoes = produtosRecomendados($_SESSION['idUsuario']);
+	$recomendacoesAmigos = produtosRecomendadosPorAmigos($_SESSION['idUsuario']);
 
 	getHeader();
 ?>
@@ -43,13 +44,13 @@
                     
                     
                     <div class="tituloGrupo">Recomendados pelos seus amigos</div>
-                    <? for ($i = 0; $i < 5; $i++) { ?>
+                    <? foreach ($recomendacoesAmigos as $prodAmigos) { ?>
                     	<div class="produto">
-                            <div class="image"><a href="#"><img src="nbs/<?php echo $prod->getImagem();?>" width="130" alt="Coffee Cups"></a></div>
-                            <div class="name"><a href="#">Coffee Cups</a></div>
-                            <div class="price">R$ 10.00</div>
+                            <div class="image"><a href="<? echo SYSURL ?>produto/detalhes.php?id=<? echo $prodAmigos->getId(); ?>"><img src="nbs/<?php echo $prodAmigos->getImagem();?>" width="130" alt="Coffee Cups"></a></div>
+                            <div class="name"><a href="<? echo SYSURL ?>produto/detalhes.php?id=<? echo $prodAmigos->getId(); ?>"><? echo $prodAmigos->getNome(); ?></a></div>
+                            <div class="price">R$ <? echo number_format($prodAmigos->getPrecoReal(), 2, ',', '.'); ?></div>
                             <div class="por"><a href="#">Por: Fulano de Tal</a></div>
-                            <div class="cart"><a href="#" class="button"><span>Detalhes</span></a></div>
+                            <div class="cart"><a href="<? echo SYSURL ?>produto/detalhes.php?id=<? echo $prodAmigos->getId(); ?>" class="button"><span>Detalhes</span></a></div>
                         </div>
                     <? } ?>
                     
