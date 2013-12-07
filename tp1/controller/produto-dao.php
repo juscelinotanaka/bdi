@@ -73,7 +73,20 @@
 	}
 	
 	function consultarProdutoPorFabricante($idFabricante){
-		$qry = "SELECT * FROM notebook.produto WHERE \"fabricante_idFabricante\" = ". $idFabricante ."";
+		$qry = "SELECT p.\"idProduto\" as \"idProduto\", p.nome as nome, p.descricao as descricao, p.imagem as imagem, p.\"precoReal\" as preco,
+					(SELECT \"valorMapeado\" FROM notebook.caracteristica c
+					WHERE atributo = 'tamanho' AND c.valor = p.tamanho) AS tamanho,
+					(SELECT \"valorMapeado\" FROM notebook.caracteristica c
+					WHERE atributo = 'processador' AND c.valor = p.processador) AS processador,
+					(SELECT \"valorMapeado\" FROM notebook.caracteristica c
+					WHERE atributo = 'ram' AND c.valor = p.ram) AS ram,
+					(SELECT \"valorMapeado\" FROM notebook.caracteristica c
+					WHERE atributo = 'hd' AND c.valor = p.hd) AS hd,
+					(SELECT \"valorMapeado\" FROM notebook.caracteristica c
+					WHERE atributo = 'video' AND c.valor = p.video) AS video
+				FROM notebook.produto p 
+				WHERE \"idFabricante\" = ". $idFabricante ."";
+				
 		$result = pg_query($qry) or die("Cannot execute query: $qry\n");
 		
 		while($row = pg_fetch_object($result)){
@@ -88,7 +101,7 @@
 			$produto->setRam($row->ram);
 			$produto->setHd($row->hd);
 			$produto->setVideo($row->video);
-			$produto->setPreco($row->precoReal);
+			$produto->setPreco($row->preco);
 			$produto->setImagem($row->imagem);
 			
 			$produtos[] = $produto;
@@ -98,7 +111,20 @@
 	}
 	
 	function consultarProdutoPorFornecedor($idFornecedor){
-		$qry = "SELECT * FROM notebook.produto WHERE fornecedor_idFornecedor = ". $idFornecedor ."";
+		$qry = "SELECT p.\"idProduto\" as \"idProduto\", p.nome as nome, p.descricao as descricao, p.imagem as imagem, p.\"precoReal\" as preco,
+					(SELECT \"valorMapeado\" FROM notebook.caracteristica c
+					WHERE atributo = 'tamanho' AND c.valor = p.tamanho) AS tamanho,
+					(SELECT \"valorMapeado\" FROM notebook.caracteristica c
+					WHERE atributo = 'processador' AND c.valor = p.processador) AS processador,
+					(SELECT \"valorMapeado\" FROM notebook.caracteristica c
+					WHERE atributo = 'ram' AND c.valor = p.ram) AS ram,
+					(SELECT \"valorMapeado\" FROM notebook.caracteristica c
+					WHERE atributo = 'hd' AND c.valor = p.hd) AS hd,
+					(SELECT \"valorMapeado\" FROM notebook.caracteristica c
+					WHERE atributo = 'video' AND c.valor = p.video) AS video
+				FROM notebook.produto p 
+				WHERE \"idFabricante\" = ". $idFornecedor ."";
+				
 		$result = pg_query($qry) or die("Cannot execute query: $qry\n");
 		
 		while($row = pg_fetch_object($result)){
@@ -113,7 +139,7 @@
 			$produto->setRam($row->ram);
 			$produto->setHd($row->hd);
 			$produto->setVideo($row->video);
-			$produto->setPreco($row->precoReal);
+			$produto->setPreco($row->preco);
 			$produto->setImagem($row->imagem);
 			
 			$produtos[] = $produto;
@@ -151,7 +177,7 @@
 			$produto->setRam($row->ram);
 			$produto->setHd($row->hd);
 			$produto->setVideo($row->video);
-			$produto->setPreco($row->precoReal);
+			$produto->setPrecoReal($row->precoReal);
 			
 			$produto->setIdFabricante($row->fabricante_idFabricante);
 			$produto->setIdFornecedor($row->fornecedor_idFornecedor);
