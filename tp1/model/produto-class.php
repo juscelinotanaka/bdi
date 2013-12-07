@@ -17,6 +17,8 @@
 		private $idLoja;
 		private $imagem;
 		private $soma;
+		private $nomeAmigo;
+		private $sobrenomeAmigo;
 		
 		public function getId(){
 			return $this->id;
@@ -121,6 +123,20 @@
 		}
 		public function setSoma($s){
 			$this->soma = $s;
+		}
+		
+		public function getNomeAmigo(){
+			return $this->nomeAmigo;
+		}
+		public function setNomeAmigo($n){
+			$this->nomeAmigo = $n;
+		}
+		
+		public function getSobrenomeAmigo(){
+			return $this->sobrenomeAmigo;
+		}
+		public function setSobrenomeAmigo($sn){
+			$this->sobrenomeAmigo = $sn;
 		}
 	}
 

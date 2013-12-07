@@ -323,27 +323,29 @@
 	
 	function produtosRecomendadosPorAmigos($idUsuario){
 		
-		$qry = 'SELECT p."idProduto" as "idProduto", p.nome as nome, p.descricao as descricao, p.imagem as imagem, p."precoReal" as "precoReal",
-					(SELECT "valorMapeado" FROM notebook.caracteristica c
-					WHERE atributo = \'tamanho\' AND c.valor = p.tamanho) AS tamanho,
-					(SELECT "valorMapeado" FROM notebook.caracteristica c
-					WHERE atributo = \'processador\' AND c.valor = p.processador) AS processador,
-					(SELECT "valorMapeado" FROM notebook.caracteristica c
-					WHERE atributo = \'ram\' AND c.valor = p.ram) AS ram,
-					(SELECT "valorMapeado" FROM notebook.caracteristica c
-					WHERE atributo = \'hd\' AND c.valor = p.hd) AS hd,
-					(SELECT "valorMapeado" FROM notebook.caracteristica c
-					WHERE atributo = \'video\' AND c.valor = p.video) AS video
-				FROM notebook.produto p 
-				WHERE p."idProduto" IN(
-											SELECT "produto_idProduto" 
-											FROM notebook.recomendacao 
-											WHERE "amizade_idAmizade" IN (
-																			SELECT "idAmizade" 
-																			FROM public.amizade 
-																			WHERE "usuario_idAmigo" = '.$idUsuario.'
-																		 )
-										)';
+		$qry = 'SELECT ra.nome as "nomeAmigo", ra.sobrenome as "sobrenomeAmigo", p."idProduto" as "idProduto", p.nome as nome, p.descricao as descricao, p.imagem as imagem, p."precoReal" as "precoReal",
+				(SELECT "valorMapeado" FROM notebook.caracteristica c
+				WHERE atributo = \'tamanho\' AND c.valor = p.tamanho) AS tamanho,
+				(SELECT "valorMapeado" FROM notebook.caracteristica c
+				WHERE atributo = \'processador\' AND c.valor = p.processador) AS processador,
+				(SELECT "valorMapeado" FROM notebook.caracteristica c
+				WHERE atributo = \'ram\' AND c.valor = p.ram) AS ram,
+				(SELECT "valorMapeado" FROM notebook.caracteristica c
+				WHERE atributo = \'hd\' AND c.valor = p.hd) AS hd,
+				(SELECT "valorMapeado" FROM notebook.caracteristica c
+				WHERE atributo = \'video\' AND c.valor = p.video) AS video
+			FROM notebook.produto p 
+			INNER JOIN (SELECT * FROM
+										(SELECT r."produto_idProduto", u.nome, u.sobrenome
+											FROM notebook.recomendacao r 
+											INNER JOIN public.amizade a ON r."amizade_idAmizade" = a."idAmizade"
+											INNER JOIN public.usuario u ON a."usuario_idUsuario" = u."idUsuario"
+											WHERE a."usuario_idAmigo" = '.$idUsuario.'
+										) as aux
+						)as ra 
+			ON ra."produto_idProduto" = p."idProduto"
+
+';
 										
 		$result = pg_query($qry)  or die("Cannot execute query: $qry\n");
 		
@@ -361,6 +363,8 @@
 			$produto->setVideo($row->video);
 			$produto->setPrecoReal($row->precoReal);
 			$produto->setImagem($row->imagem);
+			$produto->setNomeAmigo($row->nomeAmigo);
+			$produto->setSobrenomeAmigo($row->sobrenomeAmigo);
 			
 			$produtos[] = $produto;
 		}
