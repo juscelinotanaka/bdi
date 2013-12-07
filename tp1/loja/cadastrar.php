@@ -7,13 +7,16 @@
 		
 		$loja = new Loja();
 		$loja->setNome($_POST['nome']);
-		$loja->setFisico($_POST['fisico']);
+		$loja->setFisico($_POST['tipo']);
 		$loja->setEndereco($_POST['endereco']);
 		
 		$cadastro = cadastrarLoja($loja);	
 		
-		if($cadastro){
+		if($cadastro == 1){
 			echo '<script type="text/javascript">alert("Cadastro realizado com sucesso!");</script>';
+		}
+		else if($cadastro == 2){
+			echo '<script type="text/javascript">alert("Informe o tipo da loja!");</script>';
 		}
 		else{
 			echo '<script type="text/javascript">alert("Erro no cadastro!");</script>';
@@ -45,7 +48,7 @@
                             <form method="post" id="cadastrarLoja" onsubmit="return lojaOK();">
                             <span class="cadPerf"><span class="required">*</span> Nome: </span> 																	<input type="text" name="nome" /><br><br />
                            <span class="required">*</span> <span class="cadPerf">Tipo:</span> 
-                            <select name="marca">
+                            <select name="tipo">
                             	<option value="">Selecione:</option>
                                 <option value="1">Física</option>
                                 <option value="2">Virtual</option>

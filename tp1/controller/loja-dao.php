@@ -3,7 +3,7 @@
 	include_once(ABSPATH."model/loja-class.php");
 	
 	function cadastrarLoja(Loja $loja){
-		$qry = "INSERT INTO public.loja (nome,fisico,endereco) VALUES ('".$loja->getNome()."', '".$loja->getFisico()."', '".$loja->getEndereco()."')";
+		$qry = "INSERT INTO public.loja (nome,fisico,endereco) VALUES ('".$loja->getNome()."', ".$loja->getFisico().", '".$loja->getEndereco()."')";
 		
 		global $db;
 		
@@ -18,7 +18,8 @@
 				}
 				else {
 				  	
-					if ($state=="23505") { 
+					//erro de sintaxe
+					if ($state=="42601") { 
 						return 2;
 					}
 					
