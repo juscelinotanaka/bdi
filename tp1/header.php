@@ -37,9 +37,9 @@
             
             <div class="clear"></div>
             <div class="logo">
-            	<a href="<? print SYSURL; ?>index.php"> <img src="<? echo SYSURL; ?>images/logo.png"></a>
+            	<a href="<? print SYSURL; ?>index.php"> <img src="<? echo SYSURL; ?>images/logo.png" width="350"></a>
             </div>
-            <div class="pesquisar">
+           	<div class="pesquisar">
             	<form action="pesquisar.php" method="get">
             	<div class="campo">
 					<input type="text" name="q" placeholder="Pesquisar">

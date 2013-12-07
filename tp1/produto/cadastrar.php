@@ -14,15 +14,15 @@
 		$produto->setRam($_POST['ram']);
 		$produto->setHd($_POST['hd']);
 		$produto->setVideo($_POST['video']);
-		$produto->setPrecoReal($_POST['field']);
+		$produto->setPrecoReal($_POST['preco']);
 		
-		if ($_POST['field']<1000){
+		if ($_POST['preco']<1000){
 			$produto->setPreco(1);
 		}
-		else if ($_POST['field'] >= 1000 && $_POST['preco'] < 2000){
+		else if ($_POST['preco'] >= 1000 && $_POST['preco'] < 2000){
 			$produto->setPreco(2);
 		}
-		else if ($_POST['field'] >= 2000 && $_POST['preco'] < 3000){
+		else if ($_POST['preco'] >= 2000 && $_POST['preco'] < 3000){
 			$produto->setPreco(3);
 		}
 		else {
@@ -35,7 +35,7 @@
 			echo '<script type="text/javascript">alert("Cadastro realizado com sucesso!");</script>';
 		}
 		else{
-			echo '<script type="text/javascript">alert("Erro no cadastro!");</script>';
+			echo '<script type="text/javascript">alert("Informe todos os campos!");</script>';
 		}
 	
 	}
@@ -65,7 +65,7 @@
                             <p>Informe os dados do notebook.</p>
                             <form method="post" id="cadastrarProduto" onsubmit="return produtoOK();">
                             <span><span class="required">*</span> Descrição Rápida: <h5>ex. Notebook HP I5 8GB 750GB</h5></span> 																	<input type="text" name="descricao" /><br><br />
-                            <span class="cadPerf">Marca:</span> 
+                            <span class="required">*</span><span class="cadPerf">Marca:</span> 
                             <select name="marca">
                             	<option value="">Selecione:</option>
                                 <option value="1">HP</option>
@@ -76,7 +76,7 @@
                             </select>
                             <br><br>
                             
-                            <span class="cadPerf">Tamanho:</span> 
+                            <span class="required">*</span><span class="cadPerf">Tamanho:</span> 
                             <select name="tamanho">
                             	<option value="">Selecione:</option>
                                 <option value="1">13 Polegadas</option>
@@ -86,7 +86,7 @@
                             </select>
                             <br><br>
                             
-                            <span class="cadPerf">Processador:</span> 
+                            <span class="required">*</span><span class="cadPerf">Processador:</span> 
                             <select name="processador">
                             	<option value="">Selecione:</option>
                                 <option value="1">Intel i3</option>
@@ -96,7 +96,7 @@
                             </select>
                             <br><br>
                             
-                            <span class="cadPerf">Memória RAM:</span> 
+                            <span class="required">*</span><span class="cadPerf">Memória RAM:</span> 
                             <select name="ram">
                             	<option value="">Selecione:</option>
                                 <option value="1">2GB</option>
@@ -105,7 +105,7 @@
                             </select>
                             <br><br>
                             
-                            <span class="cadPerf">HD:</span> 
+                            <span class="required">*</span><span class="cadPerf">HD:</span> 
                             <select name="hd">
                             	<option value="">Selecione:</option>
                                 <option value="1">500GB</option>
@@ -114,7 +114,7 @@
                             </select>
                             <br><br>
                             
-                            <span class="cadPerf">Placa de Vídeo:</span> 
+                            <span class="required">*</span><span class="cadPerf">Placa de Vídeo:</span> 
                             <select name="video">
                             	<option value="">Selecione:</option>
                                 <option value="1">256MB</option>
@@ -124,21 +124,21 @@
                             <br>
                             <br>
                             
-                            <span class="cadPerf">Fornecedor:</span> 
+                            <span class="required">*</span><span class="cadPerf">Fornecedor:</span> 
                             <select name="fornecedor">
                             	<option value="">Selecione:</option>
                             </select>
                             <br>
                             <br>
                             
-                            <span class="cadPerf">Loja:</span> 
+                            <span class="required">*</span><span class="cadPerf">Loja:</span> 
                             <select name="loja">
                             	<option value="">Selecione:</option>
                             </select>
                             <br>
                             <br>
                             
-                            <span class="cadPerf">Preço:</span> <input type="text" id="preco" name="preco" />
+                            <span class="required">*</span><span class="cadPerf">Preço:</span> <input type="text" id="preco" name="preco" />
                             <br /><br />
                             <input type="hidden" value="cadastrar" name="acao" />
                             <input type="submit" id="btnCadastrar" style="display:none;">
