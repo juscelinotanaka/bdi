@@ -4,7 +4,7 @@
 	include_once(ABSPATH."model/perfil-class.php");
 	
 	function cadastrarProduto(Produto $produto){
-		$qry = "INSERT INTO notebook.produto (nome,tamanho,processador,ram,hd,video,preco, \"precoReal\",\"fabricante_idFabricante\",\"fornecedor_idFornecedor\",\"loja_idLoja\") VALUES ('".$produto->getNome()."', ".$produto->getTamanho().", ".$produto->getProcessador().", ".$produto->getRam().", ".$produto->getHd().", ".$produto->getVideo().", ".$produto->getPreco().", ".$produto->getPrecoReal().", ".$produto->getIdFabricante().", ".$produto->getIdFornecedor().", ".$produto->getIdLoja().")";
+		$qry = "INSERT INTO notebook.produto (nome,tamanho,processador,ram,hd,video,preco, \"precoReal\",\"fabricante_idFabricante\",\"fornecedor_idFornecedor\",\"loja_idLoja\", imagem) VALUES ('".$produto->getNome()."', ".$produto->getTamanho().", ".$produto->getProcessador().", ".$produto->getRam().", ".$produto->getHd().", ".$produto->getVideo().", ".$produto->getPreco().", ".$produto->getPrecoReal().", ".$produto->getIdFabricante().", ".$produto->getIdFornecedor().", ".$produto->getIdLoja().", '".$produto->getImagem()."')";
 		
 		//echo $qry;
 		global $db;
