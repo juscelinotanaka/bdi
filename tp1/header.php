@@ -6,6 +6,7 @@
 <title>Sistema de Recomendações</title>
 <link href="<? echo SYSURL; ?>css/style.css" rel="stylesheet" type="text/css" />
 <link href="<? echo SYSURL; ?>css/flexnav.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" type="text/css" href="<? echo SYSURL; ?>css/tabela.css">
 
 <script src="<? echo SYSURL; ?>js/jquery-1.3.1.min.js"></script>	
 <script src="<? echo SYSURL; ?>js/jquery.dropdownPlain.js"></script>

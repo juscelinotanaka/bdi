@@ -17,7 +17,7 @@
                 	<div class="breadcrumb">
                        <?
 						breadcrumb(array(
-							'http://localhost/bdi/tp1/'=>'Home',
+							'http://localhost/bdi/tp1'=>'Home',
 							'perfil'=>'Perfil',
 							'index.php'=>'Consultar'
 						));
@@ -52,6 +52,36 @@
                             <td>Vídeo</td>
                             <td>Preço</td>
                         </tr>
+                        <tr>
+                        	<td>ID</td>
+							<td>Descrição</td>
+							<td>Tamanho</td>
+							<td>Processador</td>
+							<td>RAM</td>
+							<td>HD</td>
+                            <td>Vídeo</td>
+                            <td>Preço</td>
+                        </tr>
+                        <tr>
+                        	<td>ID</td>
+							<td>Descrição</td>
+							<td>Tamanho</td>
+							<td>Processador</td>
+							<td>RAM</td>
+							<td>HD</td>
+                            <td>Vídeo</td>
+                            <td>Preço</td>
+                        </tr>
+                        <tr>
+                        	<td>ID</td>
+							<td>Descrição</td>
+							<td>Tamanho</td>
+							<td>Processador</td>
+							<td>RAM</td>
+							<td>HD</td>
+                            <td>Vídeo</td>
+                            <td>Preço</td>
+                        </tr>
                     </tbody>
 					<tfoot>
 						<tr>
@@ -67,6 +97,7 @@
 					</tfoot>
 			</table>
             
+            <div class="clear"></div>
             </div>
 
 <?

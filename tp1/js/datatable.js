@@ -9409,7 +9409,7 @@
 			 *    } );
 			 Mostrar _MENU_ registros
 			 */
-			"sLengthMenu": "",
+			"sLengthMenu": "Mostrar _MENU_ registros",
 		
 		
 			/**

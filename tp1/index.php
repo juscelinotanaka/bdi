@@ -43,7 +43,7 @@
                                     <? foreach ($recomendacoesAmigos as $prodAmigos) { ?>
                                         <div class="ca-item ca-item-1 ">
                                     		<div class="ca-item-main produto">
-                                                <div class="image"><a href="<? echo SYSURL ?>produto/detalhes.php?id=<? echo $prodAmigos->getId(); ?>"><img src="nbs/<?php echo $prodAmigos->getImagem();?>" width="130" alt="Coffee Cups"></a></div>
+                                                <div class="image"><a href="<? echo SYSURL ?>produto/detalhes.php?id=<? echo $prodAmigos->getId(); ?>"><img src="nbs/<?php echo $prodAmigos->getImagem();?>" height="148" alt="Coffee Cups"></a></div>
                                                 <div class="name"><a href="<? echo SYSURL ?>produto/detalhes.php?id=<? echo $prodAmigos->getId(); ?>"><? echo $prodAmigos->getNome(); ?></a></div>
                                                 <div class="price">R$ <? echo number_format($prodAmigos->getPrecoReal(), 2, ',', '.'); ?></div>
                                                 <div class="por"><a href="#">Por: <?php echo $prodAmigos->getNomeAmigo().' '.$prodAmigos->getSobrenomeAmigo(); ?></a></div>
@@ -75,7 +75,7 @@
                                 
                                 <div class="ca-item ca-item-1 ">
                                     <div class="ca-item-main produto">
-                                        <div class="image"><a href="<? echo SYSURL ?>produto/detalhes.php?id=<? echo $prod->getId(); ?>"><img src="nbs/<?php echo $prod->getImagem();?>" width="130" alt="Coffee Cups"></a></div>
+                                        <div class="image"><a href="<? echo SYSURL ?>produto/detalhes.php?id=<? echo $prod->getId(); ?>"><img src="nbs/<?php echo $prod->getImagem();?>" height="150" alt="Coffee Cups"></a></div>
                                         <div class="name"><a href="<? echo SYSURL ?>produto/detalhes.php?id=<? echo $prod->getId(); ?>"><? echo $prod->getNome(); ?></a></div>
                                         <div class="price">R$ <? echo number_format($prod->getPrecoReal(), 2, ',', '.'); ?></div>
                                         <div class="por">&nbsp;</div>
