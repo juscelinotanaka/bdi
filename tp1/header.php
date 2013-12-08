@@ -7,13 +7,21 @@
 <link href="<? echo SYSURL; ?>css/style.css" rel="stylesheet" type="text/css" />
 <link href="<? echo SYSURL; ?>css/flexnav.css" rel="stylesheet" type="text/css" />
 
-<script type="text/javascript" src="<? echo SYSURL; ?>js/jquery-1.3.1.min.js"></script>	
-<script type="text/javascript" language="javascript" src="<? echo SYSURL; ?>js/jquery.dropdownPlain.js"></script>
+<script src="<? echo SYSURL; ?>js/jquery-1.3.1.min.js"></script>	
+<script src="<? echo SYSURL; ?>js/jquery.dropdownPlain.js"></script>
 <script src="<? echo SYSURL; ?>js/common.js"></script>
 <script src="<? echo SYSURL; ?>js/jquery.validate.js"></script>
 <script src="<? echo SYSURL; ?>js/additional-methods.js"></script>
 <script src="<? echo SYSURL; ?>js/jquery.easing.1.3.js"></script>
 <script src="<? echo SYSURL; ?>js/jquery.contentcarousel.js"></script>
+
+<script src="<? echo SYSURL; ?>js/datatable.js"></script>
+
+<script type="text/javascript" charset="utf-8">
+	$(document).ready(function() {
+		$('#example').dataTable();
+	} );
+</script>
 
 
 </head>
