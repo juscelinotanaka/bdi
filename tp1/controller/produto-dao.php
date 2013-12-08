@@ -191,6 +191,8 @@
 	
 	function produtosRecomendados($idUsuario){
 		
+		
+		
 		$qry = 'SELECT * FROM (
 						SELECT 
 							prod.*, 
@@ -264,6 +266,140 @@
 					
 							FROM notebook.perfil
 							WHERE "usuario_idUsuario" = '.$idUsuario.'
+							) per 
+						INNER JOIN (
+							SELECT * 
+							FROM notebook.produto
+							) prod
+						ON ( 1 = 1)
+					) AS rec
+					WHERE rec.soma < 2
+					GROUP BY 
+						rec."idProduto",
+						rec."descricao", 
+						rec."idProduto", 
+						rec.tamanho, 
+						rec.processador, 
+						rec.ram, 
+						rec.hd, 
+						rec.video,
+						rec.preco, 
+						rec."precoReal", 
+						rec."fabricante_idFabricante", 
+						rec."fornecedor_idFornecedor", 
+						rec."loja_idLoja", 
+						rec.nome,
+						rec.imagem,
+						rec."precoReal",
+						rec.soma
+					ORDER BY rec."soma" ASC';
+				
+		$result = pg_query($qry)  or die("Cannot execute query: <br>$qry\n");
+		
+		while($row = pg_fetch_object($result)){
+			
+			$produto = new Produto();
+			
+			$produto->setId($row->idProduto);
+			$produto->setNome($row->nome);
+			$produto->setDescricao($row->descricao);
+			$produto->setTamanho($row->tamanho);
+			$produto->setProcessador($row->processador);
+			$produto->setRam($row->ram);
+			$produto->setHd($row->hd);
+			$produto->setVideo($row->video);
+			$produto->setPreco($row->preco);
+			$produto->setPrecoReal($row->precoReal);
+			$produto->setIdFabricante($row->fabricante_idFabricante);
+			$produto->setIdFornecedor($row->fornecedor_idFornecedor);
+			$produto->setIdLoja($row->loja_idLoja);
+			
+			$produto->setImagem($row->imagem);
+			$produto->setSoma($row->soma);
+			
+			$produtos[] = $produto;
+		}
+		
+		return $produtos;						
+	}
+	
+	function produtosRecomendadosPorPerfil($idUsuario, $idPerfil){
+		
+		
+		
+		$qry = 'SELECT * FROM (
+						SELECT 
+							prod.*, 
+							SQRT(
+								CASE
+									WHEN per.tamanho IS NOT NULL THEN
+									(prod.tamanho - per.tamanho)*(prod.tamanho - per.tamanho)
+									ELSE 0
+								END +
+								CASE
+									WHEN per.processador IS NOT NULL THEN
+									(prod.processador - per.processador)*(prod.processador - per.processador)
+									ELSE 0
+								END +
+								CASE
+									WHEN per.ram IS NOT NULL THEN
+									(prod.ram - per.ram)*(prod.ram - per.ram)
+									ELSE 0
+								END +
+								CASE
+									WHEN per.hd IS NOT NULL THEN
+									(prod.hd - per.hd)*(prod.hd - per.hd)
+									ELSE 0
+								END +
+								CASE
+									WHEN per.video IS NOT NULL THEN
+									(prod.video - per.video)*(prod.video - per.video)
+									ELSE 0
+								END +
+								CASE
+									WHEN per.preco IS NOT NULL THEN
+									(prod.preco - per.preco)*(prod.preco - per.preco)
+									ELSE 0
+								END +
+								CASE
+									WHEN per.fabricante IS NOT NULL THEN
+									(prod."fabricante_idFabricante" - per.fabricante)*(prod."fabricante_idFabricante" - per.fabricante)
+									ELSE 0
+								END
+							) AS soma
+						FROM (
+							SELECT 
+							CASE 
+								WHEN split_part(caracteristicas, \'|\', 1) <> \'\' THEN
+									CAST (split_part(caracteristicas, \'|\', 1) AS INTEGER)
+							END  AS tamanho,
+							CASE 
+								WHEN split_part(caracteristicas, \'|\', 2) <> \'\' THEN
+									CAST (split_part(caracteristicas, \'|\', 2) AS INTEGER)
+							END  AS processador,
+							CASE 
+								WHEN split_part(caracteristicas, \'|\', 3) <> \'\' THEN
+									CAST (split_part(caracteristicas, \'|\', 3) AS INTEGER)
+							END  AS ram,
+							CASE 
+								WHEN split_part(caracteristicas, \'|\', 4) <> \'\' THEN
+									CAST (split_part(caracteristicas, \'|\', 4) AS INTEGER)
+							END  AS hd,
+							CASE 
+								WHEN split_part(caracteristicas, \'|\', 5) <> \'\' THEN
+									CAST (split_part(caracteristicas, \'|\', 5) AS INTEGER)
+							END  AS video,
+							CASE 
+								WHEN split_part(caracteristicas, \'|\', 6) <> \'\' THEN
+									CAST (split_part(caracteristicas, \'|\', 6) AS INTEGER)
+							END  AS preco,
+							CASE 
+								WHEN split_part(caracteristicas, \'|\', 7) <> \'\' THEN
+									CAST (split_part(caracteristicas, \'|\', 7) AS INTEGER)
+							END  AS fabricante
+					
+							FROM notebook.perfil
+							WHERE "usuario_idUsuario" = '.$idUsuario.' AND "idPerfil" = '.$idPerfil.'
 							) per 
 						INNER JOIN (
 							SELECT * 

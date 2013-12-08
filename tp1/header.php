@@ -12,6 +12,10 @@
 <script src="<? echo SYSURL; ?>js/common.js"></script>
 <script src="<? echo SYSURL; ?>js/jquery.validate.js"></script>
 <script src="<? echo SYSURL; ?>js/additional-methods.js"></script>
+<script src="<? echo SYSURL; ?>js/jquery.easing.1.3.js"></script>
+<script src="<? echo SYSURL; ?>js/jquery.mousewheel.js"></script>
+<script src="<? echo SYSURL; ?>js/jquery.contentcarousel.js"></script>
+
 
 </head>
 <body>
