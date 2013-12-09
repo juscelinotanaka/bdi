@@ -31,7 +31,6 @@
                     <table cellpadding="0" cellspacing="0" border="0" class="display" id="example">
 					<thead>
 						<tr>
-							<th>ID</th>
 							<th>Descrição</th>
 							<th>Tamanho</th>
 							<th>Processador</th>
@@ -43,7 +42,6 @@
 					</thead>
 					<tbody>
                     	<tr>
-                        	<td>ID</td>
 							<td>Descrição</td>
 							<td>Tamanho</td>
 							<td>Processador</td>
@@ -53,7 +51,6 @@
                             <td>Preço</td>
                         </tr>
                         <tr>
-                        	<td>ID</td>
 							<td>Descrição</td>
 							<td>Tamanho</td>
 							<td>Processador</td>
@@ -63,7 +60,6 @@
                             <td>Preço</td>
                         </tr>
                         <tr>
-                        	<td>ID</td>
 							<td>Descrição</td>
 							<td>Tamanho</td>
 							<td>Processador</td>
@@ -73,7 +69,6 @@
                             <td>Preço</td>
                         </tr>
                         <tr>
-                        	<td>ID</td>
 							<td>Descrição</td>
 							<td>Tamanho</td>
 							<td>Processador</td>
@@ -85,7 +80,6 @@
                     </tbody>
 					<tfoot>
 						<tr>
-							<th>ID</th>
 							<th>Descrição</th>
 							<th>Tamanho</th>
 							<th>Processador</th>
