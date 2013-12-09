@@ -28,15 +28,18 @@
                     	<div class="description">
                             <h1><?php echo $produto->getNome();?></h1>
                             <p><?php echo $produto->getDescricao();?></p>
+                            <span>Fabricante:</span> <?php echo $produto->getNomeFabricante();?><br>
                             <span>Tamanho:</span> <?php echo $produto->getTamanho()."\"";?><br>
                             <span>Processador:</span> <?php echo $produto->getProcessador();?><br>
                             <span>Memória RAM:</span> <?php echo $produto->getRam();?><br>
                             <span>HD:</span> <?php echo $produto->getHd();?><br>
-                            <span>Vídeo</span> <?php echo $produto->getVideo();?>
+                            <span>Vídeo:</span> <?php echo $produto->getVideo();?><br>
+                            <span>Fornecedor:</span> <?php echo $produto->getNomeFornecedor();?><br>
+                            <span>Loja:</span> <?php echo $produto->getNomeLoja();?>
                     	</div>
                         <!-- fim description -->
                     	<div class="price">
-                        	 Preço: R$ <?php echo number_format($produto->getPreco(), 2, ',', '.');?><br />
+                        	 Preço: R$ <?php echo number_format($produto->getPrecoReal(), 2, ',', '.');?><br />
 						</div>	<!-- fim price -->
                     </div> <!-- fim right -->
                 <div class="clear h16"></div>

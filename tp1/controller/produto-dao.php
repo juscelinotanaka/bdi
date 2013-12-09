@@ -31,18 +31,21 @@
 	}
 	
 	function consultarProduto($idProduto){
-		$qry = "SELECT p.\"idProduto\" as \"idProduto\", p.nome as nome, p.descricao as descricao, p.imagem as imagem, p.\"precoReal\" as preco,
-					(SELECT \"valorMapeado\" FROM notebook.caracteristica c
-					WHERE atributo = 'tamanho' AND c.valor = p.tamanho) AS tamanho,
-					(SELECT \"valorMapeado\" FROM notebook.caracteristica c
-					WHERE atributo = 'processador' AND c.valor = p.processador) AS processador,
-					(SELECT \"valorMapeado\" FROM notebook.caracteristica c
-					WHERE atributo = 'ram' AND c.valor = p.ram) AS ram,
-					(SELECT \"valorMapeado\" FROM notebook.caracteristica c
-					WHERE atributo = 'hd' AND c.valor = p.hd) AS hd,
-					(SELECT \"valorMapeado\" FROM notebook.caracteristica c
-					WHERE atributo = 'video' AND c.valor = p.video) AS video
-				FROM notebook.produto p 
+		$qry = "SELECT fo.nome as \"nomeFornecedor\", l.nome as \"nomeLoja\", fa.nome as \"nomeFabricante\", p.\"idProduto\" as \"idProduto\", p.nome as nome, p.descricao as descricao, p.imagem as imagem, p.\"precoReal\" as \"precoReal\",
+				(SELECT \"valorMapeado\" FROM notebook.caracteristica c
+				WHERE atributo = 'tamanho' AND c.valor = p.tamanho) AS tamanho,
+				(SELECT \"valorMapeado\" FROM notebook.caracteristica c
+				WHERE atributo = 'processador' AND c.valor = p.processador) AS processador,
+				(SELECT \"valorMapeado\" FROM notebook.caracteristica c
+				WHERE atributo = 'ram' AND c.valor = p.ram) AS ram,
+				(SELECT \"valorMapeado\" FROM notebook.caracteristica c
+				WHERE atributo = 'hd' AND c.valor = p.hd) AS hd,
+				(SELECT \"valorMapeado\" FROM notebook.caracteristica c
+				WHERE atributo = 'video' AND c.valor = p.video) AS video
+			FROM notebook.produto p 
+INNER JOIN fornecedor fo ON fo.\"idFornecedor\" = p.\"fornecedor_idFornecedor\"
+INNER JOIN fabricante fa ON fa.\"idFabricante\" = p.\"fabricante_idFabricante\"
+INNER JOIN loja l ON l.\"idLoja\" = p.\"loja_idLoja\"
 				WHERE \"idProduto\" = ". $idProduto ."";
 		
 		$result = pg_query($qry) or die("Cannot execute query: $qry\n");
@@ -61,8 +64,11 @@
 			$produto->setRam($row->ram);
 			$produto->setHd($row->hd);
 			$produto->setVideo($row->video);
-			$produto->setPreco($row->preco);
+			$produto->setPrecoReal($row->precoReal);
 			$produto->setImagem($row->imagem);
+			$produto->setNomeFornecedor($row->nomeFornecedor);
+			$produto->setNomeFabricante($row->nomeFabricante);
+			$produto->setNomeLoja($row->nomeLoja);
 			
 			return $produto;
 		}
@@ -162,7 +168,19 @@
 	}
 	
 	function listarProdutos(){
-		$qry = "SELECT * FROM notebook.produto";
+		$qry = 'SELECT p."idProduto" as "idProduto", p.nome as nome, p."precoReal" as "precoReal",
+					(SELECT "valorMapeado" FROM notebook.caracteristica c
+					WHERE atributo = \'tamanho\' AND c.valor = p.tamanho) AS tamanho,
+					(SELECT "valorMapeado" FROM notebook.caracteristica c
+					WHERE atributo = \'processador\' AND c.valor = p.processador) AS processador,
+					(SELECT "valorMapeado" FROM notebook.caracteristica c
+					WHERE atributo = \'ram\' AND c.valor = p.ram) AS ram,
+					(SELECT "valorMapeado" FROM notebook.caracteristica c
+					WHERE atributo = \'hd\' AND c.valor = p.hd) AS hd,
+					(SELECT "valorMapeado" FROM notebook.caracteristica c
+					WHERE atributo = \'video\' AND c.valor = p.video) AS video
+				FROM notebook.produto p ';
+				
 		$result = pg_query($qry)  or die("Cannot execute query: $qry\n");
 		
 		while($row = pg_fetch_object($result)){
@@ -171,17 +189,12 @@
 			
 			$produto->setId($row->idProduto);
 			$produto->setNome($row->nome);
-			$produto->setDescricao($row->descricao);
 			$produto->setTamanho($row->tamanho);
 			$produto->setProcessador($row->processador);
 			$produto->setRam($row->ram);
 			$produto->setHd($row->hd);
 			$produto->setVideo($row->video);
 			$produto->setPrecoReal($row->precoReal);
-			
-			$produto->setIdFabricante($row->fabricante_idFabricante);
-			$produto->setIdFornecedor($row->fornecedor_idFornecedor);
-			$produto->setIdLoja($row->loja_idLoja);
 			
 			$produtos[] = $produto;
 		}
@@ -324,8 +337,6 @@
 	}
 	
 	function produtosRecomendadosPorPerfil($idUsuario, $idPerfil){
-		
-		
 		
 		$qry = 'SELECT * FROM (
 						SELECT 

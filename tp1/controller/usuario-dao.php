@@ -53,8 +53,31 @@
 		}
 	}
 	
-	function listarUsuarios(){
-		$qry = "SELECT * FROM public.usuario";
+	function pesquisarUsuario($idUsuario){
+		$qry = 'SELECT * FROM public.usuario WHERE "idUsuario" = '.$idUsuario.'';
+		$result = pg_query($qry) or die("Cannot execute query: $qry\n");
+		
+		if (pg_num_rows($result) == 1){
+			$row = pg_fetch_object($result);
+			
+			$usuario = new Usuario();
+			
+			$usuario->setId($row->idUsuario);
+			$usuario->setNome($row->nome);
+			$usuario->setSobrenome($row->sobrenome);
+			$usuario->setCpf($row->cpf);
+			$usuario->setEmail($row->email);
+			$usuario->setApelido($row->apelido);
+			
+			return $usuario;
+		}
+		else{
+			return 0;
+		}
+	}
+	
+	function listarUsuarios($idUsuario){
+		$qry = 'SELECT * FROM public.usuario WHERE "idUsuario" <> '.$idUsuario.'';
 		$result = pg_query($qry)  or die("Cannot execute query: $qry\n");
 		
 		while($row = pg_fetch_object($result)){

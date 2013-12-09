@@ -19,6 +19,9 @@
 		private $soma;
 		private $nomeAmigo;
 		private $sobrenomeAmigo;
+		private $nomeFornecedor;
+		private $nomeFabricante;
+		private $nomeLoja;
 		
 		public function getId(){
 			return $this->id;
@@ -137,6 +140,27 @@
 		}
 		public function setSobrenomeAmigo($sn){
 			$this->sobrenomeAmigo = $sn;
+		}
+		
+		public function getNomeFornecedor(){
+			return $this->nomeFornecedor;
+		}
+		public function setNomeFornecedor($n){
+			$this->nomeFornecedor = $n;
+		}
+		
+		public function getNomeFabricante(){
+			return $this->nomeFabricante;
+		}
+		public function setNomeFabricante($n){
+			$this->nomeFabricante = $n;
+		}
+		
+		public function getNomeLoja(){
+			return $this->nomeLoja;
+		}
+		public function setNomeLoja($n){
+			$this->nomeLoja = $n;
 		}
 	}
 

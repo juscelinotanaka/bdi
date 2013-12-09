@@ -3,47 +3,53 @@
 	include ("../funcoes.php"); 
 	logado();
 	
-	$fabricantes = listarFabricantes();
+	$usuarios = listarUsuarios($_SESSION['idUsuario']);
 	
 	getHeader();
 ?>
 		<div class="colunaDireita">
-                	<? getColunaHome(); ?>
+                	<? //getColunaHome(); ?>
                 </div>
             	<div class="principal">
                 	<div class="breadcrumb">
                        <?
 						breadcrumb(array(
 							'http://localhost/bdi/tp1'=>'Home',
-							'fabricante'=>'Fabricantes',
-							'index.php'=>'Consultar'
+							'amigo'=>'Amigos',
+							'index.php'=>'Pesquisar'
 						));
 						?>
 					</div>
                     
-                    <h1>Consultar Fabricantes</h1>
+                    <h1>Pesquisar Usuários</h1>
                     
-                    <p>Veja os fabricantes cadastrados</p>
+                    <p>Veja os usuários cadastrados</p>
                     
                     <table cellpadding="0" cellspacing="0" border="0" class="display" id="example">
                         <thead>
                             <tr>
                                 <th>Nome</th>
-                                <th>Nacionalidade</th>
+                                <th>E-mail</th>
+                                <th>Apelido</th>
+                                <th>Adicionar</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <?	foreach($fabricantes as $fabricante){?>
+                            <?	foreach($usuarios as $usuario){?>
                                 <tr>
-                                    <td><? echo $fabricante->getNome();?></td>
-                                    <td><? echo $fabricante->getNacionalidade();?></td>
+                                    <td><? echo $usuario->getNome().$usuario->getSobrenome();?></td>
+                                    <td><? echo $usuario->getEmail();?></td>
+                                    <td><? echo $usuario->getApelido();?></td>
+                                    <td><a href="<? echo SYSURL; ?>amigo/adicionar.php?id=<? echo $usuario->getId();?>">Adicionar</a></td>
                                 </tr>
                             <? }?>
                         </tbody>
                         <tfoot>
                             <tr>
                                 <th>Nome</th>
-                                <th>Nacionalidade</th>
+                                <th>E-mail</th>
+                                <th>Apelido</th>
+                                <th>Adicionar</th>
                             </tr>
                         </tfoot>
 					</table>

@@ -71,7 +71,7 @@
                 </li>
                 <li><a href="#">Amigos</a>
                     <ul class="sub_menu">
-                         <li><a href="<? echo SYSURL; ?>amigo/cadastrar.php">Adicionar</a></li>
+                         <li><a href="<? echo SYSURL; ?>amigo/buscar.php">Adicionar</a></li>
                          <li><a href="<? echo SYSURL; ?>amigo/">Ver Amigos</a></li>
                     </ul>
                 </li>
