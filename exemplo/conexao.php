@@ -7,13 +7,8 @@
 	define('PGPASSWORD', '');
 	define('ERROR_ON_CONNECT_FAILED','Sorry, can not connect the database server now!');
 	
-	function conectarBD(){
-		
-		$dbcon = pg_pconnect('host=' . PGHOST . ' port=' . PGPORT . ' dbname=' . PGDATABASE . ' user=' . PGUSER . ' password=' . PGPASSWORD);
+	$dbcon = pg_pconnect('host=' . PGHOST . ' port=' . PGPORT . ' dbname=' . PGDATABASE . ' user=' . PGUSER . ' password=' . PGPASSWORD);
 	
-		pg_set_client_encoding($dbcon, UTF-8);
+	pg_set_client_encoding($dbcon, UTF-8);
 	
-		return $dbcon;
-	}
-
 ?>
