@@ -22,7 +22,7 @@
 ?>
 
 <div class="colunaDireita">
-                	<? //getColunaHome(); ?>
+                	<? getColunaHome(); ?>
                 </div>
             	<div class="principal">
                 

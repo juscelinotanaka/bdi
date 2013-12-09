@@ -4,25 +4,22 @@
 	
 	if ($_POST['acao'] == 'cadastrar') {
 		
-		//if ($_POST['descricao'] != ""){
-			$perfil = new Perfil();
-			$perfil->setIdUsuario($_SESSION['idUsuario']);
-			$perfil->setDescricao($_POST['descricao']);
-			$perfil->setCaracteristicas($_POST['tamanho']."|".$_POST['processador']."|".$_POST['ram']."|".$_POST['hd']."|".$_POST['video']."|".$_POST['preco']."|".$_POST['marca']);
-			
-			$cadastro = cadastrarPerfil($perfil);
-			
-			if ($cadastro) {
-				header("location: ".SYSURL);
-			}
+		$perfil = new Perfil();
+		$perfil->setIdUsuario($_SESSION['idUsuario']);
+		$perfil->setDescricao($_POST['descricao']);
+		$perfil->setCaracteristicas($_POST['tamanho']."|".$_POST['processador']."|".$_POST['ram']."|".$_POST['hd']."|".$_POST['video']."|".$_POST['preco']."|".$_POST['marca']);
 		
+		$cadastro = cadastrarPerfil($perfil);
 		
+		if ($cadastro) {
+			header("location: ".SYSURL);
+		}
 	}
 	
 	getHeader();
 ?>
             	<div class="colunaDireita">
-                	<? //getColunaHome(); ?>
+                	<? getColunaHome(); ?>
                 </div>
             	<div class="principal">
                 
