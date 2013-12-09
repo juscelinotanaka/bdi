@@ -61,6 +61,16 @@ function produtoOK(){
 	return true;
 }
 
+function amigoOK(){
+	if($('#adicionarAmigo select[name="grau"]').val() == ""){
+		alert('Informe o grau de amizade!');
+		$('#cadastrarPerfil input[name="descricao"]').focus();
+		return false;
+	}
+	
+	return true;
+}
+
 function perfilOK(){
 	if($('#cadastrarPerfil input[name="descricao"]').val() == ""){
 		alert('Preencha todos os campos obrigatórios!');

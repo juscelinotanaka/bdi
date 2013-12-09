@@ -34,6 +34,7 @@
 		public function setGrau($g){
 			$this->grau = $g;
 		}
+		
 	}
 
 ?>

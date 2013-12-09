@@ -37,10 +37,16 @@
                         <tbody>
                             <?	foreach($usuarios as $usuario){?>
                                 <tr>
-                                    <td><? echo $usuario->getNome().$usuario->getSobrenome();?></td>
+                                    <td><? echo $usuario->getNome().' '.$usuario->getSobrenome();?></td>
                                     <td><? echo $usuario->getEmail();?></td>
                                     <td><? echo $usuario->getApelido();?></td>
-                                    <td><a href="<? echo SYSURL; ?>amigo/adicionar.php?id=<? echo $usuario->getId();?>">Adicionar</a></td>
+                                    <? if(consultarAmizade($_SESSION['idUsuario'], $usuario->getId()) != 0){ ?>
+                                    		<td>Amigo</td>
+                                    <? }
+										else{
+                                    ?>
+                                    		<td><a href="<? echo SYSURL; ?>amigo/adicionar.php?id=<? echo $usuario->getId();?>">Adicionar</a></td>
+                                    <? }?>
                                 </tr>
                             <? }?>
                         </tbody>

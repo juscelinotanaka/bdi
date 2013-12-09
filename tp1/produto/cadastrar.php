@@ -223,8 +223,6 @@
                             
                             <span class="required">*</span><span class="cadPerf">Preço:</span> <input type="text" id="preco" name="preco" />
                             <br /><br />
-                            <!--<span class="required"></span><span class="cadPerf">Imagem:</span> <input type="text" id="imagem" name="imagem" />
-                            <br /><br />-->
                             <input type="hidden" value="cadastrar" name="acao" />
                             <input type="submit" id="btnCadastrar" style="display:none;">
                         	<a onclick="$('#btnCadastrar').click();" class="button"><span>Cadastrar</span></a>

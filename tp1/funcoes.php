@@ -5,6 +5,7 @@ define( 'SYSURL', '/bdi/tp1/');
 include (ABSPATH."crumbs.php");
 //include_once(ABSPATH."controller/conexao.php");
 include_once(ABSPATH."controller/usuario-dao.php");
+include_once(ABSPATH."controller/amizade-dao.php");
 include_once(ABSPATH."controller/loja-dao.php");
 include_once(ABSPATH."controller/produto-dao.php");
 include_once(ABSPATH."controller/fornecedor-dao.php");

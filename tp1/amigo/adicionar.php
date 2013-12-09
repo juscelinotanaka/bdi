@@ -45,7 +45,7 @@
                             <span>Nome:</span> <?php echo $usuario->getNome().' '.$usuario->getSobrenome();?><br>
                             <span>E-mail:</span> <?php echo $usuario->getEmail();?><br>
                             <span>Apelido:</span> <?php echo $usuario->getApelido();?><br>
-                            <form method="post">
+                            <form method="post" id="adicionarAmigo" onsubmit="return amigoOK();">
                                 <span class="cadPerf">Grau de Amizade:</span> 
                                 <select name="grau" >
                                     <option value="">Selecione:</option>
@@ -54,7 +54,10 @@
                                     <option value="3">Melhor Amigo</option>
                                 </select>
                                 <br><br>
+                            
                                 <input type="hidden" value="<? echo $usuario->getId();?>" name="idAmigo">
+                                <input type="hidden" value="adicionar" name="acao" />
+                            
                                 <input type="submit" id="btnCadastrar" style="display:none;">
                         		<a onclick="$('#btnCadastrar').click();" class="button"><span>Adicionar</span></a>
                             </form>

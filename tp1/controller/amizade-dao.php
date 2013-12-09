@@ -29,7 +29,8 @@
 	}
 	
 	function consultarAmizade($idU, $idA){
-		$qry = "SELECT * FROM public.amizade WHERE usuario_idUsuario = '". $idU ."' AND idamigo = '". $idA ."'";
+		$qry = "SELECT * FROM public.amizade WHERE \"usuario_idUsuario\" = '". $idU ."' AND \"usuario_idAmigo\" = '". $idA ."'";
+		
 		$result = pg_query($qry) or die("Cannot execute query: $qry\n");
 		
 		if (pg_num_rows($result) == 1){
@@ -50,7 +51,7 @@
 	}
 	
 	function listarAmigos($id){
-		$qry = "SELECT * FROM public.amizade WHERE usuario_idUsuario = '". $id ."'";
+		$qry = "SELECT * FROM public.amizade WHERE \"usuario_idUsuario\" = ". $id ."";
 		$result = pg_query($qry)  or die("Cannot execute query: $qry\n");
 		
 		while($row = pg_fetch_object($result)){
@@ -60,11 +61,21 @@
 			$amizade->setId($row->idAmizade);
 			$amizade->setIdUsuario($row->usuario_idUsuario);
 			$amizade->setIdAmigo($row->usuario_idAmigo);
-			$amizade->setGrau($row->grau);
+			
+			if ($row->grau == 1){
+				$amizade->setGrau("Conhecido");
+			}
+			else if ($row->grau == 2){
+				$amizade->setGrau("Amigo");
+			}
+			else if ($row->grau == 3){
+				$amizade->setGrau("Melhor Amigo");
+			}
 			
 			$amigos[] = $amizade;
 		}
 		
 		return $amigos;
 	}
+
 ?>
