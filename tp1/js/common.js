@@ -123,33 +123,6 @@ function fabricanteOK(){
 	return true;
 }
 
-function validaFloat(e){
-	var NON_CHAR_KEY_CODES = [8,9,16,17,18,19,20,27,33,34,35,36,37,38,39,40,45,46,91,92,93,188];
-		var c = String.fromCharCode(e.keyCode);
-		var regexp = /[^0-9`-i\,n]/;
-		return !regexp.test(c)||$.inArray(e.keyCode,NON_CHAR_KEY_CODES)!=-1||((e.ctrlKey||e.metaKey) && $.inArray(e.keyCode,[67,88])!=-1);
-}
-
-function formataDouble(obj) { 
-        var expressao = /^([0-9]+)(\.([0-9]+)?)?$/; 
-        if(!expressao.test(obj.value)) { 
-                if(obj.value.indexOf(".") > 0) { 
-                        var value = obj.value.split("."); 
-                        obj.value = value[0] + "." + value[1]; 
-                } 
-        } 
-} 
-
-function validateDecimal(value)    {
-        var RE = /^\d*\.?\d*$/;
-        if(RE.test(value)){
-           return true;
-        }else{
-           return false;
-        }
-    }
-
-
 $(document).ready(function() {
 	$('#btnClose').bind('click', close_notification);
 });
