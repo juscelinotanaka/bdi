@@ -65,5 +65,10 @@
             <div class="clear"></div>
             </div>
 <?
+	
+	if($_GET['cadastro'] == "ok"){
+		alertar("Amigo adicionado!", "info");
+	}
+	
    	getFooter();
 ?>

@@ -50,5 +50,8 @@
             </div>
 
 <?
+	if($_GET['cadastro'] == "ok"){
+		alertar("Fornecedor cadastrado com sucesso","info");
+	}
 	getFooter();
 ?>

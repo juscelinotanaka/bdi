@@ -12,14 +12,9 @@
 		
 		$cadastro = cadastrarLoja($loja);	
 		
+		
 		if($cadastro == 1){
-			echo '<script type="text/javascript">alert("Cadastro realizado com sucesso!");</script>';
-		}
-		else if($cadastro == 2){
-			echo '<script type="text/javascript">alert("Informe o tipo da loja!");</script>';
-		}
-		else{
-			echo '<script type="text/javascript">alert("Erro no cadastro!");</script>';
+			header('Location:' . SYSURL. "loja/index.php?cadastro=ok");
 		}
 	}
 	
@@ -66,5 +61,8 @@
             </div> <!-- fim principal -->
             
 <?
+	if($cadastro == 2){
+		alertar("Informe o tipo da loja", "erro");
+	}
 	getFooter(); 
 ?>

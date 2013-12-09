@@ -53,5 +53,8 @@
             <div class="clear"></div>
             </div>
 <?
+	if($_GET['cadastro'] == "ok"){
+		alertar("Loja cadastrada com sucesso","info");
+	}
    	getFooter();
 ?>

@@ -51,5 +51,8 @@
             <div class="clear"></div>
             </div>
 <?
+	if($_GET['cadastro'] == "ok"){
+		alertar("Fabricante cadastrado com sucesso","info");
+	}
    	getFooter();
 ?>

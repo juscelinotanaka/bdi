@@ -13,31 +13,31 @@ function alertar(mensagem, tipo) {
 function usuarioOK(){
 	
 	if($('#cadastrarUsuario input[name="nome"]').val() == ""){
-		alert('Preencha todos os campos obrigatórios!');
+		alertar('Preencha todos os campos obrigatórios!', 'warning');
 		$('#cadastrarUsuario input[name="nome"]').focus();
 		return false;
 	}
 	
 	if($('#cadastrarUsuario input[name="sobrenome"]').val() == ""){
-		alert('Preencha todos os campos obrigatórios!');
+		alertar('Preencha todos os campos obrigatórios!', 'warning');
 		$('#cadastrarUsuario input[name="nosobrenomeme"]').focus();
 		return false;
 	}
 	
 	if($('#cadastrarUsuario input[name="cpf"]').val() == ""){
-		alert('Preencha todos os campos obrigatórios!');
+		alertar('Preencha todos os campos obrigatórios!', 'warning');
 		$('.cadastrarUsuario input[name="cpf"]').focus();
 		return false;
 	}
 	
 	if($('#cadastrarUsuario input[name="email"]').val() == ""){
-		alert('Preencha todos os campos obrigatórios!');
+		alertar('Preencha todos os campos obrigatórios!', 'warning');
 		$('#cadastrarUsuario input[name="email"]').focus();
 		return false;
 	}
 	
 	if($('.cadastrarUsuario input[name="senha"]').val() == ""){
-		alert('Preencha todos os campos obrigatórios!');
+		alertar('Preencha todos os campos obrigatórios!', 'warning');
 		$('#cadastrarUsuario input[name="senha"]').focus();
 		return false;
 	}
@@ -47,13 +47,13 @@ function usuarioOK(){
 
 function produtoOK(){
 	if($('#cadastrarProduto input[name="descricao"]').val() == ""){
-		alert('Preencha todos os campos obrigatórios!');
+		alertar('Preencha todos os campos obrigatórios!', 'warning');
 		$('#cadastrarProduto input[name="descricao"]').focus();
 		return false;
 	}
 	
 	if($('#cadastrarProduto input[name="preco"]').val() == ""){
-		alert('Preencha todos os campos obrigatórios!');
+		alertar('Preencha todos os campos obrigatórios!', 'warning');
 		$('#cadastrarProduto input[name="preco"]').focus();
 		return false;
 	}
@@ -63,7 +63,7 @@ function produtoOK(){
 
 function amigoOK(){
 	if($('#adicionarAmigo select[name="grau"]').val() == ""){
-		alert('Informe o grau de amizade!');
+		alertar('Informe o grau de amizade!', 'warning');
 		$('#cadastrarPerfil input[name="descricao"]').focus();
 		return false;
 	}
@@ -73,7 +73,7 @@ function amigoOK(){
 
 function perfilOK(){
 	if($('#cadastrarPerfil input[name="descricao"]').val() == ""){
-		alert('Preencha todos os campos obrigatórios!');
+		alertar('Preencha todos os campos obrigatórios!', 'warning');
 		$('#cadastrarPerfil input[name="descricao"]').focus();
 		return false;
 	}
@@ -83,13 +83,13 @@ function perfilOK(){
 
 function lojaOK(){
 	if($('#cadastrarLoja input[name="nome"]').val() == ""){
-		alert('Preencha todos os campos obrigatórios!');
+		alertar('Preencha todos os campos obrigatórios!', 'warning');
 		$('#cadastrarLoja input[name="nome"]').focus();
 		return false;
 	}
 	
 	if($('#cadastrarLoja input[name="endereco"]').val() == ""){
-		alert('Preencha todos os campos obrigatórios!');
+		alertar('Preencha todos os campos obrigatórios!', 'warning');
 		$('#cadastrarLoja input[name="endereco"]').focus();
 		return false;
 	}
@@ -99,7 +99,7 @@ function lojaOK(){
 
 function fornecedorOK(){
 	if($('#cadastrarFornecedor input[name="nome"]').val() == ""){
-		alert('Preencha todos os campos obrigatórios!');
+		alertar('Preencha todos os campos obrigatórios!', 'warning');
 		$('#cadastrarFornecedor input[name="nome"]').focus();
 		return false;
 	}
@@ -109,13 +109,13 @@ function fornecedorOK(){
 
 function fabricanteOK(){
 	if($('#cadastrarFabricante input[name="nome"]').val() == ""){
-		alert('Preencha todos os campos obrigatórios!');
+		alertar('Preencha todos os campos obrigatórios!', 'warning');
 		$('.cadastrarFabricante input[name="nome"]').focus();
 		return false;
 	}
 	
 	if($('#cadastrarFabricante input[name="nacionalidade"]').val() == ""){
-		alert('Preencha todos os campos obrigatórios!');
+		alertar('Preencha todos os campos obrigatórios!', 'warning');
 		$('#cadastrarFabricante input[name="nacionalidade"]').focus();
 		return false;
 	}

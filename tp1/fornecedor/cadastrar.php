@@ -11,7 +11,7 @@
 		$cadastro = cadastrarFornecedor($fornecedor);	
 		
 		if($cadastro){
-			echo '<script type="text/javascript">alert("Cadastro realizado com sucesso!");</script>';
+			header('Location:' . SYSURL. "fornecedor/index.php?cadastro=ok");
 		}
 		else{
 			echo '<script type="text/javascript">alert("Erro no cadastro!");</script>';

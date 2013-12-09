@@ -13,7 +13,7 @@
 		$cadastro = cadastrarAmizade($amizade);	
 		
 		if($cadastro){
-			echo '<script type="text/javascript">alert("Amigo adicionado com sucesso!");</script>';
+			header('Location:' . SYSURL. "amigo/index.php?cadastro=ok");
 		}
 		else{
 			echo '<script type="text/javascript">alert("Erro no cadastro!");</script>';

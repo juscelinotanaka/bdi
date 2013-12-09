@@ -12,7 +12,7 @@
 		$cadastro = cadastrarFabricante($fabricante);	
 		
 		if($cadastro){
-			echo '<script type="text/javascript">alert("Cadastro realizado com sucesso!");</script>';
+			header('Location:' . SYSURL. "fabricante/index.php?cadastro=ok");
 		}
 		else{
 			echo '<script type="text/javascript">alert("Erro no cadastro!");</script>';
