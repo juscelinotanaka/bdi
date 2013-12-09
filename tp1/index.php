@@ -47,7 +47,11 @@
                                                 <div class="name"><a href="<? echo SYSURL ?>produto/detalhes.php?id=<? echo $prodAmigos->getId(); ?>"><? echo $prodAmigos->getNome(); ?></a></div>
                                                 <div class="price">R$ <? echo number_format($prodAmigos->getPrecoReal(), 2, ',', '.'); ?></div>
                                                 <div class="por"><a href="#">Por: <?php echo $prodAmigos->getNomeAmigo().' '.$prodAmigos->getSobrenomeAmigo(); ?></a></div>
-                                                <div class="cart"><a href="<? echo SYSURL ?>produto/detalhes.php?id=<? echo $prodAmigos->getId(); ?>" class="button"><span>Detalhes</span></a></div>
+                                                <div class="cart">
+                                                <a href="<? echo SYSURL ?>produto/detalhes.php?id=<? echo $prodAmigos->getId(); ?>" class="button"><span>Detalhes</span></a>
+                                                <a href="<? echo SYSURL ?>produto/recomendar.php?id=<? echo $prodAmigos->getId(); ?>" class="button"><span>Recomendar</span></a>
+                                                </div>
+                                                
 											</div>
                                         </div>
                                     <? } ?>
@@ -79,7 +83,10 @@
                                         <div class="name"><a href="<? echo SYSURL ?>produto/detalhes.php?id=<? echo $prod->getId(); ?>"><? echo $prod->getNome(); ?></a></div>
                                         <div class="price">R$ <? echo number_format($prod->getPrecoReal(), 2, ',', '.'); ?></div>
                                         <div class="por">&nbsp;</div>
-                                        <div class="cart"><a href="<? echo SYSURL ?>produto/detalhes.php?id=<? echo $prod->getId(); ?>" class="button"><span>Detalhes</span></a></div>
+                                        <div class="cart">
+                                        	<a href="<? echo SYSURL ?>produto/detalhes.php?id=<? echo $prod->getId(); ?>" class="button"><span>Detalhes</span></a>
+                                            <a href="<? echo SYSURL ?>produto/recomendar.php?id=<? echo $prod->getId(); ?>" class="button"><span>Recomendar</span></a>
+										</div>
                                     </div>
                                 </div>
                                 

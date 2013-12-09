@@ -302,6 +302,16 @@ font-weight: bold;
 color: #333333;
 }
 
+.btnRecomendar {
+	border:none;
+	background:none;
+	cursor:pointer;
+	font-size:13px;
+}
+.btnRecomendar:hover {
+	text-decoration:underline;
+}
+
 
 p {
 margin-top: 0;

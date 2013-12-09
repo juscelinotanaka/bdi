@@ -3,11 +3,10 @@
 	include ("../funcoes.php"); 
 	logado();
 	
-	if ($_POST['acao'] == '') {
-		
-	}
+	$perfis = listarPerfis($_SESSION['idUsuario']);
 	
 	getHeader();
+	
 ?>
 
 				<div class="colunaDireita">
@@ -38,45 +37,24 @@
 							<th>HD</th>
                             <th>Vídeo</th>
                             <th>Preço</th>
+                            <th>Fabricante</th>
 						</tr>
 					</thead>
 					<tbody>
+                    	<? if ($perfis) { ?>
+                    	<? foreach($perfis as $perfil) { ?>
                     	<tr>
-							<td>Descrição</td>
-							<td>Tamanho</td>
-							<td>Processador</td>
-							<td>RAM</td>
-							<td>HD</td>
-                            <td>Vídeo</td>
-                            <td>Preço</td>
+							<td><? echo $perfil->getDescricao(); ?></td>
+							<td><? echo $perfil->getTamanho(); ?></td>
+							<td><? echo $perfil->getProcessador(); ?></td>
+							<td><? echo $perfil->getRam(); ?></td>
+							<td><? echo $perfil->getHd(); ?></td>
+                            <td><? echo $perfil->getVideo(); ?></td>
+                            <td><? echo $perfil->getPreco(); ?></td>
+							<td><? echo $perfil->getFabricante(); ?></td>
                         </tr>
-                        <tr>
-							<td>Descrição</td>
-							<td>Tamanho</td>
-							<td>Processador</td>
-							<td>RAM</td>
-							<td>HD</td>
-                            <td>Vídeo</td>
-                            <td>Preço</td>
-                        </tr>
-                        <tr>
-							<td>Descrição</td>
-							<td>Tamanho</td>
-							<td>Processador</td>
-							<td>RAM</td>
-							<td>HD</td>
-                            <td>Vídeo</td>
-                            <td>Preço</td>
-                        </tr>
-                        <tr>
-							<td>Descrição</td>
-							<td>Tamanho</td>
-							<td>Processador</td>
-							<td>RAM</td>
-							<td>HD</td>
-                            <td>Vídeo</td>
-                            <td>Preço</td>
-                        </tr>
+                        <? } ?>
+                        <? } ?>
                     </tbody>
 					<tfoot>
 						<tr>
@@ -87,6 +65,7 @@
 							<th>HD</th>
                             <th>Vídeo</th>
                             <th>Preço</th>
+                            <th>Fabricante</th>
 						</tr>
 					</tfoot>
 			</table>

@@ -41,6 +41,7 @@
                     	<div class="price">
                         	 Preço: R$ <?php echo number_format($produto->getPrecoReal(), 2, ',', '.');?><br />
 						</div>	<!-- fim price -->
+                        <a href="<? echo SYSURL ?>produto/recomendar.php?id=<? echo $produto->getId(); ?>" class="button"><span>Recomendar</span></a>
                     </div> <!-- fim right -->
                 <div class="clear h16"></div>
             </div> <!-- fim principal -->

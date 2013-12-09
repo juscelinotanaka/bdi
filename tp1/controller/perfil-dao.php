@@ -49,5 +49,32 @@
 			
 	}
 	
+	function listarPerfis($idUsuario){
+		$qry = "SELECT * FROM notebook.\"viewPerfil\" WHERE \"usuario_idUsuario\" = ". $idUsuario ."";
+		$result = pg_query($qry) or die("Cannot execute query: $qry\n");
+
+		
+		while($row = pg_fetch_object($result)){
+			
+			$perfil = new Perfil();
+			
+			$perfil->setId($row->idPerfil);
+			$perfil->setIdUsuario($row->usuario_idUsuario);
+			$perfil->setDescricao($row->descricao);
+			$perfil->setCaracteristicas($row->caracteristicas);
+			$perfil->setTamanho($row->tamanho);
+			$perfil->setProcessador($row->processador);
+			$perfil->setRam($row->ram);
+			$perfil->setHd($row->hd);
+			$perfil->setVideo($row->video);
+			$perfil->setPreco($row->preco);
+			$perfil->setFabricante($row->fabricante);
+			
+			$perfis[] = $perfil;
+		}
+		return $perfis;
+			
+	}
+	
 	
 ?>

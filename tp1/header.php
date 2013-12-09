@@ -37,7 +37,6 @@
 				
 				 if (str_ireplace(array('-', '.php'), array(' ', ''), basename($_SERVER['PHP_SELF'])) != "login") { ?>
             	<a href="<? print SYSURL; ?>index.php"> Home </a> | 
-                <a href="<? print SYSURL; ?>index.php"> Recomendações de Amigos </a> | 
                 <a href="<? print SYSURL; ?>index.php?logout=true"> Sair </a>
                 <? } ?>
             </div>

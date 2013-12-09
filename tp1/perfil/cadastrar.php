@@ -10,19 +10,11 @@
 			$perfil->setDescricao($_POST['descricao']);
 			$perfil->setCaracteristicas($_POST['tamanho']."|".$_POST['processador']."|".$_POST['ram']."|".$_POST['hd']."|".$_POST['video']."|".$_POST['preco']."|".$_POST['marca']);
 			
-			$cadastro = cadastrarPerfil($perfil);	
+			$cadastro = cadastrarPerfil($perfil);
 			
-			if($cadastro){
-				echo '<script type="text/javascript">alert("Cadastro realizado com sucesso!");</script>';
+			if ($cadastro) {
+				header("location: ".SYSURL);
 			}
-			else{
-				echo '<script type="text/javascript">alert("Erro no cadastro!");</script>';
-			}
-		
-		/*}
-		else{
-			echo '<script type="text/javascript">alert("Informe a descrição do perfil");</script>';
-		}*/
 		
 		
 	}
@@ -130,7 +122,6 @@
                 <div class="clear h16"></div>
             
 <?
-	
 	if ($_GET['primeiroAcesso']) {
 		alertar('Cadastre um perfil de Notebooks para acharmos o melhor pra você!', 'sucesso');
 	}

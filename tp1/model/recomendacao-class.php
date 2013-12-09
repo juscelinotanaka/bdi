@@ -5,6 +5,10 @@
 		private $id;
 		private $idAmizade;
 		private $idProduto;
+		private $nome;
+		private $sobrenome;
+		private $apelido;
+		private $recomendado;
 		
 		public function getId(){
 			return $this->id;
@@ -26,6 +30,34 @@
 		public function setIdProduto($id){
 			$this->idProduto = $id;
 		}	
+		
+		public function getNome(){
+			return $this->nome;
+		}
+		public function setNome($nome){
+			$this->nome = $nome;
+		}
+		
+		public function getSobrenome(){
+			return $this->sobrenome;
+		}
+		public function setSobrenome($sn){
+			$this->sobrenome = $sn;
+		}
+		
+		public function getApelido(){
+			return $this->apelido;
+		}
+		public function setApelido($a){
+			$this->apelido = $a;
+		}
+		
+		public function getRecomendado(){
+			return $this->recomendado;
+		}
+		public function setRecomendado($a){
+			$this->recomendado = $a;
+		}
 	}
 
 ?>
