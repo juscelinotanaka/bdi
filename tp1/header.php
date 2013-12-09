@@ -52,7 +52,7 @@
             	<a href="<? print SYSURL; ?>index.php"> <img src="<? echo SYSURL; ?>images/logo.png" width="350"></a>
             </div>
            	<div class="pesquisar">
-            	<form action="pesquisar.php" method="get">
+            	<form action="<? echo SYSURL; ?>produto" method="get">
             	<div class="campo">
 					<input type="text" name="q" placeholder="Pesquisar">
                 </div>

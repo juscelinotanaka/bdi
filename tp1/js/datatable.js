@@ -2076,7 +2076,7 @@
 			var sSearchStr = oSettings.oLanguage.sSearch;
 			sSearchStr = (sSearchStr.indexOf('_INPUT_') !== -1) ?
 			  sSearchStr.replace('_INPUT_', '<input type="text" />') :
-			  sSearchStr==="" ? '<input type="text" />' : sSearchStr+' <input type="text" />';
+			  sSearchStr==="" ? '<input type="text" id="search" />' : sSearchStr+' <input type="text" />';
 			
 			var nFilter = document.createElement( 'div' );
 			nFilter.className = oSettings.oClasses.sFilter;
@@ -2121,6 +2121,7 @@
 			jqFilter
 				.attr('aria-controls', oSettings.sTableId)
 				.attr('class', 'rounded-corners')
+				.attr('id', 'searchField')
 				.bind( 'keypress.DT', function(e) {
 					/* Prevent form submission */
 					if ( e.keyCode == 13 )

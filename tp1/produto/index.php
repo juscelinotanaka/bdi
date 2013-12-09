@@ -70,6 +70,15 @@
             
             <div class="clear"></div>
             </div>
+            
+            <? if ($_GET['q']) { ?>
+            <script type="text/javascript" charset="utf-8">
+				$(document).ready(function() {
+					$('#searchField').val(<? echo "'".$_GET['q']."'"; ?>);
+					$('#searchField').keyup();
+				} );
+			</script>
+            <? } ?>
 <?
    	getFooter();
 ?>
