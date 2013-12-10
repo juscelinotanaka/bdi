@@ -15,6 +15,7 @@
                        <?
 						breadcrumb(array(
 							'http://localhost/bdi/tp1/'=>'Home', 
+							'produto'=>'Produtos',
 							'artigo'=> $produto->getNome()
 						));
 						?>

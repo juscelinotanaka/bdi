@@ -15,7 +15,7 @@
                        <?
 						breadcrumb(array(
 							'http://localhost/bdi/tp1'=>'Home',
-							'loja'=>'Lojas',
+							'produto'=>'Produtos',
 							'index.php'=>'Consultar'
 						));
 						?>
