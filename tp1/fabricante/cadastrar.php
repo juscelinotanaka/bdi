@@ -31,8 +31,8 @@
                        <?
 						breadcrumb(array(
 							'http://localhost/bdi/tp1/'=>'Home', 
-							'fabricante'=>'Fabricante',
-							'cadastrar.php'=>'Cadastrar Fabricante'
+							'fabricante'=>'Fabricantes',
+							'cadastrar.php'=>'Cadastrar'
 						));
 						?>
 					</div>

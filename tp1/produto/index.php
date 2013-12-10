@@ -43,7 +43,7 @@
                         <?	foreach($produtos as $produto){?>
                             <tr>
                                 <td><? echo $produto->getNome();?></td>
-                                <td><? echo $produto->getTamanho();?></td>
+                                <td><? echo $produto->getTamanho()."\"";?></td>
                                 <td><? echo $produto->getProcessador();?></td>
                                 <td><? echo $produto->getRam();?></td>
                                 <td><? echo $produto->getHd();?></td>
@@ -80,5 +80,8 @@
 			</script>
             <? } ?>
 <?
+	if($_GET['cadastro'] == "ok"){
+		alertar("Produto cadastrado com sucesso","info");
+	}
    	getFooter();
 ?>

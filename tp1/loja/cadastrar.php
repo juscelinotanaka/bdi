@@ -30,8 +30,8 @@
                        <?
 						breadcrumb(array(
 							'http://localhost/bdi/tp1/'=>'Home', 
-							'loja'=>'Loja',
-							'cadastrar.php'=>'Cadastrar Loja'
+							'loja'=>'Lojas',
+							'cadastrar.php'=>'Cadastrar'
 						));
 						?>
 					</div>

@@ -15,6 +15,7 @@
 <script src="<? echo SYSURL; ?>js/additional-methods.js"></script>
 <script src="<? echo SYSURL; ?>js/jquery.easing.1.3.js"></script>
 <script src="<? echo SYSURL; ?>js/jquery.contentcarousel.js"></script>
+<script src="<? echo SYSURL; ?>js/jquery.mousewheel.js"></script>
 
 <script src="<? echo SYSURL; ?>js/datatable.js"></script>
 

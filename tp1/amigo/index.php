@@ -16,14 +16,14 @@
 						breadcrumb(array(
 							'http://localhost/bdi/tp1'=>'Home',
 							'amigo'=>'Amigos',
-							'index.php'=>'Pesquisar'
+							'index.php'=>'Ver Amigos'
 						));
 						?>
 					</div>
                     
-                    <h1>Pesquisar Usuários</h1>
+                    <h1>Ver Amigos</h1>
                     
-                    <p>Veja os usuários cadastrados</p>
+                    <p>Veja seus amigos adicionados</p>
                     
                     <table cellpadding="0" cellspacing="0" border="0" class="display" id="example">
                         <thead>

@@ -8,7 +8,6 @@
 		$produto = new Produto();
 		
 		$produto->setNome($_POST['nome']);
-		$produto->setDescricao($_POST['descricao']);
 		$produto->setTamanho($_POST['tamanho']);
 		$produto->setProcessador($_POST['processador']);
 		$produto->setRam($_POST['ram']);
@@ -98,13 +97,99 @@
 			}
 		}
 		
+		$fabricante = "";
+		
+		if($_POST['fabricante'] == 1){
+			$fabricante = "HP";
+		}
+		else if($_POST['fabricante'] == 2){
+			$fabricante = "Asus";
+		}
+		else if($_POST['fabricante'] == 3){
+			$fabricante = "Dell";
+		}
+		else if($_POST['fabricante'] == 4){
+			$fabricante = "Acer";
+		}
+		else if($_POST['fabricante'] == 5){
+			$fabricante = "Samsung";
+		}
+		
+		$processador = "";
+		
+		if($_POST['processador'] == 1){
+			$processador  = "Intel i3";
+		}
+		else if($_POST['processador'] == 2){
+			$processador  = "Intel i5";
+		}
+		else if($_POST['processador'] == 3){
+			$processador  = "Intel i7";
+		}
+		else if($_POST['processador'] == 4){
+			$processador  = "AMD Sempron";
+		}
+		
+		$ram = "";
+		
+		if($_POST['ram'] == 1){
+			$ram  = "2GB";
+		}
+		else if($_POST['ram'] == 2){
+			$ram  = "4GB";
+		}
+		else if($_POST['ram'] == 3){
+			$ram  = "8TB";
+		}
+		
+		$hd = "";
+		
+		if($_POST['hd'] == 1){
+			$hd  = "500GB";
+		}
+		else if($_POST['hd'] == 2){
+			$hd  = "750GB";
+		}
+		else if($_POST['hd'] == 3){
+			$hd  = "1TB";
+		}
+		
+		$video = "";
+		
+		if($_POST['video'] == 1){
+			$video  = "256MB";
+		}
+		else if($_POST['video'] == 2){
+			$video  = "1GB";
+		}
+		else if($_POST['video'] == 3){
+			$video  = "2GB";
+		}
+		
+		$tamanho = "";
+		
+		if($_POST['tamanho'] == 1){
+			$tamanho  = 13;
+		}
+		else if($_POST['tamanho'] == 2){
+			$tamanho  = 15;
+		}
+		else if($_POST['tamanho'] == 3){
+			$tamanho  = 17;
+		}
+		
+		$descricao = "Notebook ".$fabricante." Processador ".$processador." com ".$ram." de Memória RAM. HD de ".$hd.". Placa de vídeo de ".$video." e Tela de ".$tamanho." polegadas.";
+		
+		$produto->setDescricao($descricao);
+		
+		
 		$cadastro = cadastrarProduto($produto);	
 		
 		if($cadastro){
-			echo '<script type="text/javascript">alert("Cadastro realizado com sucesso!");</script>';
+			header('Location:' . SYSURL. "produto/index.php?cadastro=ok");
 		}
 		else{
-			echo '<script type="text/javascript">alert("Informe todos os campos!");</script>';
+			echo '<script type="text/javascript">alert("Erro no cadastro!");</script>';
 		}
 	
 	}
@@ -126,8 +211,8 @@
                        <?
 						breadcrumb(array(
 							'http://localhost/bdi/tp1/'=>'Home', 
-							'produto'=>'Produto',
-							'cadastrar.php'=>'Cadastrar Produto'
+							'produto'=>'Produtos',
+							'cadastrar.php'=>'Cadastrar'
 						));
 						?>
 					</div>
@@ -137,7 +222,7 @@
                             <h1>Cadastrar Notebook</h1>
                             <p>Informe os dados do notebook.</p>
                             <form method="post" id="cadastrarProduto" onsubmit="return produtoOK();">
-                            <span><span class="required">*</span> Descrição Rápida: <h5>ex. Notebook HP I5 8GB 750GB</h5></span> 																	<input type="text" name="descricao" /><br><br />
+                            <span><span class="required">*</span> Descrição Rápida: <h5>ex. Notebook HP I5 8GB 750GB</h5></span> 																	<input type="text" name="nome" /><br><br />
                             <span class="required">*</span><span class="cadPerf">Fabricante:</span> 
                             <select name="fabricante">
                             	<option value="">Selecione:</option>

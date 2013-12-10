@@ -146,7 +146,7 @@
 						sliderEasing	: 'easeOutExpo',// easing for the sliding animation
 						itemSpeed		: 500,			// speed for the item animation (open / close)
 						itemEasing		: 'easeOutExpo',// easing for the item animation (open / close)
-						scroll			: 1				// number of items to scroll at a time
+						scroll			: 3				// number of items to scroll at a time
 					};
 					
 					return this.each(function() {
@@ -225,7 +225,7 @@
 						});
 						
 						// adds events to the mouse
-						$el.bind('mousewheel.contentcarousel', function(e, delta) {
+						/*$el.bind('mousewheel.contentcarousel', function(e, delta) {
 							if(delta > 0) {
 								if( cache.isAnimating ) return false;
 								cache.isAnimating	= true;
@@ -237,7 +237,7 @@
 								aux.navigate( 1, $el, $wrapper, settings, cache );
 							}	
 							return false;
-						});
+						});*/
 						
 					});
 				}
