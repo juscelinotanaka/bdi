@@ -44,9 +44,9 @@
 				(SELECT \"valorMapeado\" FROM notebook.caracteristica c
 				WHERE atributo = 'video' AND c.valor = p.video) AS video
 			FROM notebook.produto p 
-INNER JOIN fornecedor fo ON fo.\"idFornecedor\" = p.\"fornecedor_idFornecedor\"
-INNER JOIN fabricante fa ON fa.\"idFabricante\" = p.\"fabricante_idFabricante\"
-INNER JOIN loja l ON l.\"idLoja\" = p.\"loja_idLoja\"
+INNER JOIN public.fornecedor fo ON fo.\"idFornecedor\" = p.\"fornecedor_idFornecedor\"
+INNER JOIN notebook.fabricante fa ON fa.\"idFabricante\" = p.\"fabricante_idFabricante\"
+INNER JOIN public.loja l ON l.\"idLoja\" = p.\"loja_idLoja\"
 				WHERE \"idProduto\" = ". $idProduto ."";
 		
 		$result = pg_query($qry) or die("Cannot execute query: $qry\n");
@@ -156,7 +156,7 @@ INNER JOIN loja l ON l.\"idLoja\" = p.\"loja_idLoja\"
 	}
 	
 	function consultarProdutoPorCaracteristica($caracteristica, $valor){
-		$qry = "SELECT * FROM notebook.produto WHERE fabricante_idFabricante = ". $fabricante ."";
+		$qry = "SELECT * FROM notebook.produto";
 		$result = pg_query($qry) or die("Cannot execute query: $qry\n");
 		
 		if (pg_num_rows($result) == 1){
@@ -204,8 +204,6 @@ INNER JOIN loja l ON l.\"idLoja\" = p.\"loja_idLoja\"
 	}
 	
 	function produtosRecomendados($idUsuario){
-		
-		
 		
 		$qry = 'SELECT * FROM (
 						SELECT 
@@ -518,7 +516,6 @@ INNER JOIN loja l ON l.\"idLoja\" = p.\"loja_idLoja\"
 		}
 		
 		return $produtos;
-		
 	}
 	
 ?>

@@ -20,81 +20,32 @@
 		$produto->setIdLoja($_POST['loja']);
 		
 		if ($_POST['preco']<1000){
-			
 			$produto->setPreco(1);
-			
-			if($_POST['fabricante'] == 1){
-				$produto->setImagem("hp1.jpg");
-			}
-			else if($_POST['fabricante'] == 2){
-				$produto->setImagem("asus1.jpg");
-			}
-			else if($_POST['fabricante'] == 3){
-				$produto->setImagem("dell1.jpg");
-			}
-			else if($_POST['fabricante'] == 4){
-				$produto->setImagem("acer1.jpg");
-			}
-			else if($_POST['fabricante'] == 5){
-				$produto->setImagem("samsung1.jpg");
-			}
 		}
 		else if ($_POST['preco'] >= 1000 && $_POST['preco'] < 2000){
 			$produto->setPreco(2);
-			
-			if($_POST['fabricante'] == 1){
-				$produto->setImagem("hp2.jpg");
-			}
-			else if($_POST['fabricante'] == 2){
-				$produto->setImagem("asus2.jpg");
-			}
-			else if($_POST['fabricante'] == 3){
-				$produto->setImagem("dell2.jpg");
-			}
-			else if($_POST['fabricante'] == 4){
-				$produto->setImagem("acer2.jpg");
-			}
-			else if($_POST['fabricante'] == 5){
-				$produto->setImagem("samsung2.jpg");
-			}
 		}
 		else if ($_POST['preco'] >= 2000 && $_POST['preco'] < 3000){
 			$produto->setPreco(3);
-			
-			if($_POST['fabricante'] == 1){
-				$produto->setImagem("hp3.jpg");
-			}
-			else if($_POST['fabricante'] == 2){
-				$produto->setImagem("asus3.jpg");
-			}
-			else if($_POST['fabricante'] == 3){
-				$produto->setImagem("dell3.jpg");
-			}
-			else if($_POST['fabricante'] == 4){
-				$produto->setImagem("acer3.jpg");
-			}
-			else if($_POST['fabricante'] == 5){
-				$produto->setImagem("samsung3.jpg");
-			}
 		}
 		else {
 			$produto->setPreco(4);
-			
-			if($_POST['fabricante'] == 1){
-				$produto->setImagem("hp4.jpg");
-			}
-			else if($_POST['fabricante'] == 2){
-				$produto->setImagem("asus4.jpg");
-			}
-			else if($_POST['fabricante'] == 3){
-				$produto->setImagem("dell4.jpg");
-			}
-			else if($_POST['fabricante'] == 4){
-				$produto->setImagem("acer4.jpg");
-			}
-			else if($_POST['fabricante'] == 5){
-				$produto->setImagem("samsung4.jpg");
-			}
+		}
+		
+		if($_POST['fabricante'] == 1){
+			$produto->setImagem("hp".$produto->getPreco().".jpg");
+		}
+		else if($_POST['fabricante'] == 2){
+			$produto->setImagem("asus".$produto->getPreco().".jpg");
+		}
+		else if($_POST['fabricante'] == 3){
+			$produto->setImagem("dell".$produto->getPreco().".jpg");
+		}
+		else if($_POST['fabricante'] == 4){
+			$produto->setImagem("acer".$produto->getPreco().".jpg");
+		}
+		else if($_POST['fabricante'] == 5){
+			$produto->setImagem("samsung".$produto->getPreco().".jpg");
 		}
 		
 		$fabricante = "";

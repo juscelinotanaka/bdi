@@ -3,7 +3,7 @@
 	include_once(ABSPATH."model/fabricante-class.php");
 	
 	function cadastrarFabricante(Fabricante $fabricante){
-		$qry = "INSERT INTO public.fabricante (nome,nacionalidade) VALUES ('".$fabricante->getNome()."', '".$fabricante->getNacionalidade()."')";
+		$qry = "INSERT INTO notebook.fabricante (nome,nacionalidade) VALUES ('".$fabricante->getNome()."', '".$fabricante->getNacionalidade()."')";
 		
 		global $db;
 		
@@ -29,7 +29,7 @@
 	}
 	
 	function consultarFabricante($fabri){
-		$qry = "SELECT * FROM public.fabricante WHERE nome = '". $fabri ."'";
+		$qry = "SELECT * FROM notebook.fabricante WHERE nome = '". $fabri ."'";
 		$result = pg_query($qry) or die("Cannot execute query: $qry\n");
 		
 		if (pg_num_rows($result) == 1){
@@ -49,7 +49,7 @@
 	}
 	
 	function listarFabricantes(){
-		$qry = "SELECT * FROM public.fabricante";
+		$qry = "SELECT * FROM notebook.fabricante";
 		$result = pg_query($qry) or die("Cannot execute query: $qry\n");
 		
 		while ($row = pg_fetch_object($result)){
