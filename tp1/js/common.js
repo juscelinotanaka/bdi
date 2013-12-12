@@ -36,7 +36,7 @@ function usuarioOK(){
 		return false;
 	}
 	
-	if($('.cadastrarUsuario input[name="senha"]').val() == ""){
+	if($('#cadastrarUsuario input[name="senha"]').val() == ""){
 		alertar('Preencha todos os campos obrigatórios!', 'warning');
 		$('#cadastrarUsuario input[name="senha"]').focus();
 		return false;

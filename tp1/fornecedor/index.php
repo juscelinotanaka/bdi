@@ -3,6 +3,13 @@
 	include ("../funcoes.php"); 
 	logado();
 	
+	if ($_GET['remover'] != '') {
+		$removeu = removerFornecedor($_GET['remover']);
+		if ($removeu) {
+			header("location: ".SYSURL."produto/?removeuOk=ok");
+		}
+	}
+	
 	$fornecedores = listarFornecedores();
 	
 	getHeader();
@@ -39,7 +46,7 @@
                                 <td><? echo $fornecedor->getNome();?></td>
                                 <td>
                                 	<a href="<? echo SYSURL; ?>fornecedor/alterar.php?id=<? echo $fornecedor->getId();?>"><img alt="Alterar" title="Alterar" src="../images/alterar.png" width="16" /></a>
-                                    <a href="#"><img alt="Remover" title="Remover" src="../images/remover.png" width="16" /></a>
+                                    <a href="?remover=<? echo $fornecedor->getId(); ?>"><img alt="Remover" title="Remover" src="../images/remover.png" width="16" /></a>
 								</td>
                             </tr>
                         <? }?>

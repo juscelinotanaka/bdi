@@ -1,5 +1,5 @@
 <?php
-	/*
+	/* */
 	define('PGHOST','localhost');
 	define('PGPORT',5432);
 	define('PGDATABASE','bdi_tp1');
@@ -9,7 +9,7 @@
 	define('ERROR_ON_CONNECT_FAILED','Sorry, can not connect the database server now!');
 	/* */
 	
-	/* */
+	/*
 	define('PGHOST','10.208.200.15');
 	define('PGPORT',5432);
 	define('PGDATABASE','tp01_2013_01');

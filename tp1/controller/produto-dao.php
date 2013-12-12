@@ -200,18 +200,22 @@
 	}
 	
 	function listarProdutos(){
-		$qry = 'SELECT p."idProduto" as "idProduto", p.nome as nome, p."precoReal" as "precoReal",
-					(SELECT "valorMapeado" FROM notebook.caracteristica c
-					WHERE atributo = \'tamanho\' AND c.valor = p.tamanho) AS tamanho,
-					(SELECT "valorMapeado" FROM notebook.caracteristica c
-					WHERE atributo = \'processador\' AND c.valor = p.processador) AS processador,
-					(SELECT "valorMapeado" FROM notebook.caracteristica c
-					WHERE atributo = \'ram\' AND c.valor = p.ram) AS ram,
-					(SELECT "valorMapeado" FROM notebook.caracteristica c
-					WHERE atributo = \'hd\' AND c.valor = p.hd) AS hd,
-					(SELECT "valorMapeado" FROM notebook.caracteristica c
-					WHERE atributo = \'video\' AND c.valor = p.video) AS video
-				FROM notebook.produto p ';
+		$qry = "SELECT fo.nome as \"nomeFornecedor\", l.nome as \"nomeLoja\", fa.nome as \"nomeFabricante\", p.\"idProduto\" as \"idProduto\", p.nome as nome, p.descricao as descricao, p.imagem as imagem, p.\"precoReal\" as \"precoReal\",
+					(SELECT \"valorMapeado\" FROM notebook.caracteristica c
+					WHERE atributo = 'tamanho' AND c.valor = p.tamanho) AS tamanho,
+					(SELECT \"valorMapeado\" FROM notebook.caracteristica c
+					WHERE atributo = 'processador' AND c.valor = p.processador) AS processador,
+					(SELECT \"valorMapeado\" FROM notebook.caracteristica c
+					WHERE atributo = 'ram' AND c.valor = p.ram) AS ram,
+					(SELECT \"valorMapeado\" FROM notebook.caracteristica c
+					WHERE atributo = 'hd' AND c.valor = p.hd) AS hd,
+					(SELECT \"valorMapeado\" FROM notebook.caracteristica c
+					WHERE atributo = 'video' AND c.valor = p.video) AS video
+				FROM notebook.produto p 
+					INNER JOIN public.fornecedor fo ON fo.\"idFornecedor\" = p.\"fornecedor_idFornecedor\"
+					INNER JOIN notebook.fabricante fa ON fa.\"idFabricante\" = p.\"fabricante_idFabricante\"
+					INNER JOIN public.loja l ON l.\"idLoja\" = p.\"loja_idLoja\"
+					";
 				
 		$result = pg_query($qry)  or die("Cannot execute query: $qry\n");
 		
@@ -227,6 +231,9 @@
 			$produto->setHd($row->hd);
 			$produto->setVideo($row->video);
 			$produto->setPrecoReal($row->precoReal);
+			$produto->setNomeFornecedor($row->nomeFornecedor);
+			$produto->setNomeFabricante($row->nomeFabricante);
+			$produto->setNomeLoja($row->nomeLoja);
 			
 			$produtos[] = $produto;
 		}
@@ -470,7 +477,7 @@
 				
 		$result = pg_query($qry) or die("Cannot execute query: $qry\n");
 		
-		if (pg_num_rows($result) == 1){
+		if (pg_affected_rows($result) == 1){
 			return 1;
 		}
 		else{

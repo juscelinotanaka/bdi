@@ -3,13 +3,6 @@
 	include ("../funcoes.php"); 
 	logado();
 	
-	if ($_GET['remover'] != '') {
-		$removeu = removerProduto($_GET['remover']);
-		if ($removeu) {
-			header("location: ".SYSURL."produto/?removeuOk=ok");
-		}
-	}
-	
 	$produtos = listarProdutos();
 	
 	getHeader();
@@ -23,7 +16,7 @@
 						breadcrumb(array(
 							'http://localhost/bdi/tp1'=>'Home',
 							'produto'=>'Produtos',
-							'index.php'=>'Consultar'
+							'index.php'=>'Consultar por Fornecedor'
 						));
 						?>
 					</div>
@@ -36,12 +29,8 @@
 					<thead>
 						<tr>
 							<th>Nome</th>
-							<th>Tamanho</th>
-                            <th>Processador</th>
-                            <th>Memória RAM</th>
-                            <th>HD</th>
-                            <th>Placa de Video</th>
-                            <th>Preço (R$)</th>
+							<th>Fornecedor</th>
+                            <th>Preço</th>
                             <th style="width:48px;">Ações</th>
 						</tr>
 					</thead>
@@ -50,16 +39,12 @@
                         <?	foreach($produtos as $produto){?>
                             <tr>
                                 <td><? echo $produto->getNome();?></td>
-                                <td><? echo $produto->getTamanho()."\"";?></td>
-                                <td><? echo $produto->getProcessador();?></td>
-                                <td><? echo $produto->getRam();?></td>
-                                <td><? echo $produto->getHd();?></td>
-                                <td><? echo $produto->getVideo();?></td>
-                                <td><? echo number_format($produto->getPrecoReal(), 2, '.', '');?></td>
+                                <td><? echo $produto->getNomeFornecedor();?></td>
+                                <td>R$&nbsp;<? echo number_format($produto->getPrecoReal(), 2, ',', '.');?></td>
                                 <td>
                                 <a href="<? echo SYSURL; ?>produto/detalhes.php?id=<? echo $produto->getId();?>"><img alt="Detalhes" title="Detalhes" src="../images/detalhes.png" width="16" /></a>
                                 <a href="<? echo SYSURL; ?>produto/alterar.php?id=<? echo $produto->getId();?>"><img alt="Alterar" title="Alterar" src="../images/alterar.png" width="16" /></a>
-                                <a href="?remover=<? echo $produto->getId(); ?>"><img alt="Remover" title="Remover" src="../images/remover.png" width="16" /></a>
+                                <a href="#"><img alt="Remover" title="Remover" src="../images/remover.png" width="16" /></a>
                                 </td>
                             </tr>
                         <? }?>
@@ -68,12 +53,8 @@
 					<tfoot>
 						<tr>
 							<th>Nome</th>
-							<th>Tamanho</th>
-                            <th>Processador</th>
-                            <th>Memória RAM</th>
-                            <th>HD</th>
-                            <th>Placa de Video</th>
-                            <th>Preço (R$)</th>
+							<th>Fornecedor</th>
+                            <th>Preço</th>
                             <th>Ações</th>
 						</tr>
 					</tfoot>
@@ -91,9 +72,6 @@
 			</script>
             <? } ?>
 <?
-	if ($_GET['removeuOk'] == "ok") {
-		alertar("Produto Removido.", "info");
-	}
 	if($_GET['cadastro'] == "ok"){
 		alertar("Produto cadastrado com sucesso.","info");
 	}

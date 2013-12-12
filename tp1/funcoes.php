@@ -40,7 +40,12 @@ function logout () {
 	unset($_SESSION['MM_Username']);
 	unset($_SESSION['MM_UserGroup']);
 	
-	header("Location: ". SYSURL. "login.php");
+	$compl = '';
+	if ($_GET['atualizarUsuario'] == 'ok') {
+		$compl = '?usuarioCadastrado=ok';
+	}
+	
+	header("Location: ". SYSURL. "login.php".$compl);
 	exit;
 }
 
