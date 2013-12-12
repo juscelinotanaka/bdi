@@ -15,7 +15,7 @@
 	getHeader();
 ?>
 
-			<div class="colunaDireita">
+				<div class="colunaDireita">
                 	<? getColunaHome(); ?>
                 </div>
             	<div class="principal">
