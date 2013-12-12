@@ -15,9 +15,7 @@
 		if($fornecedorAlterado){
 			header('Location:' . SYSURL. "fornecedor/index.php?alteracao=ok");
 		}
-		else{
-			echo '<script type="text/javascript">alert("Erro no cadastro!");</script>';
-		}
+		
 		
 	}
 	

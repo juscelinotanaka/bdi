@@ -121,6 +121,8 @@ getHeader();
 
 if ($_GET['usuarioCadastrado'] == 'ok') {
 	alertar('Seus dados foram atualizados! Faça login novamente.', 'info');
+} else if ($_GET['usuarioExcluido'] == 'ok') {
+	alertar('Sua conta foi excluída!', 'info');
 } else if ($_GET['url']) {
 	alertar('Você deve fazer login antes de acessar a página desejada.', 'info');
 } else {

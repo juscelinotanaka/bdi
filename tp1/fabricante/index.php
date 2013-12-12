@@ -3,6 +3,10 @@
 	include ("../funcoes.php"); 
 	logado();
 	
+	if ($_GET['remover'] != '') {
+		$removeu = removerFabricante($_GET['remover']);
+	}
+	
 	$fabricantes = listarFabricantes();
 	
 	getHeader();
@@ -40,7 +44,7 @@
                                     <td><? echo $fabricante->getNacionalidade();?></td>
                                     <td>
                                     	<a href="<? echo SYSURL; ?>fabricante/alterar.php?id=<? echo $fabricante->getId();?>"><img alt="Alterar" title="Alterar" src="../images/alterar.png" width="16" /></a>
-                                        <a href="#"><img alt="Remover" title="Remover" src="../images/remover.png" width="16" /></a>
+                                        <a href="?remover=<? echo $fabricante->getId(); ?>"><img alt="Remover" title="Remover" src="../images/remover.png" width="16" /></a>
 									</td>
                                 </tr>
                             <? }?>
@@ -57,7 +61,11 @@
             <div class="clear"></div>
             </div>
 <?
-	
+	if ($removeu == 1) {
+		alertar("Fabricante removido com sucesso.","info");
+	} else if ($removeu == 2) {
+		alertar("Não foi possível remover o fabricante. Remova primeiro os produtos deste fabricante.","erro");
+	}
 	if($_GET['cadastro'] == "ok"){
 		alertar("Fabricante cadastrado com sucesso.","info");
 	}

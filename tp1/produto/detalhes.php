@@ -20,11 +20,12 @@
 						));
 						?>
 					</div>
+                    
                     <div class="right">
                     	<div class="clear h36"></div>
-                    	<img src="<? echo SYSURL; ?>nbs/<?php echo $produto->getImagem();?>" width="350" />
+                    	<img src="<? echo SYSURL; ?>images/nbs/<?php echo $produto->getImagem();?>" width="350" />
                     </div>
-      
+                    
                     <div class="left">
                     	<div class="description">
                             <h1><?php echo $produto->getNome();?></h1>

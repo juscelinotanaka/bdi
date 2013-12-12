@@ -5,9 +5,6 @@
 	
 	if ($_GET['remover'] != '') {
 		$removeu = removerProduto($_GET['remover']);
-		if ($removeu) {
-			header("location: ".SYSURL."produto/?removeuOk=ok");
-		}
 	}
 	
 	$produtos = listarProdutos();
@@ -91,9 +88,12 @@
 			</script>
             <? } ?>
 <?
-	if ($_GET['removeuOk'] == "ok") {
-		alertar("Produto Removido.", "info");
+	if ($removeu == 1) {
+		alertar("Produto removido com sucesso.","info");
+	} else if ($removeu == 2) {
+		alertar("Não foi possível remover o Produto, pois este está relacionado a uma recomendação.","erro");
 	}
+	
 	if($_GET['cadastro'] == "ok"){
 		alertar("Produto cadastrado com sucesso.","info");
 	}

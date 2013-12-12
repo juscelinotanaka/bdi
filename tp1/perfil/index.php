@@ -3,6 +3,13 @@
 	include ("../funcoes.php"); 
 	logado();
 	
+	if ($_GET['remover'] != '') {
+		$removeu = removerPerfil($_GET['remover']);
+		if ($removeu) {
+			header("location: ".SYSURL."perfil/?removeuOk=ok");
+		}
+	}
+	
 	$perfis = listarPerfis($_SESSION['idUsuario']);
 	
 	getHeader();
@@ -55,7 +62,7 @@
 							<td><? echo $perfil->getFabricante(); ?></td>
                             <td>
                             	<a href="<? echo SYSURL; ?>perfil/alterar.php?id=<? echo $perfil->getId();?>"><img alt="Alterar" title="Alterar" src="../images/alterar.png" width="16" /></a>
-                                <a href="#"><img alt="Remover" title="Remover" src="../images/remover.png" width="16" /></a>
+                                <a href="?remover=<? echo $perfil->getId(); ?>"><img alt="Remover" title="Remover" src="../images/remover.png" width="16" /></a>
 							</td>
                         </tr>
                         <? } ?>
@@ -80,6 +87,10 @@
             </div>
 
 <?	
+	if ($_GET['removeuOk'] == "ok") {
+		alertar("Perfil removido com sucesso.", "info");
+	}
+	
 	if($_GET['cadastro'] == "ok"){
 		alertar("Perfil cadastrado com sucesso.","info");
 	}

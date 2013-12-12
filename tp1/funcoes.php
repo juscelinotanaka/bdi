@@ -43,6 +43,8 @@ function logout () {
 	$compl = '';
 	if ($_GET['atualizarUsuario'] == 'ok') {
 		$compl = '?usuarioCadastrado=ok';
+	} else if ($_GET['excluirUsuario'] == 'ok') {
+		$compl = '?usuarioExcluido=ok';
 	}
 	
 	header("Location: ". SYSURL. "login.php".$compl);

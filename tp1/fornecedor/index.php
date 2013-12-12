@@ -5,9 +5,6 @@
 	
 	if ($_GET['remover'] != '') {
 		$removeu = removerFornecedor($_GET['remover']);
-		if ($removeu) {
-			header("location: ".SYSURL."produto/?removeuOk=ok");
-		}
 	}
 	
 	$fornecedores = listarFornecedores();
@@ -63,6 +60,11 @@
             </div>
 
 <?
+	if ($removeu == 1) {
+		alertar("Fornecedor removido com sucesso.","info");
+	} else if ($removeu == 2) {
+		alertar("Não foi possível remover o fornecedor. Remova primeiro os produtos deste fornecedor.","erro");
+	}
 	if($_GET['cadastro'] == "ok"){
 		alertar("Fornecedor cadastrado com sucesso.","info");
 	}

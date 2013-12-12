@@ -84,6 +84,7 @@
                             	<li><a href="<? echo SYSURL; ?>produto/">Por Característica</a></li>
                                 <li><a href="<? echo SYSURL; ?>produto/fornecedor.php">Por Fornecedor</a></li>
                                 <li><a href="<? echo SYSURL; ?>produto/fabricante.php">Por Fabricante</a></li>
+                                <li><a href="<? echo SYSURL; ?>produto/loja.php">Por Loja</a></li>
                             </ul>
                          </li>
                     </ul>

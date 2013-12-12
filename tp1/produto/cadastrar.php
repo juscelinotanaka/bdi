@@ -136,13 +136,9 @@
 		
 		$cadastro = cadastrarProduto($produto);	
 		
-		if($cadastro){
+		if($cadastro == 1){
 			header('Location:' . SYSURL. "produto/index.php?cadastro=ok");
 		}
-		else{
-			echo '<script type="text/javascript">alert("Erro no cadastro!");</script>';
-		}
-	
 	}
 	
 	getHeader();

@@ -3,6 +3,10 @@
 	include ("../funcoes.php"); 
 	logado();
 	
+	if ($_GET['remover'] != '') {
+		$removeu = removerProduto($_GET['remover']);
+	}
+	
 	$produtos = listarProdutos();
 	
 	getHeader();
@@ -30,7 +34,7 @@
 						<tr>
 							<th>Nome</th>
 							<th>Fabricante</th>
-                            <th>Preço</th>
+                            <th>Preço (R$)</th>
                             <th style="width:48px;">Ações</th>
 						</tr>
 					</thead>
@@ -40,11 +44,11 @@
                             <tr>
                                 <td><? echo $produto->getNome();?></td>
                                 <td><? echo $produto->getNomeFabricante();?></td>
-                                <td>R$&nbsp;<? echo number_format($produto->getPrecoReal(), 2, ',', '.');?></td>
+                                <td><? echo number_format($produto->getPrecoReal(), 2, '.', '');?></td>
                                 <td>
                                 <a href="<? echo SYSURL; ?>produto/detalhes.php?id=<? echo $produto->getId();?>"><img alt="Detalhes" title="Detalhes" src="../images/detalhes.png" width="16" /></a>
                                 <a href="<? echo SYSURL; ?>produto/alterar.php?id=<? echo $produto->getId();?>"><img alt="Alterar" title="Alterar" src="../images/alterar.png" width="16" /></a>
-                                <a href="#"><img alt="Remover" title="Remover" src="../images/remover.png" width="16" /></a>
+                                <a href="?remover=<? echo $produto->getId(); ?>"><img alt="Remover" title="Remover" src="../images/remover.png" width="16" /></a>
                                 </td>
                             </tr>
                         <? }?>
@@ -54,7 +58,7 @@
 						<tr>
 							<th>Nome</th>
 							<th>Fabricante</th>
-                            <th>Preço</th>
+                            <th>Preço (R$)</th>
                             <th>Ações</th>
 						</tr>
 					</tfoot>
@@ -72,6 +76,12 @@
 			</script>
             <? } ?>
 <?
+	if ($removeu == 1) {
+		alertar("Produto removido com sucesso.","info");
+	} else if ($removeu == 2) {
+		alertar("Não foi possível remover o Produto, pois este está relacionado a uma recomendação.","erro");
+	}
+	
 	if($_GET['cadastro'] == "ok"){
 		alertar("Produto cadastrado com sucesso.","info");
 	}

@@ -140,9 +140,7 @@
 		if($produtoAlterado){
 			header('Location:' . SYSURL. "produto/index.php?alteracao=ok");
 		}
-		else{
-			echo '<script type="text/javascript">alert("Erro no cadastro!");</script>';
-		}
+		
 	
 	}
 	

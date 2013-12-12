@@ -16,9 +16,7 @@
 		if($fabricanteAlterado){
 			header('Location:' . SYSURL. "fabricante/index.php?alteracao=ok");
 		}
-		else{
-			echo '<script type="text/javascript">alert("Erro no cadastro!");</script>';
-		}
+		
 	}
 	
 	$fabricante = consultarFabricante($_GET['id']);

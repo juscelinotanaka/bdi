@@ -3,6 +3,10 @@
 	include ("../funcoes.php"); 
 	logado();
 	
+	if ($_GET['remover'] != '') {
+		$removeu = removerLoja($_GET['remover']);
+	}
+	
 	$lojas = listarLojas();
 	
 	getHeader();
@@ -41,7 +45,7 @@
                                 <td><? echo $loja->getEndereco();?></td>
                                 <td>
                                 	<a href="<? echo SYSURL; ?>loja/alterar.php?id=<? echo $loja->getId();?>"><img alt="Alterar" title="Alterar" src="../images/alterar.png" width="16" /></a>
-                                	<a href="#"><img alt="Remover" title="Remover" src="../images/remover.png" width="16" /></a>
+                                	<a href="?remover=<? echo $loja->getId(); ?>"><img alt="Remover" title="Remover" src="../images/remover.png" width="16" /></a>
 								</td>
                             </tr>
                         <? }?>
@@ -59,6 +63,11 @@
             <div class="clear"></div>
             </div>
 <?
+	if ($removeu == 1) {
+		alertar("Loja removida com sucesso.","info");
+	} else if ($removeu == 2) {
+		alertar("Não foi possível remover a loja. Remova primeiro os produtos desta loja.","erro");
+	}
 	if($_GET['cadastro'] == "ok"){
 		alertar("Loja cadastrada com sucesso.","info");
 	}

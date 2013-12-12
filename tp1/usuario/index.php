@@ -2,6 +2,14 @@
 	include ("../funcoes.php"); 
 	logado();
 	
+	if ($_GET['excluir']) {
+		$excluido = removerUsuario($_SESSION['idUsuario']);
+		
+		if ($excluido == 1) {
+			header('Location:' . SYSURL. "index.php?logout=true&excluirUsuario=ok");
+		} 
+	}
+	
 	$usuario = pesquisarUsuario($_SESSION['idUsuario']);
 	
 	getHeader();
@@ -34,11 +42,14 @@
                     	</div>
                         <!-- fim description -->
                     	<a href="<? echo SYSURL ?>usuario/alterar.php" class="button"><span>Alterar dados</span></a>
+                        
+                        <a href="?excluir=ok" class="button"><span>Excluir Conta</span></a>
                     </div> <!-- fim right -->
                 <div class="clear h16"></div>
             </div> <!-- fim principal -->
             
-<? 
+<?
+	
 	if($_GET['alteracao'] == "ok"){
 		alertar("Usuário alterado com sucesso.","info");
 	}

@@ -15,9 +15,7 @@
 		if($perfilAlterado){
 			header('Location:' . SYSURL. "perfil/index.php?alteracao=ok");
 		}
-		else{
-			echo '<script type="text/javascript">alert("Erro no cadastro!");</script>';
-		}
+		
 	}
 	
 	$perfil = consultarPerfilAlteracao($_GET['id']);

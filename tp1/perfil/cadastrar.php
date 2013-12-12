@@ -11,7 +11,7 @@
 		
 		$cadastro = cadastrarPerfil($perfil);
 		
-		if ($cadastro) {
+		if ($cadastro == 1) {
 			header("location: ".SYSURL);
 		}
 	}

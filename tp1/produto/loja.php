@@ -20,7 +20,7 @@
 						breadcrumb(array(
 							'http://localhost/bdi/tp1'=>'Home',
 							'produto'=>'Produtos',
-							'index.php'=>'Consultar por Fornecedor'
+							'index.php'=>'Consultar por Loja'
 						));
 						?>
 					</div>
@@ -33,7 +33,7 @@
 					<thead>
 						<tr>
 							<th>Nome</th>
-							<th>Fornecedor</th>
+							<th>Loja</th>
                             <th>Preço (R$)</th>
                             <th style="width:48px;">Ações</th>
 						</tr>
@@ -43,7 +43,7 @@
                         <?	foreach($produtos as $produto){?>
                             <tr>
                                 <td><? echo $produto->getNome();?></td>
-                                <td><? echo $produto->getNomeFornecedor();?></td>
+                                <td><? echo $produto->getNomeLoja();?></td>
                                 <td><? echo number_format($produto->getPrecoReal(), 2, '.', '');?></td>
                                 <td>
                                 <a href="<? echo SYSURL; ?>produto/detalhes.php?id=<? echo $produto->getId();?>"><img alt="Detalhes" title="Detalhes" src="../images/detalhes.png" width="16" /></a>
@@ -57,7 +57,7 @@
 					<tfoot>
 						<tr>
 							<th>Nome</th>
-							<th>Fornecedor</th>
+							<th>Loja</th>
                             <th>Preço (R$)</th>
                             <th>Ações</th>
 						</tr>

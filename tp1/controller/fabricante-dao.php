@@ -101,11 +101,6 @@
 	
 	function removerFabricante($idFabricante){
 		
-		/*
-			DELETE FROM some_child_table WHERE some_fk_field IN SELECT some_id FROM some_Table;
-			DELETE FROM some_table;
-		*/
-		
 		$qry = "DELETE FROM notebook.fabricante 
 				WHERE \"idFabricante\" = " . $idFabricante;
 				
@@ -116,7 +111,6 @@
 			
 			if ($res) {
 				$state = pg_result_error_field($res, PGSQL_DIAG_SQLSTATE);
-				echo $state;
 				if ($state==0) {
 					return 1;
 				}

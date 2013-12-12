@@ -10,12 +10,10 @@
 		
 		$cadastro = cadastrarFornecedor($fornecedor);	
 		
-		if($cadastro){
+		if($cadastro == 1){
 			header('Location:' . SYSURL. "fornecedor/index.php?cadastro=ok");
 		}
-		else{
-			echo '<script type="text/javascript">alert("Erro no cadastro!");</script>';
-		}
+		
 		
 	}
 	
