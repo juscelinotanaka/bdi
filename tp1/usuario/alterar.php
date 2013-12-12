@@ -32,7 +32,7 @@
 
 
 	<div class="colunaDireita">
-                	<? getColunaLogin(); ?>
+                	<? getColunaHome(); ?>
                 </div>
             	<div class="principal">
                 
