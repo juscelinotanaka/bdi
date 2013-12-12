@@ -36,6 +36,8 @@
                             <th>Placa de Video</th>
                             <th>Preço</th>
                             <th>Detalhes</th>
+                            <th>Alterar</th>
+                            <th>Remover</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -50,6 +52,8 @@
                                 <td><? echo $produto->getVideo();?></td>
                                 <td>R$&nbsp;<? echo number_format($produto->getPrecoReal(), 2, ',', '.');?></td>
                                 <td><a href="<? echo SYSURL; ?>produto/detalhes.php?id=<? echo $produto->getId();?>">Detalhes</a></td>
+                                <td><a href="#">Alterar</a></td>
+                                <td><a href="#">Remover</a></td>
                             </tr>
                         <? }?>
                         
@@ -64,6 +68,8 @@
                             <th>Placa de Video</th>
                             <th>Preço</th>
                             <th>Detalhes</th>
+                            <th>Alterar</th>
+                            <th>Remover</th>
 						</tr>
 					</tfoot>
 			</table>

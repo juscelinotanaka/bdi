@@ -31,7 +31,9 @@
 	}
 	
 	function consultarUsuario($email, $senha){
-		$qry = "SELECT * FROM public.usuario WHERE email = '". $email ."' AND senha = md5('". $senha ."')";
+		$qry = "SELECT * FROM public.usuario 
+				WHERE email = '". $email ."' AND senha = md5('". $senha ."')";
+				
 		$result = pg_query($qry) or die("Cannot execute query: $qry\n");
 		
 		if (pg_num_rows($result) == 1){
@@ -54,7 +56,9 @@
 	}
 	
 	function pesquisarUsuario($idUsuario){
-		$qry = 'SELECT * FROM public.usuario WHERE "idUsuario" = '.$idUsuario.'';
+		$qry = 'SELECT * FROM public.usuario 
+				WHERE "idUsuario" = '.$idUsuario.'';
+				
 		$result = pg_query($qry) or die("Cannot execute query: $qry\n");
 		
 		if (pg_num_rows($result) == 1){
@@ -77,7 +81,9 @@
 	}
 	
 	function listarUsuarios($idUsuario){
-		$qry = 'SELECT * FROM public.usuario WHERE "idUsuario" <> '.$idUsuario.'';
+		$qry = 'SELECT * FROM public.usuario 
+				WHERE "idUsuario" <> '.$idUsuario.'';
+				
 		$result = pg_query($qry)  or die("Cannot execute query: $qry\n");
 		
 		while($row = pg_fetch_object($result)){
@@ -95,6 +101,61 @@
 		}
 		
 		return $usuarios;
+	}
+	
+	function alterarUsuario(Usuario $usuario){
+		
+		$qry = "UPDATE public.usuario 
+				SET 
+					nome = '".$usuario->getNome()."', 
+					sobrenome = '".$usuario->getSobrenome()."', 
+					\"CPF\" = '".$usuario->getCpf()."', 
+					email = '".$usuario->getEmail()."', 
+					senha = md5('".$usuario->getSenha()."'), 
+					apelido = '".$usuario->getApelido()."' 
+				WHERE \"idUsuario\" = " . $ususario->getId();
+		
+		global $db;
+		
+		if (pg_send_query($db, $qry)) {
+			$res=pg_get_result($db);
+			
+			if ($res) {
+				$state = pg_result_error_field($res, PGSQL_DIAG_SQLSTATE);
+				
+				if ($state==0){
+					return 1;
+				}
+				else {
+				  	
+					//unique
+					if ($state=="23505") { 
+						return 2;
+					}
+					
+					return 0;
+				}
+			}
+		}
+	}
+	
+	function removerUsuario($idUsuario){
+		
+		/*
+			DELETE FROM some_child_table WHERE some_fk_field IN SELECT some_id FROM some_Table;
+			DELETE FROM some_table;
+		*/
+		
+		$qry = "DELETE FROM public.usuario 
+				WHERE \"idUsuario\" = " . $idUsuario;
+		$result = pg_query($qry) or die("Cannot execute query: $qry\n");
+		
+		if (pg_num_rows($result) == 1){
+			return 1;
+		}
+		else{
+			return 0;
+		}
 	}
 	
 ?>

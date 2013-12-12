@@ -29,7 +29,9 @@
 	}
 	
 	function consultarPerfil($idUsuario){
-		$qry = "SELECT * FROM notebook.perfil WHERE \"usuario_idUsuario\" = ". $idUsuario ."";
+		$qry = "SELECT * FROM notebook.perfil 
+				WHERE \"usuario_idUsuario\" = ". $idUsuario ."";
+				
 		$result = pg_query($qry) or die("Cannot execute query: $qry\n");
 
 		
@@ -50,7 +52,9 @@
 	}
 	
 	function listarPerfis($idUsuario){
-		$qry = "SELECT * FROM notebook.\"viewPerfil\" WHERE \"usuario_idUsuario\" = ". $idUsuario ."";
+		$qry = "SELECT * FROM notebook.\"viewPerfil\" 
+				WHERE \"usuario_idUsuario\" = ". $idUsuario ."";
+				
 		$result = pg_query($qry) or die("Cannot execute query: $qry\n");
 
 		
@@ -76,5 +80,55 @@
 			
 	}
 	
+	function alterarPerfil(Perfil $perfil){
+		
+		$qry = "UPDATE notebook.perfil 
+				SET 
+					descricao = '".$perfil->getDescricao()."', 
+					caracteristicas = '".$perfil->getCaracteristicas()."' 
+				WHERE \"idPerfil\" = ".$perfil->getId()."";
+		
+		global $db;
+		
+		if (pg_send_query($db, $qry)) {
+			$res=pg_get_result($db);
+			
+			if ($res) {
+				$state = pg_result_error_field($res, PGSQL_DIAG_SQLSTATE);
+				
+				if ($state==0){
+					return 1;
+				}
+				else {
+				  	
+					//unique
+					if ($state=="23505") { 
+						return 2;
+					}
+					
+					return 0;
+				}
+			}
+		}
+	}
 	
+	function removerPerfil($idUsuario, $idPerfil){
+		
+		/*
+			DELETE FROM some_child_table WHERE some_fk_field IN SELECT some_id FROM some_Table;
+			DELETE FROM some_table;
+		*/
+		
+		$qry = "DELETE FROM notebook.perfil 
+				WHERE \"usuario_idUsuario\" = " . $idUsuario . " AND \"idPerfil\" = " . $idPerfil;
+				
+		$result = pg_query($qry) or die("Cannot execute query: $qry\n");
+		
+		if (pg_num_rows($result) == 1){
+			return 1;
+		}
+		else{
+			return 0;
+		}
+	}
 ?>

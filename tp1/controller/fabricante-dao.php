@@ -29,7 +29,9 @@
 	}
 	
 	function consultarFabricante($fabri){
-		$qry = "SELECT * FROM notebook.fabricante WHERE nome = '". $fabri ."'";
+		$qry = "SELECT * FROM notebook.fabricante 
+				WHERE nome = '". $fabri ."'";
+		
 		$result = pg_query($qry) or die("Cannot execute query: $qry\n");
 		
 		if (pg_num_rows($result) == 1){
@@ -65,4 +67,55 @@
 		
 		return $fabricantes;
 	}	
+	
+	function alterarFabricante(Fabricante $fabricante){
+		
+		$qry = "UPDATE notebook.fabricante 
+				SET 
+					nome = '".$fabricante->getNome()."', 
+					nacionalidade = '".$fabricante->getNacionalidade()."' 
+				WHERE \"idFabricante = \"" . $fabricante->getId();
+		
+		global $db;
+		
+		if (pg_send_query($db, $qry)) {
+			$res=pg_get_result($db);
+			
+			if ($res) {
+				$state = pg_result_error_field($res, PGSQL_DIAG_SQLSTATE);
+				
+				if ($state==0) {
+					return 1;
+				}
+				else {
+				  	
+					if ($state=="23505") { 
+						return 2;
+					}
+					
+					return 0;
+				}
+			}
+		}
+	}
+	
+	function removerFabricante($idFabricante){
+		
+		/*
+			DELETE FROM some_child_table WHERE some_fk_field IN SELECT some_id FROM some_Table;
+			DELETE FROM some_table;
+		*/
+		
+		$qry = "DELETE FROM notebook.fabricante 
+				WHERE \"idFabricante\" = " . $idFabricante;
+				
+		$result = pg_query($qry) or die("Cannot execute query: $qry\n");
+		
+		if (pg_num_rows($result) == 1){
+			return 1;
+		}
+		else{
+			return 0;
+		}
+	}
 ?>
