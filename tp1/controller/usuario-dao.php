@@ -69,7 +69,7 @@
 			$usuario->setId($row->idUsuario);
 			$usuario->setNome($row->nome);
 			$usuario->setSobrenome($row->sobrenome);
-			$usuario->setCpf($row->cpf);
+			$usuario->setCpf($row->CPF);
 			$usuario->setEmail($row->email);
 			$usuario->setApelido($row->apelido);
 			
@@ -113,7 +113,7 @@
 					email = '".$usuario->getEmail()."', 
 					senha = md5('".$usuario->getSenha()."'), 
 					apelido = '".$usuario->getApelido()."' 
-				WHERE \"idUsuario\" = " . $ususario->getId();
+				WHERE \"idUsuario\" = " . $usuario->getId();
 		
 		global $db;
 		
