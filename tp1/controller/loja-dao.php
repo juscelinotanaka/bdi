@@ -113,13 +113,26 @@
 		$qry = "DELETE FROM public.loja 
 				WHERE \"idLoja\" = " . $idLoja;
 				
-		$result = pg_query($qry) or die("Cannot execute query: $qry\n");
+		global $db;
 		
-		if (pg_affected_rows($result) == 1){
-			return 1;
-		}
-		else{
-			return 0;
+		if (pg_send_query($db, $qry)) {
+			$res=pg_get_result($db);
+			
+			if ($res) {
+				$state = pg_result_error_field($res, PGSQL_DIAG_SQLSTATE);
+				echo $state;
+				if ($state==0) {
+					return 1;
+				}
+				else {
+				  	
+					if ($state=="23503") { 
+						return 2;
+					}
+					
+					return 0;
+				}
+			}
 		}
 	}
 ?>

@@ -9,8 +9,6 @@
 	define('ERROR_ON_CONNECT_FAILED','Sorry, can not connect the database server now!');
 	/* */
 	
-<<<<<<< HEAD
-=======
 	/*
 	define('PGHOST','10.208.200.15');
 	define('PGPORT',5432);
@@ -21,8 +19,6 @@
 	define('ERROR_ON_CONNECT_FAILED','Sorry, can not connect the database server now!');
 	/* */
 	
-	
->>>>>>> af9db062d3c038c978005c88417376d47a1d9c24
 	$db = pg_pconnect('host=' . PGHOST . ' port=' . PGPORT . ' dbname=' . PGDATABASE . ' user=' . PGUSER . ' password=' . PGPASSWORD);
 
 	pg_set_client_encoding($db, UTF-8);
