@@ -30,6 +30,8 @@
                             <tr>
                                 <th>Nome</th>
                                 <th>Nacionalidade</th>
+                                <th>Alterar</th>
+                                <th>Remover</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -37,6 +39,8 @@
                                 <tr>
                                     <td><? echo $fabricante->getNome();?></td>
                                     <td><? echo $fabricante->getNacionalidade();?></td>
+                                    <td><a href="<? echo SYSURL; ?>fabricante/alterar.php?id=<? echo $fabricante->getId();?>">Alterar</a></td>
+                                    <td><a href="#">Remover</a></td>
                                 </tr>
                             <? }?>
                         </tbody>
@@ -44,6 +48,8 @@
                             <tr>
                                 <th>Nome</th>
                                 <th>Nacionalidade</th>
+                                <th>Alterar</th>
+                                <th>Remover</th>
                             </tr>
                         </tfoot>
 					</table>
@@ -51,8 +57,12 @@
             <div class="clear"></div>
             </div>
 <?
+	
 	if($_GET['cadastro'] == "ok"){
-		alertar("Fabricante cadastrado com sucesso","info");
+		alertar("Fabricante cadastrado com sucesso.","info");
+	}
+	if($_GET['alteracao'] == "ok"){
+		alertar("Fabricante alterado com sucesso.","info");
 	}
    	getFooter();
 ?>

@@ -52,7 +52,7 @@
                                 <td><? echo $produto->getVideo();?></td>
                                 <td>R$&nbsp;<? echo number_format($produto->getPrecoReal(), 2, ',', '.');?></td>
                                 <td><a href="<? echo SYSURL; ?>produto/detalhes.php?id=<? echo $produto->getId();?>">Detalhes</a></td>
-                                <td><a href="#">Alterar</a></td>
+                                <td><a href="<? echo SYSURL; ?>produto/alterar.php?id=<? echo $produto->getId();?>">Alterar</a></td>
                                 <td><a href="#">Remover</a></td>
                             </tr>
                         <? }?>
@@ -87,7 +87,10 @@
             <? } ?>
 <?
 	if($_GET['cadastro'] == "ok"){
-		alertar("Produto cadastrado com sucesso","info");
+		alertar("Produto cadastrado com sucesso.","info");
+	}
+	if($_GET['alteracao'] == "ok"){
+		alertar("Produto alterado com sucesso.","info");
 	}
    	getFooter();
 ?>

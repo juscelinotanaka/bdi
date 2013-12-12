@@ -77,5 +77,24 @@
 		
 		return $amigos;
 	}
+	
+	function desfazerAmizade($idUsuario, $idAmigo){
+		/*
+			DELETE FROM some_child_table WHERE some_fk_field IN SELECT some_id FROM some_Table;
+			DELETE FROM some_table;
+		*/
+		
+		$qry = "DELETE FROM public.amizade 
+				WHERE \"usuario_idUsuario\" = " . $idUsuario ." AND \"usuario_idAmigo\" = ".$idAmigo;
+				
+		$result = pg_query($qry) or die("Cannot execute query: $qry\n");
+		
+		if (pg_num_rows($result) == 1){
+			return 1;
+		}
+		else{
+			return 0;
+		}
+	}
 
 ?>

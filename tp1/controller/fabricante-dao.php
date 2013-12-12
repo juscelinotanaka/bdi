@@ -28,9 +28,9 @@
 		}
 	}
 	
-	function consultarFabricante($fabri){
+	function consultarFabricante($idFabricante){
 		$qry = "SELECT * FROM notebook.fabricante 
-				WHERE nome = '". $fabri ."'";
+				WHERE \"idFabricante\" = '". $idFabricante ."'";
 		
 		$result = pg_query($qry) or die("Cannot execute query: $qry\n");
 		
@@ -74,7 +74,7 @@
 				SET 
 					nome = '".$fabricante->getNome()."', 
 					nacionalidade = '".$fabricante->getNacionalidade()."' 
-				WHERE \"idFabricante = \"" . $fabricante->getId();
+				WHERE \"idFabricante\" = " . $fabricante->getId();
 		
 		global $db;
 		

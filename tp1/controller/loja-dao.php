@@ -29,9 +29,9 @@
 		}
 	}
 	
-	function consultarLoja($loj){
+	function consultarLoja($idLoja){
 		$qry = "SELECT * FROM public.loja 
-				WHERE nome = '". $loj ."'";
+				WHERE \"idLoja\" = ". $idLoja;
 				
 		$result = pg_query($qry) or die("Cannot execute query: $qry\n");
 		

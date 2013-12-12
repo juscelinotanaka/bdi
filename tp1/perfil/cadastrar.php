@@ -39,7 +39,7 @@
                             <p>Dê um nome para o seu perfil e defina as características de como você prefere um notebook.</p>
                             <form method="post" id="cadastrarPerfil" onsubmit="return perfilOK();">
                             <span><span class="required">*</span> Descrição: <h5>ex. Só i5, 8GB de Memória, Tops</h5></span> <input type="text" name="descricao" /><br><br />
-                            <span class="cadPerf">Marca:</span> 
+                            <span class="cadPerf">Fabricante:</span> 
                             <select name="marca">
                             	<option value="">Selecione:</option>
                                 <option value="1">HP</option>

@@ -30,18 +30,24 @@
 					<thead>
 						<tr>
 							<th>Nome</th>
+                            <th>Alterar</th>
+                            <th>Remover</th>
 						</tr>
 					</thead>
 					<tbody>
                     	<?	foreach($fornecedores as $fornecedor){?>
                             <tr>
                                 <td><? echo $fornecedor->getNome();?></td>
+                                <td><a href="<? echo SYSURL; ?>fornecedor/alterar.php?id=<? echo $fornecedor->getId();?>">Alterar</a></td>
+                                <td><a href="#">Remover</a></td>
                             </tr>
                         <? }?>
                     </tbody>
 					<tfoot>
 						<tr>
 							<th>Nome</th>
+                            <th>Alterar</th>
+                            <th>Remover</th>
 						</tr>
 					</tfoot>
 			</table>
@@ -51,7 +57,10 @@
 
 <?
 	if($_GET['cadastro'] == "ok"){
-		alertar("Fornecedor cadastrado com sucesso","info");
+		alertar("Fornecedor cadastrado com sucesso.","info");
+	}
+	if($_GET['alteracao'] == "ok"){
+		alertar("Fornecedor alterado com sucesso.","info");
 	}
 	getFooter();
 ?>

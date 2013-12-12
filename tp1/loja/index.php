@@ -30,6 +30,8 @@
 						<tr>
 							<th>Nome</th>
 							<th>Endereco</th>
+                            <th>Alterar</th>
+                            <th>Remover</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -38,6 +40,8 @@
                             <tr>
                                 <td><? echo $loja->getNome();?></td>
                                 <td><? echo $loja->getEndereco();?></td>
+                                <td><a href="<? echo SYSURL; ?>loja/alterar.php?id=<? echo $loja->getId();?>">Alterar</a></td>
+                                <td><a href="#">Remover</a></td>
                             </tr>
                         <? }?>
                         
@@ -46,6 +50,8 @@
 						<tr>
 							<th>Nome</th>
 							<th>Endereco</th>
+                            <th>Alterar</th>
+                            <th>Remover</th>
 						</tr>
 					</tfoot>
 			</table>
@@ -54,7 +60,10 @@
             </div>
 <?
 	if($_GET['cadastro'] == "ok"){
-		alertar("Loja cadastrada com sucesso","info");
+		alertar("Loja cadastrada com sucesso.","info");
+	}
+	if($_GET['alteracao'] == "ok"){
+		alertar("Loja alterada com sucesso.","info");
 	}
    	getFooter();
 ?>

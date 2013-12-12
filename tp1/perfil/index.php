@@ -38,6 +38,8 @@
                             <th>Vídeo</th>
                             <th>Preço</th>
                             <th>Fabricante</th>
+                            <th>Alterar</th>
+                            <th>Remover</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -52,6 +54,8 @@
                             <td><? echo $perfil->getVideo(); ?></td>
                             <td><? echo $perfil->getPreco(); ?></td>
 							<td><? echo $perfil->getFabricante(); ?></td>
+                            <td><a href="<? echo SYSURL; ?>perfil/alterar.php?id=<? echo $perfil->getId();?>">Alterar</a></td>
+                            <td><a href="#">Remover</a></td>
                         </tr>
                         <? } ?>
                         <? } ?>
@@ -66,6 +70,8 @@
                             <th>Vídeo</th>
                             <th>Preço</th>
                             <th>Fabricante</th>
+                            <th>Alterar</th>
+                            <th>Remover</th>
 						</tr>
 					</tfoot>
 			</table>
@@ -73,6 +79,12 @@
             <div class="clear"></div>
             </div>
 
-<?
+<?	
+	if($_GET['cadastro'] == "ok"){
+		alertar("Perfil cadastrado com sucesso.","info");
+	}
+	if($_GET['alteracao'] == "ok"){
+		alertar("Perfil alterado com sucesso.","info");
+	}
 	getFooter();
 ?>

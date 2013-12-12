@@ -32,6 +32,7 @@
                                 <th>E-mail</th>
                                 <th>Apelido</th>
                                 <th>Grau de Amizade</th>
+                                <th>Desfazer Amizade</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -46,6 +47,7 @@
 										<td><? echo $usuario->getEmail();?></td>
 										<td><? echo $usuario->getApelido();?></td>
                                         <td><? echo $amigo->getGrau();?></td>
+                                        <td><a href="#">Desfazer Amizade</a></td>
 									</tr>
                             <? 
 								}
@@ -58,6 +60,7 @@
                                 <th>E-mail</th>
                                 <th>Apelido</th>
                                 <th>Grau de Amizade</th>
+                                <th>Desfazer Amizade</th>
                             </tr>
                         </tfoot>
 					</table>

@@ -78,6 +78,38 @@
 		
 	}
 	
+	function consultarProdutoAlteracao($idProduto){
+		
+		$qry = "SELECT * FROM notebook.produto
+				WHERE \"idProduto\" = " .$idProduto;
+		
+		$result = pg_query($qry) or die("Cannot execute query: $qry\n");
+		
+		if (pg_num_rows($result) == 1){
+		
+			$row = pg_fetch_object($result);
+			
+			$produto = new Produto();
+			
+			$produto->setId($idProduto);
+			$produto->setNome($row->nome);
+			$produto->setTamanho($row->tamanho);
+			$produto->setProcessador($row->processador);
+			$produto->setRam($row->ram);
+			$produto->setHd($row->hd);
+			$produto->setVideo($row->video);
+			$produto->setPrecoReal($row->precoReal);
+			$produto->setIdFornecedor($row->fornecedor_idFornecedor);
+			$produto->setIdFabricante($row->fabricante_idFabricante);
+			$produto->setIdLoja($row->loja_idLoja);
+			
+			return $produto;
+		}
+		else{
+			return 0;
+		}
+	}
+	
 	function consultarProdutoPorFabricante($idFabricante){
 		$qry = "SELECT p.\"idProduto\" as \"idProduto\", p.nome as nome, p.descricao as descricao, p.imagem as imagem, p.\"precoReal\" as preco,
 					(SELECT \"valorMapeado\" FROM notebook.caracteristica c
@@ -401,7 +433,7 @@
 					\"fornecedor_idFornecedor\" = ".$produto->getIdFornecedor().", 
 					\"loja_idLoja\" = ".$produto->getIdLoja().", 
 					imagem = '".$produto->getImagem()."' 
-				WHERE \"idProduto = \"" . $produto->getId();
+				WHERE \"idProduto\" = " . $produto->getId();
 		
 		global $db;
 		

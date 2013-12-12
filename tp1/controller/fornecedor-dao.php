@@ -28,9 +28,9 @@
 		}
 	}
 	
-	function consultarFornecedor($forn){
+	function consultarFornecedor($idFornecedor){
 		$qry = "SELECT * FROM public.fornecedor 
-				WHERE nome = '". $forn ."'";
+				WHERE \"idFornecedor\" = '". $idFornecedor ."'";
 				
 		$result = pg_query($qry) or die("Cannot execute query: $qry\n");
 		
@@ -70,7 +70,7 @@
 		$qry = "UPDATE public.fornecedor 
 				SET 
 					nome = '".$fornecedor->getNome()."' 
-				WHERE \"idFornecedor = \"" .$fornecedor->getId();
+				WHERE \"idFornecedor\" = " .$fornecedor->getId();
 		
 		global $db;
 		

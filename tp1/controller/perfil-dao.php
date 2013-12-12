@@ -51,6 +51,31 @@
 			
 	}
 	
+	function consultarPerfilAlteracao($idPerfil){
+		$qry = "SELECT * FROM notebook.perfil 
+				WHERE \"idPerfil\" = ". $idPerfil;
+				
+		$result = pg_query($qry) or die("Cannot execute query: $qry\n");
+
+		if (pg_num_rows($result) > 0){
+			$row = pg_fetch_object($result);
+			
+			$perfil = new Perfil();
+			
+			$perfil->setId($row->idPerfil);
+			$perfil->setIdUsuario($row->usuario_idUsuario);
+			$perfil->setDescricao($row->descricao);
+			$perfil->setCaracteristicas($row->caracteristicas);
+			
+			return $perfil;
+		}
+		else{
+			return 0;
+		}
+		
+			
+	}
+	
 	function listarPerfis($idUsuario){
 		$qry = "SELECT * FROM notebook.\"viewPerfil\" 
 				WHERE \"usuario_idUsuario\" = ". $idUsuario ."";
