@@ -354,7 +354,7 @@
 											(SELECT r."produto_idProduto", u.nome, u.sobrenome
 												FROM notebook.recomendacao r 
 												INNER JOIN public.usuario u ON r."amizade_idAmigo" = u."idUsuario"
-												WHERE r."amizade_idUsuario" = '.$idUsuario.'
+												WHERE r."amizade_idAmigo" = '.$idUsuario.'
 											) as aux							
 							) as ra 
 				ON ra."produto_idProduto" = p."idProduto" ';
