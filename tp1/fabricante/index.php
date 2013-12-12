@@ -30,8 +30,7 @@
                             <tr>
                                 <th>Nome</th>
                                 <th>Nacionalidade</th>
-                                <th>Alterar</th>
-                                <th>Remover</th>
+                                <th style="width:40px;">Ações</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -39,8 +38,10 @@
                                 <tr>
                                     <td><? echo $fabricante->getNome();?></td>
                                     <td><? echo $fabricante->getNacionalidade();?></td>
-                                    <td><a href="<? echo SYSURL; ?>fabricante/alterar.php?id=<? echo $fabricante->getId();?>">Alterar</a></td>
-                                    <td><a href="#">Remover</a></td>
+                                    <td>
+                                    	<a href="<? echo SYSURL; ?>fabricante/alterar.php?id=<? echo $fabricante->getId();?>"><img alt="Alterar" title="Alterar" src="../images/alterar.png" width="16" /></a>
+                                        <a href="#"><img alt="Remover" title="Remover" src="../images/remover.png" width="16" /></a>
+									</td>
                                 </tr>
                             <? }?>
                         </tbody>
@@ -48,8 +49,7 @@
                             <tr>
                                 <th>Nome</th>
                                 <th>Nacionalidade</th>
-                                <th>Alterar</th>
-                                <th>Remover</th>
+                                <th>Ações</th>
                             </tr>
                         </tfoot>
 					</table>

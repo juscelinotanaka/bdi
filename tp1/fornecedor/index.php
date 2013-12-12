@@ -30,24 +30,24 @@
 					<thead>
 						<tr>
 							<th>Nome</th>
-                            <th>Alterar</th>
-                            <th>Remover</th>
+                            <th style="width:40px;">Ações</th>
 						</tr>
 					</thead>
 					<tbody>
                     	<?	foreach($fornecedores as $fornecedor){?>
                             <tr>
                                 <td><? echo $fornecedor->getNome();?></td>
-                                <td><a href="<? echo SYSURL; ?>fornecedor/alterar.php?id=<? echo $fornecedor->getId();?>">Alterar</a></td>
-                                <td><a href="#">Remover</a></td>
+                                <td>
+                                	<a href="<? echo SYSURL; ?>fornecedor/alterar.php?id=<? echo $fornecedor->getId();?>"><img alt="Alterar" title="Alterar" src="../images/alterar.png" width="16" /></a>
+                                    <a href="#"><img alt="Remover" title="Remover" src="../images/remover.png" width="16" /></a>
+								</td>
                             </tr>
                         <? }?>
                     </tbody>
 					<tfoot>
 						<tr>
 							<th>Nome</th>
-                            <th>Alterar</th>
-                            <th>Remover</th>
+                            <th>Ações</th>
 						</tr>
 					</tfoot>
 			</table>

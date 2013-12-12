@@ -35,9 +35,7 @@
                             <th>HD</th>
                             <th>Placa de Video</th>
                             <th>Preço</th>
-                            <th>Detalhes</th>
-                            <th>Alterar</th>
-                            <th>Remover</th>
+                            <th style="width:48px;">Ações</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -51,9 +49,11 @@
                                 <td><? echo $produto->getHd();?></td>
                                 <td><? echo $produto->getVideo();?></td>
                                 <td>R$&nbsp;<? echo number_format($produto->getPrecoReal(), 2, ',', '.');?></td>
-                                <td><a href="<? echo SYSURL; ?>produto/detalhes.php?id=<? echo $produto->getId();?>">Detalhes</a></td>
-                                <td><a href="<? echo SYSURL; ?>produto/alterar.php?id=<? echo $produto->getId();?>">Alterar</a></td>
-                                <td><a href="#">Remover</a></td>
+                                <td>
+                                <a href="<? echo SYSURL; ?>produto/detalhes.php?id=<? echo $produto->getId();?>"><img alt="Detalhes" title="Detalhes" src="../images/detalhes.png" width="16" /></a>
+                                <a href="<? echo SYSURL; ?>produto/alterar.php?id=<? echo $produto->getId();?>"><img alt="Alterar" title="Alterar" src="../images/alterar.png" width="16" /></a>
+                                <a href="#"><img alt="Remover" title="Remover" src="../images/remover.png" width="16" /></a>
+                                </td>
                             </tr>
                         <? }?>
                         
@@ -67,9 +67,7 @@
                             <th>HD</th>
                             <th>Placa de Video</th>
                             <th>Preço</th>
-                            <th>Detalhes</th>
-                            <th>Alterar</th>
-                            <th>Remover</th>
+                            <th>Ações</th>
 						</tr>
 					</tfoot>
 			</table>
