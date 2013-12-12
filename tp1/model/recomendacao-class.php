@@ -3,7 +3,8 @@
 	class Recomendacao{
 		
 		private $id;
-		private $idAmizade;
+		private $idUsuario;
+		private $idAmigo;
 		private $idProduto;
 		private $nome;
 		private $sobrenome;
@@ -17,11 +18,18 @@
 			$this->id = $id;
 		}
 		
-		public function getIdAmizade(){
-			return $this->idAmizade;
+		public function getIdUsuario(){
+			return $this->idUsuario;
 		}
-		public function setIdAmizade($id){
-			$this->idAmizade = $id;
+		public function setIdUsuario($id){
+			$this->idUsuario = $id;
+		}
+		
+		public function getIdAmigo(){
+			return $this->idAmigo;
+		}
+		public function setIdAmigo($id){
+			$this->idAmigo = $id;
 		}
 		
 		public function getIdProduto(){

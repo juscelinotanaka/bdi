@@ -5,7 +5,8 @@
 	
 	if ($_POST['acao'] == 'recomendar') {
 		$recomendacao = new Recomendacao();
-		$recomendacao->setIdAmizade($_POST['idAmizade']);
+		$recomendacao->setIdUsuario($_SESSION['idUsuario']);
+		$recomendacao->setIdAmigo($_POST['idAmigo']);
 		$recomendacao->setIdProduto($_POST['idProduto']);
 		
 		$sucesso = cadastrarRecomendacao($recomendacao);
@@ -60,7 +61,7 @@
                                         <? } else {?>
                                         <td>
                                         	<form method="post">
-                                            	<input type="hidden" name="idAmizade" value="<? echo $recomendacao->getIdAmizade(); ?>" />
+                                            	<input type="hidden" name="idAmigo" value="<? echo $recomendacao->getIdAmigo(); ?>" />
                                                 <input type="hidden" name="idProduto" value="<? echo $_GET['id']; ?>" />
                                                 <input type="hidden" name="acao" value="recomendar" />
                                                 <input type="submit" value="Recomendar" class="btnRecomendar" />

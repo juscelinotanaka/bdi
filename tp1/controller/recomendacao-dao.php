@@ -4,7 +4,8 @@
 	include_once(ABSPATH."model/produto-class.php");
 	
 	function cadastrarRecomendacao(Recomendacao $recomendacao){
-		$qry = "INSERT INTO notebook.recomendacao (\"amizade_idAmizade\",\"produto_idProduto\") VALUES (".$recomendacao->getIdAmizade().", ".$recomendacao->getIdProduto().")";
+		
+		$qry = "INSERT INTO notebook.recomendacao (\"amizade_idUsuario\",\"amizade_idAmigo\",\"produto_idProduto\") VALUES (".$recomendacao->getIdUsuario().", ".$recomendacao->getIdAmigo().", ".$recomendacao->getIdProduto().")";
 		
 		global $db;
 		
@@ -30,10 +31,9 @@
 		(
 			SELECT *,
 			CASE 
-				WHEN a."idAmizade" IN (SELECT a."idAmizade"
+				WHEN a."usuario_idAmigo" IN (SELECT r."amizade_idAmigo"
 										FROM notebook.recomendacao r 
-										INNER JOIN public.amizade a ON r."amizade_idAmizade" = a."idAmizade"
-										INNER JOIN public.usuario u ON a."usuario_idUsuario" = u."idUsuario"
+										INNER JOIN public.amizade a ON r."amizade_idAmigo" = a."usuario_idAmigo"
 										WHERE a."usuario_idUsuario" = '.$idUsuario.' AND "produto_idProduto" = '.$idProduto.'
 									) 
 				THEN
@@ -52,7 +52,8 @@
 			
 			$recomendacao = new Recomendacao();
 			
-			$recomendacao->setIdAmizade($row->idAmizade);
+			$recomendacao->setIdUsuario($row->usuario_idUsuario);
+			$recomendacao->setIdAmigo($row->usuario_idAmigo);
 			$recomendacao->setNome($row->nome);
 			$recomendacao->setSobrenome($row->sobrenome);
 			$recomendacao->setApelido($row->apelido);
