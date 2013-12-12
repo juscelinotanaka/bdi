@@ -148,7 +148,4 @@ function getBemVindo() {
 	include ("bemvindo.php");
 }
 
-
-
-
 ?>
