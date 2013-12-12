@@ -38,8 +38,7 @@
                             <th>Vídeo</th>
                             <th>Preço</th>
                             <th>Fabricante</th>
-                            <th>Alterar</th>
-                            <th>Remover</th>
+                            <th style="width:40px;">Ações</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -54,8 +53,10 @@
                             <td><? echo $perfil->getVideo(); ?></td>
                             <td><? echo $perfil->getPreco(); ?></td>
 							<td><? echo $perfil->getFabricante(); ?></td>
-                            <td><a href="<? echo SYSURL; ?>perfil/alterar.php?id=<? echo $perfil->getId();?>">Alterar</a></td>
-                            <td><a href="#">Remover</a></td>
+                            <td>
+                            	<a href="<? echo SYSURL; ?>perfil/alterar.php?id=<? echo $perfil->getId();?>"><img alt="Alterar" title="Alterar" src="../images/alterar.png" width="16" /></a>
+                                <a href="#"><img alt="Remover" title="Remover" src="../images/remover.png" width="16" /></a>
+							</td>
                         </tr>
                         <? } ?>
                         <? } ?>
@@ -70,8 +71,7 @@
                             <th>Vídeo</th>
                             <th>Preço</th>
                             <th>Fabricante</th>
-                            <th>Alterar</th>
-                            <th>Remover</th>
+                            <th>Ações</th>
 						</tr>
 					</tfoot>
 			</table>

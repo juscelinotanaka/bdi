@@ -15,7 +15,7 @@
 		$usuarioAlterado = alterarUsuario($usuario);
 		
 		if ($usuarioAlterado == 1) {
-			header('Location:' . SYSURL. "usuario/index.php?alteracao=ok");
+			header('Location:' . SYSURL. "index.php?logout=true&atualizarUsuario=ok");
 		} 
 		else if ($usuarioAlterado == 2){
 			$erro = 'CPF ou E-mail inválidos.';

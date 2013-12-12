@@ -3,6 +3,13 @@
 	include ("../funcoes.php"); 
 	logado();
 	
+	if ($_GET['desfazer'] != '') {
+		$desfez = desfazerAmizade($_SESSION['idUsuario'], $_GET['desfazer']);
+		if ($desfez) {
+			header("location: ".SYSURL."amigo/?desfezOk=ok");
+		}
+	}
+	
 	$amigos = listarAmigos($_SESSION['idUsuario']);
 	
 	getHeader();
@@ -32,7 +39,7 @@
                                 <th>E-mail</th>
                                 <th>Apelido</th>
                                 <th>Grau de Amizade</th>
-                                <th>Desfazer Amizade</th>
+                                <th>Ações</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -47,7 +54,7 @@
 										<td><? echo $usuario->getEmail();?></td>
 										<td><? echo $usuario->getApelido();?></td>
                                         <td><? echo $amigo->getGrau();?></td>
-                                        <td><a href="#">Desfazer Amizade</a></td>
+                                        <td><a href="?desfazer=<? echo $usuario->getId(); ?>">Desfazer Amizade</a></td>
 									</tr>
                             <? 
 								}
@@ -60,7 +67,7 @@
                                 <th>E-mail</th>
                                 <th>Apelido</th>
                                 <th>Grau de Amizade</th>
-                                <th>Desfazer Amizade</th>
+                                <th>Ações</th>
                             </tr>
                         </tfoot>
 					</table>
@@ -68,7 +75,9 @@
             <div class="clear"></div>
             </div>
 <?
-	
+	if ($_GET['desfezOk'] == "ok") {
+		alertar("Amizade Desfeita!", "info");
+	}
 	if($_GET['cadastro'] == "ok"){
 		alertar("Amigo adicionado!", "info");
 	}

@@ -3,7 +3,7 @@ define( 'ABSPATH', dirname(__FILE__) . '/' );
 define( 'SYSURL', '/bdi/tp1/');
 
 include (ABSPATH."crumbs.php");
-//include_once(ABSPATH."controller/conexao.php");
+
 include_once(ABSPATH."controller/usuario-dao.php");
 include_once(ABSPATH."controller/amizade-dao.php");
 include_once(ABSPATH."controller/loja-dao.php");
@@ -12,10 +12,6 @@ include_once(ABSPATH."controller/fornecedor-dao.php");
 include_once(ABSPATH."controller/fabricante-dao.php");
 include_once(ABSPATH."controller/recomendacao-dao.php");
 include_once(ABSPATH."controller/perfil-dao.php");
-
-function temPerfil() {
-return false;
-}
 
 function alertar($mensagem, $tipo) {
 	if ($tipo == 'sucesso') {
@@ -44,7 +40,12 @@ function logout () {
 	unset($_SESSION['MM_Username']);
 	unset($_SESSION['MM_UserGroup']);
 	
-	header("Location: ". SYSURL. "login.php");
+	$compl = '';
+	if ($_GET['atualizarUsuario'] == 'ok') {
+		$compl = '?usuarioCadastrado=ok';
+	}
+	
+	header("Location: ". SYSURL. "login.php".$compl);
 	exit;
 }
 

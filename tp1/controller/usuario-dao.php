@@ -150,7 +150,7 @@
 				WHERE \"idUsuario\" = " . $idUsuario;
 		$result = pg_query($qry) or die("Cannot execute query: $qry\n");
 		
-		if (pg_num_rows($result) == 1){
+		if (pg_affected_rows($result) == 1){
 			return 1;
 		}
 		else{

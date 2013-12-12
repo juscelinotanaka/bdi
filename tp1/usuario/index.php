@@ -21,15 +21,15 @@
 						?>
 					</div>
                     
-                    <div class="left">
+                    <div class="">
                     	<div class="description">
                             <h1>Meus dados</h1>
                             <p></p>
-                            <span>Nome:</span> <?php echo $usuario->getNome();?><br>
-                            <span>Sobrenome:</span> <?php echo $usuario->getSobrenome();?><br>
-                            <span>Apelido:</span> <?php echo $usuario->getApelido();?><br>
-                            <span>CPF:</span> <?php echo $usuario->getCpf();?><br>
-                            <span>E-mail:</span> <?php echo $usuario->getEmail();?><br>
+                            <div class="linhaPerfil"><span class="cadPerf">Nome:</span> <?php echo $usuario->getNome();?></div>
+                            <div class="linhaPerfil"><span class="cadPerf">Sobrenome:</span> <?php echo $usuario->getSobrenome();?></div>
+                            <div class="linhaPerfil"><span class="cadPerf">Apelido:</span> <?php echo $usuario->getApelido();?></div>
+                            <div class="linhaPerfil"><span class="cadPerf">CPF:</span> <?php echo $usuario->getCpf();?></div>
+                            <div class="linhaPerfil"><span class="cadPerf">E-mail:</span> <?php echo $usuario->getEmail();?></div>
                             
                     	</div>
                         <!-- fim description -->
@@ -38,7 +38,7 @@
                 <div class="clear h16"></div>
             </div> <!-- fim principal -->
             
-<?
+<? 
 	if($_GET['alteracao'] == "ok"){
 		alertar("Usuário alterado com sucesso.","info");
 	}

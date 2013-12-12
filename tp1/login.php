@@ -51,9 +51,7 @@ getHeader();
 						?>
 					</div>
                     
-                    
-                	<div class="tituloGrupo">Acesso</div>
-                    
+                    <div class="h16"></div>
                     <div class="left">
                       <h2>Novo Usuário</h2>
                       <div class="content">
@@ -121,7 +119,9 @@ getHeader();
             
 <?
 
-if ($_GET['url']) {
+if ($_GET['usuarioCadastrado'] == 'ok') {
+	alertar('Seus dados foram atualizados! Faça login novamente.', 'info');
+} else if ($_GET['url']) {
 	alertar('Você deve fazer login antes de acessar a página desejada.', 'info');
 } else {
 	if ($erro) {

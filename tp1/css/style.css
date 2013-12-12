@@ -210,6 +210,15 @@ a.button:hover span {
 	padding: 8px 5px 0px 54px;
 	display:inline-block;
 }
+.tituloPagina {
+	font-weight:bold;
+	font-size:14px;
+	color:#464646;
+	padding: 8px 5px 8px 0px;
+	display:inline-block;
+	width:100%;
+	clear:both;
+}
 
 .conjunto {
 	background:#F6F6F6;
@@ -310,6 +319,11 @@ color: #333333;
 }
 .btnRecomendar:hover {
 	text-decoration:underline;
+}
+
+.linhaPerfil {
+	height:28px;
+	font-size:14px;
 }
 
 
@@ -621,6 +635,7 @@ ul.dropdown ul li {
 	color: #000;
 	float: none;
 	padding:4px 8px;
+	width:84px;
 }
 ul.dropdown ul li:hover {
 	background:#F5F5F5;
@@ -642,6 +657,10 @@ ul.dropdown ul ul {
 	left: 100%;
 	top: 0;
 	list-style:none;
+	margin-left:4px;
+}
+ul.dropdown ul ul li {
+	width:120px;
 }
 ul.dropdown li:hover > ul { 
 	visibility: visible; 
