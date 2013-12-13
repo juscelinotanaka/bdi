@@ -375,8 +375,6 @@
 	
 	function produtosRecomendadosPorAmigos($idUsuario){
 		
-		$qry = '';
-		
 		$qry = 'SELECT ra.nome as "nomeAmigo", ra.sobrenome as "sobrenomeAmigo", p."idProduto" as "idProduto", p.nome as nome, p.descricao as descricao, p.imagem as imagem, p."precoReal" as "precoReal",
 					(SELECT "valorMapeado" FROM notebook.caracteristica c
 					WHERE atributo = \'tamanho\' AND c.valor = p.tamanho) AS tamanho,
@@ -392,7 +390,7 @@
 				INNER JOIN (SELECT * FROM
 											(SELECT r."produto_idProduto", u.nome, u.sobrenome
 												FROM notebook.recomendacao r 
-												INNER JOIN public.usuario u ON r."amizade_idAmigo" = u."idUsuario"
+												INNER JOIN public.usuario u ON r."amizade_idUsuario" = u."idUsuario"
 												WHERE r."amizade_idAmigo" = '.$idUsuario.'
 											) as aux							
 							) as ra 
